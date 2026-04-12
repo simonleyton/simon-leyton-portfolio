@@ -1,41 +1,39 @@
 # Target Website
 
 ## URL
-<!-- Replace with the URL of the website you're reverse-engineering -->
-https://example.com
+https://www.gabrielvaldivia.com/
 
 ## Scope
 
 ### Pages to Replicate
-<!-- List every page you want to rebuild. Be specific. -->
-- [ ] Home page
-- [ ] (add more pages here)
+- [x] Home page
+- [x] About page (/about)
+- [x] Work page (/work)
 
 ### Fidelity Level
-<!-- Choose one -->
-- [ ] **Pixel-perfect** — exact match in colors, spacing, typography, animations
-- [ ] **High fidelity** — visually similar, same layout and feel, minor deviations OK
-- [ ] **Structural** — same layout and components, custom styling acceptable
+- [x] **Pixel-perfect** — exact match in colors, spacing, typography, animations
 
 ### In Scope
-<!-- What you're building -->
 - Visual layout and styling
 - Component structure and interactions
-- Responsive design
-- Mock data for demo purposes
+- Responsive design (mobile, tablet, desktop)
+- Horizontal scroll carousels (work, testimonials)
+- Infinite marquee animation (clients)
+- Scroll-based active nav state
+- Glassmorphism nav pills with backdrop-blur
 
 ### Out of Scope
-<!-- What you're NOT building -->
 - Real backend / database
 - Authentication
 - Real-time features
-- SEO optimization
-- Accessibility audit (unless specifically needed)
+- Chat component (contact section)
+- Google Analytics
 
 ## Why
-<!-- Brief explanation of why you're cloning this site -->
-(Fill in your reason — portfolio piece, learning exercise, demo, template for custom features, etc.)
+Using this as a template for a product design portfolio website for Simon Leyton. After the base clone is built, content will be swapped with Simon's own projects, bio, and branding.
 
 ## Customization Plans
-<!-- After the base emulation, what changes do you want to make? -->
-- (List planned modifications or say "none — pure emulation")
+- Replace "Gabriel Valdivia" with "Simon Leyton"
+- Use Helvetica Now Text font (local OTF files) instead of Inter Display
+- Swap all project content, testimonials, and bio with Simon's own
+- Keep identical layout, interactions, and design system
