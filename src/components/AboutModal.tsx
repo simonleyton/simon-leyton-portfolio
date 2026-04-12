@@ -28,10 +28,9 @@ export function useAboutModal() {
 }
 
 const bioParagraphs = [
-  "I started my career at agencies and consultancies, solving design problems across industries — from healthcare to fintech to consumer products. That breadth taught me to learn fast, adapt to new domains, and focus on what actually matters to users and the business.",
-  "From there, I went in-house at companies like Disney, 21st Century Fox, and Hulu, where I worked on large-scale product experiences reaching millions of people. I learned how to navigate complex organizations, ship within constraints, and build design systems that hold up at scale.",
-  "At Meta, I contributed to products across the Facebook and Instagram ecosystems. At Zillow, I led design for rental search — owning the systems, components, and AI-driven experiences powering one of the most-used surfaces in the product.",
-  "Today, I partner with founders and executive teams building category-defining products. I bring the craft of a hands-on designer, the perspective of a product strategist, and the accountability of someone who treats your product like their own.",
+  "Senior Product Designer at Zillow, where I lead a team shaping how people find their next home. Previously designed products for Meta, Hulu, and Salesforce.",
+  "I'm drawn to problems where design can make something complex feel effortless.",
+  "When I'm not designing, I'm usually planning the next trip. Munich and Rio are my favorites. I'll go back any chance I get.",
 ];
 
 function ModalPanel({
