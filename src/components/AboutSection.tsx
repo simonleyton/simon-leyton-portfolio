@@ -29,20 +29,15 @@ export function AboutSection() {
       className="scroll-mt-10 px-5 py-12 tablet:py-20 tablet:px-10"
     >
       <div className="mx-auto max-w-[1400px]">
-        {/* Section eyebrow + heading */}
-        <div className="mb-10">
-          <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
-            About
-          </p>
-          <h2 className="font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
-            A bit about me.
-          </h2>
-        </div>
+        {/* Section eyebrow */}
+        <p className="font-[family-name:var(--font-inter)] mb-10 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+          About
+        </p>
 
         {/* About — two-column layout */}
-        <div className="flex flex-col gap-10 md:flex-row md:gap-16">
+        <div className="flex flex-col gap-10 md:flex-row md:gap-16 md:items-center">
           {/* Photo column */}
-          <div className="shrink-0 md:sticky md:top-28 md:self-start md:w-[350px] lg:w-[400px]">
+          <div className="shrink-0 md:w-[350px] lg:w-[400px]">
             <Image
               src="/images/simon_pfp.jpg"
               alt="Simon Leyton"
@@ -56,7 +51,7 @@ export function AboutSection() {
           <div className="flex-1">
             <p
               className="mb-8 font-heading font-normal leading-[1.2] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+              style={{ fontSize: "clamp(22px, 2.5vw, 32px)" }}
             >
               <span className="text-[#000000] dark:text-white">Miami based design leader at Zillow.</span>{" "}
               <span className="text-black/60 dark:text-white/70">Previously Meta and Hulu.</span>
