@@ -30,9 +30,9 @@ export function AboutSection() {
     >
       <div className="mx-auto max-w-[1400px]">
         {/* About — two-column layout */}
-        <div className="flex flex-col gap-10 md:flex-row md:gap-16">
+        <div className="flex flex-col gap-10 md:flex-row md:gap-16 md:items-center">
           {/* Photo column */}
-          <div className="shrink-0 md:sticky md:top-28 md:self-start md:w-[350px] lg:w-[400px]">
+          <div className="shrink-0 md:w-[350px] lg:w-[400px]">
             <Image
               src="/images/simon_pfp.jpg"
               alt="Simon Leyton"
