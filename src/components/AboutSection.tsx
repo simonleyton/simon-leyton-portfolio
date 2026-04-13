@@ -29,11 +29,6 @@ export function AboutSection() {
       className="scroll-mt-10 px-5 py-12 tablet:py-20 tablet:px-10"
     >
       <div className="mx-auto max-w-[1400px]">
-        {/* Section eyebrow */}
-        <p className="font-[family-name:var(--font-inter)] mb-10 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
-          About
-        </p>
-
         {/* About — two-column layout */}
         <div className="flex flex-col gap-10 md:flex-row md:gap-16 md:items-center">
           {/* Photo column */}
@@ -49,6 +44,9 @@ export function AboutSection() {
 
           {/* Text column */}
           <div className="flex-1">
+            <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+              About
+            </p>
             <p
               className="mb-8 font-heading font-normal leading-[1.2] tracking-[-0.02em]"
               style={{ fontSize: "clamp(22px, 2.5vw, 32px)" }}
