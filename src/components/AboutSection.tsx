@@ -30,14 +30,14 @@ export function AboutSection() {
     >
       <div className="mx-auto max-w-[1400px]">
         {/* About — two-column layout */}
-        <div className="flex flex-col gap-8 md:flex-row md:gap-12 md:items-center">
+        <div className="flex flex-col gap-10 md:flex-row md:gap-16 md:items-center">
           {/* Photo column */}
-          <div className="shrink-0 md:w-[280px] lg:w-[320px]">
+          <div className="shrink-0 md:w-[350px] lg:w-[400px]">
             <Image
               src="/images/simon_pfp.jpg"
               alt="Simon Leyton"
-              width={320}
-              height={400}
+              width={400}
+              height={500}
               className="w-full rounded-[20px] object-cover"
             />
           </div>
@@ -45,8 +45,8 @@ export function AboutSection() {
           {/* Text column */}
           <div className="flex-1">
             <p
-              className="mb-6 font-heading font-normal leading-[1.15] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(32px, 5vw, 56px)" }}
+              className="mb-8 font-heading font-normal leading-[1.2] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
             >
               <span className="text-[#000000] dark:text-white">Miami based design leader at Zillow.</span>{" "}
               <span className="text-black/60 dark:text-white/70">Previously Meta and Hulu.</span>
