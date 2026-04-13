@@ -28,9 +28,8 @@ export function useAboutModal() {
 }
 
 const bioParagraphs = [
-  "Senior Product Designer at Zillow, where I lead a team shaping how people find their next home. Previously designed products for Meta, Hulu, and Salesforce.",
-  "I'm drawn to problems where design can make something complex feel effortless.",
-  "When I'm not designing, I'm usually planning the next trip. Munich and Rio are my favorites. I'll go back any chance I get.",
+  "Senior Product Designer at Zillow, where I lead a team shaping how people find their next home. Previously designed products for Meta, Hulu, and Salesforce. I'm drawn to problems where design can make something complex feel effortless.",
+  "When I'm not designing, I'm usually planning the next trip. Munich and Rio are my favorites.",
 ];
 
 function ModalPanel({
