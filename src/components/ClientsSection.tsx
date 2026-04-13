@@ -25,7 +25,7 @@ function LogoItem({ logo, keyPrefix }: { logo: string; keyPrefix?: string }) {
       className="flex shrink-0 items-center justify-center px-10 opacity-60"
     >
       {/* TODO: Replace text placeholder with official SVG logo for each company */}
-      <span className="dark-invert text-sm md:text-base font-semibold uppercase tracking-widest text-foreground whitespace-nowrap">
+      <span className="text-sm md:text-base font-semibold uppercase tracking-widest text-foreground whitespace-nowrap">
         {logo}
       </span>
     </div>
