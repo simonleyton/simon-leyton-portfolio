@@ -22,7 +22,7 @@ function LogoItem({ logo, keyPrefix }: { logo: string; keyPrefix?: string }) {
   return (
     <div
       key={keyPrefix ? `${keyPrefix}-${logo}` : logo}
-      className="flex shrink-0 items-center justify-center px-10 opacity-30"
+      className="flex shrink-0 items-center justify-center px-10 opacity-60"
     >
       {/* TODO: Replace text placeholder with official SVG logo for each company */}
       <span className="dark-invert text-sm md:text-base font-semibold uppercase tracking-widest text-foreground whitespace-nowrap">
@@ -34,17 +34,22 @@ function LogoItem({ logo, keyPrefix }: { logo: string; keyPrefix?: string }) {
 
 export function ClientsSection() {
   return (
-    <section className="overflow-hidden py-12 tablet:py-20">
-      <div className="mx-auto mb-10 flex max-w-[1400px] items-center justify-between px-5 tablet:px-10">
-        <h2 className="font-heading text-[24px] tablet:text-[30px] font-normal text-foreground">
-          Companies I&apos;ve Designed For
-        </h2>
-        <Link
-          href="/clients"
-          className="text-sm text-black/60 transition-opacity duration-200 hover:opacity-50 dark:text-white/70"
-        >
-          View all &gt;
-        </Link>
+    <section className="overflow-hidden py-20 tablet:py-32">
+      <div className="mx-auto mb-10 max-w-[1400px] px-5 tablet:px-10">
+        <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+          Clients
+        </p>
+        <div className="flex items-end justify-between">
+          <h2 className="font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
+            Companies I&apos;ve designed for.
+          </h2>
+          <Link
+            href="/clients"
+            className="text-sm text-black/60 transition-opacity duration-200 hover:opacity-50 dark:text-white/70"
+          >
+            View all &gt;
+          </Link>
+        </div>
       </div>
 
       <div className="marquee">

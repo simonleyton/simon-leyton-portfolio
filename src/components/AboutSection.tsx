@@ -29,6 +29,16 @@ export function AboutSection() {
       className="scroll-mt-10 px-5 py-12 tablet:py-20 tablet:px-10"
     >
       <div className="mx-auto max-w-[1400px]">
+        {/* Section eyebrow + heading */}
+        <div className="mb-10">
+          <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+            About
+          </p>
+          <h2 className="font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
+            A bit about me.
+          </h2>
+        </div>
+
         {/* About — two-column layout */}
         <div className="flex flex-col gap-10 md:flex-row md:gap-16">
           {/* Photo column */}
@@ -63,15 +73,18 @@ export function AboutSection() {
         </div>
 
         {/* Capabilities Section */}
-        <div className="mt-14 tablet:mt-20 flex flex-col gap-6 md:flex-row md:items-start md:gap-12">
-          <h3 className="shrink-0 font-heading text-[24px] tablet:text-[30px] font-normal leading-[1.3] tracking-[-0.02em] text-black dark:text-white">
+        <div className="mt-20 tablet:mt-32">
+          <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
             Capabilities
-          </h3>
+          </p>
+          <h2 className="mb-10 font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
+            What I do.
+          </h2>
           <div className="flex flex-wrap gap-3">
             {capabilities.map((capability) => (
               <span
                 key={capability}
-                className="inline-flex rounded-full border border-black/20 px-5 py-2.5 text-base tablet:px-10 tablet:py-5 tablet:text-4xl leading-tight text-black/60 dark:border-white/20 dark:text-white/60"
+                className="inline-flex rounded-full border border-black/20 px-5 py-2.5 text-base tablet:px-6 tablet:py-3 tablet:text-xl leading-tight text-black/60 dark:border-white/20 dark:text-white/60"
               >
                 {capability}
               </span>
