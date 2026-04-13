@@ -29,31 +29,24 @@ export function AboutSection() {
       className="scroll-mt-10 px-5 py-12 tablet:py-20 tablet:px-10"
     >
       <div className="mx-auto max-w-[1400px]">
-        {/* Section heading */}
-        <h2
-          className="mb-10 font-heading font-normal leading-[1.1] text-[36px] tracking-[-1px] md:text-[60px] md:tracking-[-2px] lg:text-[100px] lg:tracking-[-4px] text-foreground"
-        >
-          About.
-        </h2>
-
         {/* About — two-column layout */}
-        <div className="flex flex-col gap-8 md:flex-row md:gap-10 md:items-center">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-12 md:items-center">
           {/* Photo column */}
-          <div className="shrink-0 md:w-[350px] lg:w-[420px]">
+          <div className="shrink-0 md:w-[280px] lg:w-[320px]">
             <Image
               src="/images/simon_pfp.jpg"
               alt="Simon Leyton"
-              width={420}
-              height={525}
-              className="w-full rounded-[20px] md:rounded-[30px] lg:rounded-[40px] object-cover"
+              width={320}
+              height={400}
+              className="w-full rounded-[20px] object-cover"
             />
           </div>
 
           {/* Text column */}
           <div className="flex-1">
             <p
-              className="mb-6 font-heading font-normal leading-[1.2] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
+              className="mb-6 font-heading font-normal leading-[1.15] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(32px, 5vw, 56px)" }}
             >
               <span className="text-[#000000] dark:text-white">Miami based design leader at Zillow.</span>{" "}
               <span className="text-black/60 dark:text-white/70">Previously Meta and Hulu.</span>
