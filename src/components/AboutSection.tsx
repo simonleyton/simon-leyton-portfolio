@@ -45,7 +45,7 @@ export function AboutSection() {
           {/* Text column */}
           <div className="flex-1">
             <p
-              className="mb-8 font-heading font-normal leading-[1.2] tracking-[-0.02em] text-black/60 dark:text-white/70"
+              className="mb-8 font-heading font-normal leading-[1.2] tracking-[-0.02em] text-[#000000] dark:text-white"
               style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
             >
               Miami based design leader at Zillow. Previously Meta and Hulu.
