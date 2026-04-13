@@ -51,8 +51,8 @@ export function AboutSection() {
               className="mb-8 font-heading font-normal leading-[1.2] tracking-[-0.02em]"
               style={{ fontSize: "clamp(22px, 2.5vw, 32px)" }}
             >
-              <span className="text-[#000000] dark:text-white">Miami based design leader at Zillow.</span>{" "}
-              <span className="text-black/60 dark:text-white/70">Previously Meta and Hulu.</span>
+              <span className="block text-[#000000] dark:text-white">Miami based design leader at Zillow.</span>
+              <span className="block text-black/60 dark:text-white/70">Previously Meta and Hulu.</span>
             </p>
 
             <button
