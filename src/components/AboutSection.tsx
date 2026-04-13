@@ -26,7 +26,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="scroll-mt-10 px-5 py-12 tablet:py-20 tablet:px-10"
+      className="scroll-mt-10 px-5 py-20 tablet:py-32 tablet:px-10"
     >
       <div className="mx-auto max-w-[1400px]">
         {/* About — two-column layout */}
@@ -66,7 +66,7 @@ export function AboutSection() {
         </div>
 
         {/* Capabilities Section */}
-        <div className="mt-20 tablet:mt-32">
+        <div className="mt-16 tablet:mt-20">
           <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
             Capabilities
           </p>

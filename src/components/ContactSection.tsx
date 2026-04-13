@@ -246,7 +246,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 tablet:py-32">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="flex flex-col gap-6 md:grid md:grid-cols-6 md:gap-10">
           {/* Heading */}

@@ -101,7 +101,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="scroll-mt-0 pt-0 px-5 md:pt-[60px] md:pb-[60px] md:px-10 lg:pt-20 lg:pb-0"
+      className="scroll-mt-0 pt-10 pb-20 px-5 tablet:pt-20 tablet:pb-32 tablet:px-10"
     >
       {/* Heading */}
       <h1
