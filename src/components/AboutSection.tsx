@@ -44,22 +44,9 @@ export function AboutSection() {
 
           {/* Text column */}
           <div className="flex-1">
-            <h2
-              className="mb-6 font-heading font-normal leading-[1.2] tracking-[-0.02em] text-black dark:text-white"
-              style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
-            >
-              I help ambitious teams ship category-defining products without compromising quality.
-            </h2>
-
-            <p className="mb-4 text-base tablet:text-xl leading-[1.6] text-black/60 dark:text-white/70">
-              I&apos;ve spent the last decade designing products at companies like Zillow, Meta, and Disney. Today, I partner with founders and executives to bring their boldest ideas to life. As your design partner, I will:
+            <p className="mb-8 text-base tablet:text-xl leading-[1.6] text-black/60 dark:text-white/70">
+              Miami based design leader at Zillow. Previously Meta and Hulu.
             </p>
-
-            <ul className="mb-8 flex list-disc flex-col gap-2.5 pl-6 text-base tablet:text-xl leading-[1.6] text-black/60 dark:text-white/70">
-              {bulletPoints.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
 
             <button
               onClick={aboutModal.open}
