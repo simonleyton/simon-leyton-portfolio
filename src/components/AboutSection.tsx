@@ -44,7 +44,7 @@ export function AboutSection() {
 
           {/* Text column */}
           <div className="flex-1">
-            <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+            <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-[var(--accent-coral)]">
               About
             </p>
             <p
@@ -67,7 +67,7 @@ export function AboutSection() {
 
         {/* Capabilities Section */}
         <div className="mt-16 tablet:mt-20">
-          <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+          <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-[var(--accent-coral)]">
             Capabilities
           </p>
           <h2 className="mb-10 font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">

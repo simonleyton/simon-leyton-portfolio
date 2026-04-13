@@ -110,8 +110,10 @@ export function HeroSection() {
           "text-[36px] tracking-[-1px]",
           "md:text-[60px] md:tracking-[-2px]",
           "lg:text-[100px] lg:tracking-[-4px]",
-          "text-foreground mb-10"
+          "text-foreground mb-10",
+          "anim-hero-reveal"
         )}
+        style={{ animationDelay: "100ms" }}
       >
         Designing what comes next.
       </h1>
@@ -136,13 +138,14 @@ export function HeroSection() {
         }}
       >
         {/* Project cards */}
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <Link
             key={project.href}
             href={project.href}
             onClick={(e) => { if (dragState.current.moved) e.preventDefault(); }}
             draggable={false}
-            className="group block flex-shrink-0 md:p-2"
+            className="group block flex-shrink-0 md:p-2 anim-card-reveal"
+            style={{ animationDelay: `${500 + index * 100}ms` }}
           >
             <div
               className={cn(
@@ -178,7 +181,8 @@ export function HeroSection() {
           href="/work"
           onClick={(e) => { if (dragState.current.moved) e.preventDefault(); }}
           draggable={false}
-          className="group block flex-shrink-0 md:p-2"
+          className="group block flex-shrink-0 md:p-2 anim-card-reveal"
+          style={{ animationDelay: `${500 + projects.length * 100}ms` }}
         >
           <div
             className={cn(

@@ -43,7 +43,7 @@ export function ApproachSection() {
   return (
     <section className="py-20 tablet:py-32">
       <div className="mx-auto max-w-[1400px] px-5 tablet:px-10">
-        <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+        <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-[var(--accent-coral)]">
           Approach
         </p>
         <h2 className="mb-10 font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
