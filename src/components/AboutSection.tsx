@@ -26,7 +26,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="scroll-mt-10 px-5 py-20 tablet:py-32 tablet:px-10"
+      className="scroll-mt-10 px-5 py-16 tablet:py-20 tablet:px-10"
     >
       <div className="mx-auto max-w-[1400px]">
         {/* About — two-column layout */}

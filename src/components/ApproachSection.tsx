@@ -41,7 +41,7 @@ const approaches = [
 
 export function ApproachSection() {
   return (
-    <section className="py-20 tablet:py-32">
+    <section className="py-16 tablet:py-20">
       <div className="mx-auto max-w-[1400px] px-5 tablet:px-10">
         <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-[var(--accent-coral)]">
           Approach
