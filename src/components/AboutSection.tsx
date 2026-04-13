@@ -70,10 +70,12 @@ export function AboutSection() {
         </div>
 
         {/* Capabilities Section */}
-        <div className="mt-14 tablet:mt-20 flex flex-col gap-6 md:flex-row md:items-start md:gap-12">
-          <h3 className="shrink-0 font-heading text-[24px] tablet:text-[30px] font-normal leading-[1.3] tracking-[-0.02em] text-black dark:text-white">
-            Capabilities
-          </h3>
+        <div className="mt-20 tablet:mt-32">
+          <h2
+            className="mb-10 font-heading font-normal leading-[1.1] text-[36px] tracking-[-1px] md:text-[60px] md:tracking-[-2px] lg:text-[100px] lg:tracking-[-4px] text-foreground"
+          >
+            Capabilities.
+          </h2>
           <div className="flex flex-wrap gap-3">
             {capabilities.map((capability) => (
               <span

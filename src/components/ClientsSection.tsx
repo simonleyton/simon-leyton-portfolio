@@ -36,8 +36,8 @@ export function ClientsSection() {
   return (
     <section className="overflow-hidden py-12 tablet:py-20">
       <div className="mx-auto mb-10 flex max-w-[1400px] items-center justify-between px-5 tablet:px-10">
-        <h2 className="font-heading text-[24px] tablet:text-[30px] font-normal text-foreground">
-          Companies I&apos;ve Designed For
+        <h2 className="font-heading font-normal leading-[1.1] text-[36px] tracking-[-1px] md:text-[60px] md:tracking-[-2px] lg:text-[100px] lg:tracking-[-4px] text-foreground">
+          Clients.
         </h2>
         <Link
           href="/clients"
