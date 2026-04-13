@@ -2,6 +2,7 @@ import Link from "next/link";
 
 /* TODO: Replace text placeholders with official SVG logo files in /public/images/logos/ */
 const CLIENT_LOGOS = [
+  "Apple",
   "Zillow",
   "Meta",
   "Disney",
