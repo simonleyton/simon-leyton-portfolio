@@ -43,8 +43,8 @@ export function ApproachSection() {
   return (
     <section className="py-12 tablet:py-20">
       <div className="mx-auto max-w-[1400px] px-5 tablet:px-10">
-        <h2 className="mb-10 font-heading font-normal leading-[1.1] text-[36px] tracking-[-1px] md:text-[60px] md:tracking-[-2px] lg:text-[100px] lg:tracking-[-4px] text-foreground">
-          Approach.
+        <h2 className="mb-10 font-heading text-[24px] tablet:text-[30px] font-normal text-foreground">
+          Approach
         </h2>
 
         <div
