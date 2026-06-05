@@ -64,6 +64,32 @@ export function HeroSection() {
     };
   }, [checkScroll]);
 
+  // Keyboard navigation — arrows scroll by one card, Home/End jump to ends
+  const onKeyDown = useCallback((e: React.KeyboardEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const firstCard = el.firstElementChild as HTMLElement | null;
+    const step = firstCard ? firstCard.offsetWidth + 20 : el.clientWidth * 0.8; // 20px = gap-5
+    switch (e.key) {
+      case "ArrowRight":
+        e.preventDefault();
+        el.scrollBy({ left: step, behavior: "smooth" });
+        break;
+      case "ArrowLeft":
+        e.preventDefault();
+        el.scrollBy({ left: -step, behavior: "smooth" });
+        break;
+      case "Home":
+        e.preventDefault();
+        el.scrollTo({ left: 0, behavior: "smooth" });
+        break;
+      case "End":
+        e.preventDefault();
+        el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
+        break;
+    }
+  }, []);
+
   // Mouse drag to scroll
   const onMouseDown = useCallback((e: React.MouseEvent) => {
     const el = scrollRef.current;
@@ -101,31 +127,23 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="scroll-mt-0 pt-10 pb-16 px-5 tablet:pt-16 tablet:pb-20 tablet:px-10"
+      className="scroll-mt-0 mx-auto max-w-[1400px] pt-4 pb-16 px-5 tablet:pt-8 tablet:pb-28 tablet:px-10"
     >
-      {/* Heading */}
-      <h1
-        className={cn(
-          "font-heading font-normal leading-[1.1]",
-          "text-[36px] tracking-[-1px]",
-          "md:text-[60px] md:tracking-[-2px]",
-          "lg:text-[100px] lg:tracking-[-4px]",
-          "text-foreground mb-10",
-          "anim-hero-reveal"
-        )}
-        style={{ animationDelay: "100ms" }}
-      >
-        Designing what comes next.
-      </h1>
+      {/* The work is the hero — the masthead + tagline live in the corner (Navigation). */}
 
       {/* Carousel */}
       <div
         ref={scrollRef}
         onMouseDown={onMouseDown}
+        onKeyDown={onKeyDown}
+        tabIndex={0}
+        role="region"
+        aria-label="Selected work — use the arrow keys to scroll"
         className={cn(
           "flex gap-5 overflow-x-auto pb-5",
           "no-scrollbar",
           "transition-[mask-image] duration-300",
+          "rounded-[24px] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background",
           isDragging ? "cursor-grabbing select-none" : "cursor-grab"
         )}
         style={{
@@ -144,13 +162,16 @@ export function HeroSection() {
             href={project.href}
             onClick={(e) => { if (dragState.current.moved) e.preventDefault(); }}
             draggable={false}
-            className="group block flex-shrink-0 md:p-2 anim-card-reveal"
+            className="group block flex-shrink-0 md:p-2 anim-card-reveal rounded-[24px] md:rounded-[34px] lg:rounded-[44px] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
             style={{ animationDelay: `${500 + index * 100}ms` }}
           >
             <div
               className={cn(
                 "rounded-[20px] md:rounded-[30px] lg:rounded-[40px]",
-                "overflow-hidden bg-black/[0.03] dark:bg-white/[0.08]",
+                "overflow-hidden",
+                "bg-white/80 dark:bg-black/45 backdrop-blur-2xl",
+                "border border-white/50 dark:border-white/10",
+                "shadow-[0_8px_40px_rgba(10,9,8,0.16)]",
                 "w-[280px] md:w-[350px] lg:w-[420px]"
               )}
             >
@@ -170,7 +191,7 @@ export function HeroSection() {
                 <h3 className="font-normal text-xl md:text-2xl text-foreground">
                   {project.title}
                 </h3>
-                <p className="mt-1 text-base md:text-lg text-black/40 dark:text-white/40">{project.subtitle}</p>
+                <p className="mt-1 text-base md:text-lg text-black/55 dark:text-white/55">{project.subtitle}</p>
               </div>
             </div>
           </Link>
@@ -181,7 +202,7 @@ export function HeroSection() {
           href="/work"
           onClick={(e) => { if (dragState.current.moved) e.preventDefault(); }}
           draggable={false}
-          className="group block flex-shrink-0 md:p-2 anim-card-reveal"
+          className="group block flex-shrink-0 md:p-2 anim-card-reveal rounded-[24px] md:rounded-[34px] lg:rounded-[44px] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           style={{ animationDelay: `${500 + projects.length * 100}ms` }}
         >
           <div
@@ -202,7 +223,7 @@ export function HeroSection() {
             {/* Text area below */}
             <div className="px-5 pt-3 pb-6 md:px-6 md:pt-4 md:pb-8">
               <h3 className="font-normal text-xl md:text-2xl text-foreground">Index</h3>
-              <p className="mt-1 text-base md:text-lg text-black/40 dark:text-white/40">View all projects</p>
+              <p className="mt-1 text-base md:text-lg text-black/55 dark:text-white/55">View all projects</p>
             </div>
           </div>
         </Link>

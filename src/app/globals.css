@@ -79,7 +79,8 @@
   --accent-coral: #e85a5a;
 
   --color-content-rgb: 10 9 8;
-  --color-muted-val: rgba(10, 9, 8, 0.6);
+  /* Bumped from 0.6 -> 0.66 so muted body copy clears WCAG AA (4.5:1) on paper */
+  --color-muted-val: rgba(10, 9, 8, 0.66);
   --color-background-rgb: 253 252 249;
   --color-bg-alt-val: rgba(10, 9, 8, 0.03);
   --color-bg-alt-hover-val: rgba(10, 9, 8, 0.06);
@@ -118,7 +119,8 @@
   --paper-dark: #0a0908;
 
   --color-content-rgb: 245 242 236;
-  --color-muted-val: rgba(245, 242, 236, 0.7);
+  /* Bumped from 0.7 -> 0.82 so muted body copy clears WCAG AA on the dark paper */
+  --color-muted-val: rgba(245, 242, 236, 0.82);
   --color-background-rgb: 10 9 8;
   --color-bg-alt-val: rgba(245, 242, 236, 0.08);
   --color-bg-alt-hover-val: rgba(245, 242, 236, 0.12);
@@ -269,7 +271,8 @@ body::before {
   animation: marquee var(--marquee-speed, 80s) linear infinite;
 }
 
-.marquee-track:hover {
+.marquee-track:hover,
+.marquee-track:focus-within {
   animation-play-state: paused;
 }
 

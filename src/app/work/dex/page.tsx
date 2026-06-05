@@ -72,7 +72,7 @@ function MediaImage({
 
 export default function DexCaseStudyPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div id="main-content" tabIndex={-1} className="min-h-screen bg-background text-foreground outline-none">
       {/* Header — name top-left */}
       <section className="px-5 md:px-10 pt-6 md:pt-10 pb-10">
         <Link href="/" className="inline-block">

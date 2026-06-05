@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { MiamiBackground } from "@/components/MiamiBackground";
@@ -20,12 +19,6 @@ const helveticaNow = localFont({
     },
   ],
   variable: "--font-helvetica",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
   display: "swap",
 });
 
@@ -56,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${helveticaNow.variable} ${inter.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${helveticaNow.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         {/* Dark mode favicon support */}
         <link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
@@ -71,6 +64,13 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans">
+        {/* Skip link — first focusable element, jumps past the nav to content */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-foreground focus:px-5 focus:py-2.5 focus:text-[14px] focus:text-background focus:outline-none focus:ring-2 focus:ring-[var(--accent-coral)] focus:ring-offset-2 focus:ring-offset-background"
+        >
+          Skip to content
+        </a>
         <ThemeProvider>
           <AboutModalProvider>
             <MiamiBackground />

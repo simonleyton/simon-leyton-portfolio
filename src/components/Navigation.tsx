@@ -58,12 +58,15 @@ export function Navigation() {
 
   return (
     <>
-      {/* Header / Name + mobile toggle */}
+      {/* Masthead — the same glass pill as the inactive nav tabs in both
+          themes (shared navPillBase + inactivePill), so it reads as one system. */}
       <section className="flex items-center justify-between px-5 tablet:px-10 pt-6 tablet:pt-10 pb-10">
-        <Link href="/" className="inline-block">
-          <h1 className="font-heading text-[20px] font-normal text-foreground/60 hover:text-foreground/80 transition-colors">
-            Simon Leyton
-          </h1>
+        <Link
+          href="/"
+          aria-label="Simon Leyton — home"
+          className={cn(navPillBase, "px-5 py-2.5 text-[20px]", inactivePill)}
+        >
+          Simon Leyton
         </Link>
         <div className="tablet:hidden">
           <ThemeToggle />

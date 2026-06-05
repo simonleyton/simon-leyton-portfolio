@@ -2,40 +2,34 @@ import { cn } from "@/lib/utils";
 
 const approaches = [
   {
-    number: "01",
-    title: "Systems over screens.",
+    title: "Systems over screens",
     description:
-      "I design components, patterns, and frameworks that scale. A list card is not a card. It is a system of slots, tiers, and conditional logic that adapts across contexts.",
+      "I design the system behind the screen: components, slots, and conditional logic that hold up as contexts multiply.",
   },
   {
-    number: "02",
-    title: "Strategy made tangible.",
+    title: "Strategy made tangible",
     description:
-      "I turn ambiguous product directions into interactive prototypes and visual artifacts that create alignment. Vision decks, coded prototypes, and design walkthroughs are how I move teams forward.",
+      "I turn vague directions into prototypes teams can react to, so alignment comes from seeing the work, not debating it.",
   },
   {
-    number: "03",
-    title: "Influence without authority.",
+    title: "Influence without authority",
     description:
-      "I build trust across functions by showing up prepared, sharing work early, and making my partners look good. I treat every cross functional interaction as a design opportunity.",
+      "I earn trust by showing up prepared, sharing early, and making the people I partner with look good.",
   },
   {
-    number: "04",
-    title: "Craft is the argument.",
+    title: "Craft is the argument",
     description:
-      "I believe the quality of the work is the most persuasive case for design\u2019s value. Polished, well reasoned design artifacts earn the seat at the table that no amount of advocacy alone can.",
+      "The quality of the work is the most persuasive case for it. Polished, well-reasoned artifacts win the room.",
   },
   {
-    number: "05",
-    title: "AI as a design material.",
+    title: "AI as a design material",
     description:
-      "I actively explore how AI tools, from Claude to Figma Make to coded prototypes, can elevate both the design process and the end user experience. I build with AI, not just about it.",
+      "I prototype with Claude, Figma Make, and code to explore faster and shape AI-driven products. I build with AI, not just about it.",
   },
   {
-    number: "06",
-    title: "Always be learning.",
+    title: "Always learning",
     description:
-      "I study how the best design organizations operate: Airbnb\u2019s release model, Stripe\u2019s quality rituals, Duolingo\u2019s CDO elevation. I\u2019m building the muscle for design leadership while delivering as a senior IC.",
+      "I study how Airbnb, Stripe, and Duolingo run design, building toward leadership while shipping as a senior IC.",
   },
 ];
 
@@ -43,33 +37,24 @@ export function ApproachSection() {
   return (
     <section className="py-16 tablet:py-20">
       <div className="mx-auto max-w-[1400px] px-5 tablet:px-10">
-        <p className="font-[family-name:var(--font-inter)] mb-4 text-xs uppercase tracking-[0.2em] text-[var(--accent-coral)]">
-          Approach
-        </p>
         <h2 className="mb-10 font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
-          How I work.
+          How I work<span className="text-[var(--accent-coral)]">.</span>
         </h2>
 
         <div
           className={cn(
-            "grid grid-cols-1 gap-10",
+            "grid grid-cols-1 gap-x-10 gap-y-12",
             "tablet:grid-cols-2",
             "desktop:grid-cols-3"
           )}
         >
           {approaches.map((item) => (
-            <div key={item.number} className="flex gap-5">
-              <span
-                className={cn(
-                  "shrink-0 w-[28px] text-base tablet:text-xl tabular-nums font-normal",
-                  "text-[#757575]"
-                )}
-              >
-                {item.number}
-              </span>
-              <p className="text-base tablet:text-xl leading-[1.6] text-[#757575]">
-                <strong className="font-bold">{item.title}</strong>{" "}
-                <span className="font-normal">{item.description}</span>
+            <div key={item.title} className="flex flex-col gap-2">
+              <h3 className="text-lg tablet:text-xl font-bold leading-tight text-foreground">
+                {item.title}
+              </h3>
+              <p className="text-base tablet:text-lg leading-[1.55] text-[color:var(--color-muted-text)] text-pretty">
+                {item.description}
               </p>
             </div>
           ))}

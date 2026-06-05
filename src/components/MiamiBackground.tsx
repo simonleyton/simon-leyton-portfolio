@@ -19,7 +19,7 @@ export function MiamiBackground() {
   const willChange = transitioning ? ("opacity" as const) : ("auto" as const);
 
   return (
-    <div className="fixed inset-0 -z-10 hidden tablet:block" aria-hidden="true">
+    <div className="fixed inset-0 -z-10 block" aria-hidden="true">
       {/* Day layer */}
       <Image
         src="/images/bg/miami-day.png"
