@@ -8,10 +8,10 @@ import { FolderIcon } from "@/components/icons";
 
 const projects = [
   {
-    title: "Dex Camera",
-    subtitle: "The language learning camera",
-    image: "/images/dex.png",
-    href: "/work/dex",
+    title: "Zillow · Lifestyle Insights",
+    subtitle: "Designing the life around the home",
+    image: "/images/zillow/card.png",
+    href: "/work/zillow-lifestyle-insights",
   },
   {
     title: "Daylight",

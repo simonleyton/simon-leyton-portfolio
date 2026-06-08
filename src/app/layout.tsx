@@ -54,8 +54,8 @@ export default function RootLayout({
         {/* Dark mode favicon support */}
         <link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
         <link rel="apple-touch-icon" href="/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#F5A574" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#1E3A5F" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#2f86c9" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0d1838" media="(prefers-color-scheme: dark)" />
         {/* Theme init + dynamic favicon swap */}
         <script
           dangerouslySetInnerHTML={{
