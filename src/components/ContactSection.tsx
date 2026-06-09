@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "@/components/icons";
 
-const EMAIL = "hello@simonleyton.com";
+const EMAIL = "simonleyton@gmail.com";
 
 /* Secondary links — email is promoted to the primary CTA below. */
 const socialLinks = [

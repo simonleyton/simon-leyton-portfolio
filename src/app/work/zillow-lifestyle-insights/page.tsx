@@ -35,7 +35,7 @@ function SectionHeading({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-6 gap-3 md:gap-6 lg:gap-10 py-8 md:py-12 lg:py-16">
       <div className="lg:col-span-2">
-        <p className="text-sm text-[var(--accent-coral)] mb-2">{kicker}</p>
+        <p className="text-sm text-[#757575] mb-2">{kicker}</p>
         <h2 className="font-heading text-[30px] md:text-[34px] font-normal leading-[1.1] text-foreground">
           {title}
         </h2>
@@ -147,7 +147,7 @@ function BetOpener({
       </div>
       <div className="flex flex-col gap-5">
         <div>
-          <p className="text-sm text-[var(--accent-coral)] mb-2">{kicker}</p>
+          <p className="text-sm text-[#757575] mb-2">{kicker}</p>
           <h2 className="font-heading text-[34px] md:text-[44px] font-normal leading-[1.05] tracking-[-0.02em] text-foreground">
             {title}
           </h2>
@@ -179,10 +179,6 @@ function GifShot({
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <span className="absolute top-2.5 left-2.5 flex items-center gap-1.5 rounded-full bg-black/55 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-coral)]" />
-            Prototype
-          </span>
         </div>
       </div>
       {caption && (
@@ -327,9 +323,9 @@ export default function ZillowLifestyleInsightsPage() {
               so people could describe their move in their own words.
             </Prose>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 mt-2">
-              <Shot
-                src="/images/zillow/ai-ask-zillow.png"
-                alt="Ask Zillow, a voice entry point that listens for move details"
+              <GifShot
+                src="/images/zillow/gif-challenge-nd.webp"
+                alt="Ask Zillow listening for move details, then turning the answer into a neighborhood read"
                 caption="Ask Zillow, the shared entry point"
               />
             </div>

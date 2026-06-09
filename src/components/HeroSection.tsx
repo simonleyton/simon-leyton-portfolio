@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Zillow · Lifestyle Insights",
     subtitle: "Designing the life around the home",
-    image: "/images/zillow/card.png",
+    image: "/images/zillow/card-v3.png",
     href: "/work/zillow-lifestyle-insights",
   },
   {

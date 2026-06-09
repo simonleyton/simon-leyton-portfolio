@@ -10,9 +10,7 @@
     <rect width="32" height="32" fill="url(#sky)"/>
     <!-- Miami bay glow on the horizon -->
     <rect x="0" y="22" width="32" height="10" fill="#c7e4f7" opacity="0.5"/>
-    <!-- Coral sun: the brand's period mark, constant across day/night.
-         Paper ring gives a luminance edge so the disc reads against the
-         near-isoluminant day sky (and for red-green color-blind users). -->
-    <circle cx="16" cy="14" r="6.5" fill="#e85a5a" stroke="#fdfcf9" stroke-width="1.5"/>
+    <!-- Coral sun: the brand's period mark, constant across day/night. -->
+    <circle cx="16" cy="14" r="6.5" fill="#e85a5a"/>
   </g>
 </svg>
