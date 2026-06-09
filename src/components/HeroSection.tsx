@@ -39,6 +39,10 @@ const projects = [
   },
 ];
 
+// For now, feature only the first three projects in the hero carousel;
+// the Index card links to the full list.
+const featuredProjects = projects.slice(0, 3);
+
 export function HeroSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showFade, setShowFade] = useState(true);
@@ -156,7 +160,7 @@ export function HeroSection() {
         }}
       >
         {/* Project cards */}
-        {projects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <Link
             key={project.href}
             href={project.href}
@@ -203,7 +207,7 @@ export function HeroSection() {
           onClick={(e) => { if (dragState.current.moved) e.preventDefault(); }}
           draggable={false}
           className="group block flex-shrink-0 md:p-2 anim-card-reveal rounded-[24px] md:rounded-[34px] lg:rounded-[44px] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-          style={{ animationDelay: `${500 + projects.length * 100}ms` }}
+          style={{ animationDelay: `${500 + featuredProjects.length * 100}ms` }}
         >
           <div
             className={cn(
