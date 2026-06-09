@@ -212,13 +212,16 @@ export function HeroSection() {
           <div
             className={cn(
               "rounded-[20px] md:rounded-[30px] lg:rounded-[40px]",
-              "overflow-hidden bg-black/[0.03] dark:bg-white/[0.08]",
+              "overflow-hidden",
+              "bg-white/80 dark:bg-black/45 backdrop-blur-2xl",
+              "border border-white/50 dark:border-white/10",
+              "shadow-[0_8px_40px_rgba(10,9,8,0.16)]",
               "w-[280px] md:w-[350px] lg:w-[420px]",
               "flex flex-col"
             )}
           >
             {/* Icon area matching image aspect-square */}
-            <div className="aspect-square rounded-[14px] md:rounded-[26px] lg:rounded-[32px] overflow-hidden m-1.5 md:m-2 flex items-center justify-center">
+            <div className="aspect-square rounded-[14px] md:rounded-[26px] lg:rounded-[32px] overflow-hidden m-1.5 md:m-2 flex items-center justify-center bg-black/[0.03] dark:bg-white/[0.06]">
               <div className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 text-foreground">
                 <FolderIcon />
               </div>
