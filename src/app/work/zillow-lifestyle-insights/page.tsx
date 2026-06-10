@@ -21,6 +21,45 @@ const discipline = [
   "Prototyping",
 ];
 
+const problemStats = [
+  {
+    label: "Search priority",
+    value: ">80%",
+    detail: "of renters and buyers rank location as their #1 search factor",
+  },
+  {
+    label: "Renters",
+    value: "60%",
+    detail: "relocate from a different neighborhood or further",
+  },
+  {
+    label: "Buyers",
+    value: "90%",
+    detail: "switch to a new neighborhood or town",
+  },
+];
+
+const sessionQuotes = [
+  {
+    quote:
+      "This is like a game changer. It makes everything easy and you can see everything within 5 seconds.",
+    label: "Buyer · Commute study",
+    avatar: "/images/zillow/uxr/avatar-buyer-commute.png",
+  },
+  {
+    quote:
+      "Giving a score with this bold number here, 3 out of 5 match is pretty useful. When I was looking for apartments, I similarly used a ranking system.",
+    label: "Renter · Discovery study",
+    avatar: "/images/zillow/uxr/avatar-renter-discovery.png",
+  },
+  {
+    quote:
+      "I'd say I like hearing from the residents the most over managers and agents. Managers and agents have a motive to make it sound better.",
+    label: "Renter · Location Fit study",
+    avatar: "/images/zillow/uxr/avatar-renter-locationfit.png",
+  },
+];
+
 /* ── Building blocks ──────────────────────────────────────── */
 
 function SectionHeading({
@@ -158,6 +197,47 @@ function BetOpener({
   );
 }
 
+/* A verbatim participant quote from the sprint's research sessions. */
+function QuoteCard({
+  quote,
+  label,
+  avatar,
+  large,
+}: {
+  quote: string;
+  label: string;
+  avatar: string;
+  large?: boolean;
+}) {
+  return (
+    <figure
+      className={`flex h-full flex-col justify-between gap-8 rounded-[20px] md:rounded-[26px] border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] p-6 md:p-8 ${
+        large ? "lg:p-10" : ""
+      }`}
+    >
+      <blockquote
+        className={`italic leading-snug text-foreground/90 ${
+          large ? "text-xl md:text-[26px]" : "text-lg md:text-xl"
+        }`}
+      >
+        &ldquo;{quote}&rdquo;
+      </blockquote>
+      <figcaption className="flex items-center gap-3">
+        <Image
+          src={avatar}
+          alt=""
+          width={44}
+          height={44}
+          className="rounded-full"
+        />
+        <span className="text-[13px] uppercase tracking-wider text-black/50 dark:text-white/50">
+          {label}
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
 /* An animated prototype clip (optimized WebP) framed like the static shots. */
 function GifShot({
   src,
@@ -228,7 +308,7 @@ export default function ZillowLifestyleInsightsPage() {
         {/* Title */}
         <div className="pb-12 md:pb-16">
           <p className="text-base md:text-lg text-black/50 dark:text-white/50 mb-4">
-            Zillow · Design Sprint · 2026
+            Zillow · Design Sprint
           </p>
           <h1 className="font-heading font-normal tracking-[-0.04em] leading-[0.98] text-foreground text-[clamp(48px,11vw,150px)] text-balance">
             Lifestyle Insights
@@ -306,15 +386,47 @@ export default function ZillowLifestyleInsightsPage() {
             />
           </div>
 
-          {/* The challenge */}
-          <SectionHeading kicker="The challenge" title="The house was on Zillow. The life around it was somewhere else.">
-            <Prose>
-              Buyers were already doing this work, just not on Zillow. They
-              cross-checked commute times in Google Maps, asked friends what a
-              neighborhood felt like, and pieced together the daily reality of an
-              address across half a dozen tabs. The listing lived on Zillow;
-              everything around it lived elsewhere.
-            </Prose>
+          {/* The problem */}
+          <div>
+            <BetOpener
+              illustration="/images/zillow/ill-problem.png"
+              kicker="The problem"
+              title="Searching for a new neighborhood feels like a second job"
+              flip
+            >
+              <Prose>
+                Location is the most important factor in a search, and most
+                movers are looking at a place they don&apos;t know yet. They
+                leave Zillow during area discovery and piece together their
+                understanding from Reddit, Google Maps, and Walk Score. The
+                listing lived on Zillow; everything around it lived elsewhere.
+              </Prose>
+            </BetOpener>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8">
+              {problemStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-[20px] md:rounded-[26px] border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] p-6 md:p-8"
+                >
+                  <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-3">
+                    {stat.label}
+                  </p>
+                  <p className="font-heading text-[44px] md:text-[56px] leading-none text-foreground">
+                    {stat.value}
+                  </p>
+                  <p className="mt-3 text-base text-black/65 dark:text-white/65">
+                    {stat.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-sm text-black/45 dark:text-white/45">
+              Source: 2026 Rentals Search pre-sprint synthesis.
+            </p>
+          </div>
+
+          {/* The approach */}
+          <SectionHeading kicker="The approach" title="Three bets, one lifestyle lens.">
             <Prose>
               We diverged across the search journey, then converged on three
               bets, one at each altitude of the decision: which neighborhood, how
@@ -443,6 +555,23 @@ export default function ZillowLifestyleInsightsPage() {
             alt="End-to-end Location Fit flow on the Zillow listing detail page"
             caption="The full Location Fit flow on the listing detail page, from setting preferences to a fit read."
           />
+
+          {/* What movers actually said */}
+          <div>
+            <div className="mb-8 md:mb-10">
+              <p className="text-sm text-[#757575] mb-2">From the sessions</p>
+              <h2 className="font-heading text-[30px] md:text-[34px] font-normal leading-[1.1] text-foreground">
+                What movers actually said
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8">
+              <QuoteCard {...sessionQuotes[0]} large />
+              <div className="flex flex-col gap-5 md:gap-8">
+                <QuoteCard {...sessionQuotes[1]} />
+                <QuoteCard {...sessionQuotes[2]} />
+              </div>
+            </div>
+          </div>
 
           {/* Outcome */}
           <SectionHeading kicker="What the sprint settled" title="Set the direction before anyone builds.">
