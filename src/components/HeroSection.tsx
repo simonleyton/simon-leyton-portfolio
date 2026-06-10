@@ -26,6 +26,12 @@ const projects = [
     href: "/work/workmate",
   },
   {
+    title: "Zillow · Commute",
+    subtitle: "From buried filter to lifestyle insight",
+    image: "/images/zillow-commute/fit-map.png",
+    href: "/work/zillow-commute",
+  },
+  {
     title: "Slingshot AI",
     subtitle: "Personalized AI counselor",
     image: "/images/slingshot.png",

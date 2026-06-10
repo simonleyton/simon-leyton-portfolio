@@ -463,6 +463,16 @@ export default function ZillowLifestyleInsightsPage() {
               The numbers here are sprint signals and success criteria, not
               shipped results. Proving the direction was the point.
             </Prose>
+            <Prose>
+              That strongest bet went into delivery next — the design of{" "}
+              <Link
+                href="/work/zillow-commute"
+                className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
+              >
+                Commute V1
+              </Link>{" "}
+              is its own case study.
+            </Prose>
           </SectionHeading>
         </div>
       </div>
