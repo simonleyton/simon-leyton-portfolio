@@ -249,7 +249,7 @@ export default function ZillowCommutePage() {
             />
             <Shot
               src="/images/zillow-commute/listing-card.png"
-              alt="A search result card showing a 28 minute commute, close to work"
+              alt="A search result card showing an 18 minute drive to work and a Good fit for you read"
               caption="Carried to every listing"
             />
           </div>
