@@ -129,7 +129,7 @@ function AuditRow({
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 py-5 border-t border-black/[0.08] dark:border-white/[0.1]">
-      <p className="md:col-span-1 text-sm text-[#e85a5a]">{index}</p>
+      <p className="md:col-span-1 text-sm text-foreground">{index}</p>
       <p className="md:col-span-3 text-base text-foreground">{issue}</p>
       <p className="md:col-span-4 text-base text-black/55 dark:text-white/55">
         {why}
