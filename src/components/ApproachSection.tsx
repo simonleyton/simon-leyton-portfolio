@@ -38,7 +38,7 @@ export function ApproachSection() {
     <section className="py-16 tablet:py-20">
       <div className="mx-auto max-w-[1400px] px-5 tablet:px-10">
         <h2 className="mb-10 font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
-          How I work<span className="text-[var(--accent-coral)]">.</span>
+          How I work
         </h2>
 
         <div

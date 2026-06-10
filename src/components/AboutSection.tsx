@@ -65,7 +65,7 @@ export function AboutSection() {
         {/* Capabilities Section */}
         <div className="mt-16 tablet:mt-20">
           <h2 className="mb-10 font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
-            What I do<span className="text-[var(--accent-coral)]">.</span>
+            What I do
           </h2>
           <div className="flex flex-wrap gap-3">
             {capabilities.map((capability) => (

@@ -33,7 +33,7 @@ export function ContactSection() {
           {/* Heading */}
           <div className="md:col-span-2 flex items-start">
             <h2 className="font-heading text-[30px] font-normal text-foreground">
-              Contact<span className="text-[var(--accent-coral)]">.</span>
+              Contact
             </h2>
           </div>
 
