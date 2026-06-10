@@ -455,8 +455,9 @@ export default function ZillowCommutePage() {
             <Prose>
               The daily-spots profile is shared state, not a per-screen
               setting. It shows up in map options ready to edit, and it
-              travels down to the property card — &ldquo;~28 min · Close to
-              work&rdquo; — so commute fit is part of triage on every listing,
+              travels down to the property card — &ldquo;~18 min drive to work
+              · Good fit for you&rdquo; — so commute fit is part of triage on
+              every listing,
               not a separate tool you have to remember to re-run. Setting it
               on Search means Detail already knows, and vice versa.
             </Prose>
@@ -468,8 +469,8 @@ export default function ZillowCommutePage() {
               caption="Saved state, editable from anywhere"
             />
             <Shot
-              src="/images/zillow-commute/listing-card.png"
-              alt="A listing card showing total monthly price and a 28 minute commute close to work"
+              src="/images/zillow-commute/listing-card-v2.png"
+              alt="A listing card showing total monthly price and an 18 minute drive to work, marked as a good fit"
               caption="Commute fit in the triage zone"
             />
           </div>
