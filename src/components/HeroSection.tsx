@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Zillow · Lifestyle Insights",
     subtitle: "Designing the life around the home",
-    image: "/images/zillow/card-v3.png",
+    image: "/images/zillow/card-v4.png",
     href: "/work/zillow-lifestyle-insights",
   },
   {
@@ -20,16 +20,16 @@ const projects = [
     href: "/work/zillow-commute",
   },
   {
+    title: "Hulu · Plan Select",
+    subtitle: "The plan picker behind Hulu's largest win",
+    image: "/images/hulu-plan-select/card.png",
+    href: "/work/hulu-plan-select",
+  },
+  {
     title: "Workmate",
     subtitle: "Your AI Executive Assistant",
     image: "/images/workmate.png",
     href: "/work/workmate",
-  },
-  {
-    title: "Hulu · Plan Select",
-    subtitle: "The plan picker behind Hulu's largest win",
-    image: "/images/hulu-plan-select/winner.jpg",
-    href: "/work/hulu-plan-select",
   },
   {
     title: "Daylight",
