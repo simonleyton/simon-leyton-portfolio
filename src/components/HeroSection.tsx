@@ -14,10 +14,10 @@ const projects = [
     href: "/work/zillow-lifestyle-insights",
   },
   {
-    title: "Daylight",
-    subtitle: "A more caring computer",
-    image: "/images/daylight.png",
-    href: "/work/daylight",
+    title: "Zillow · Commute",
+    subtitle: "From buried filter to lifestyle insight",
+    image: "/images/zillow-commute/fit-map.png",
+    href: "/work/zillow-commute",
   },
   {
     title: "Workmate",
@@ -26,10 +26,10 @@ const projects = [
     href: "/work/workmate",
   },
   {
-    title: "Zillow · Commute",
-    subtitle: "From buried filter to lifestyle insight",
-    image: "/images/zillow-commute/fit-map.png",
-    href: "/work/zillow-commute",
+    title: "Daylight",
+    subtitle: "A more caring computer",
+    image: "/images/daylight.png",
+    href: "/work/daylight",
   },
   {
     title: "Slingshot AI",
