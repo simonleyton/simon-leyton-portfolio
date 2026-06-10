@@ -5,55 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { FolderIcon } from "@/components/icons";
-
-const projects = [
-  {
-    title: "Zillow · Lifestyle Insights",
-    subtitle: "Find a place that fits your life",
-    image: "/images/zillow/card-v4.png",
-    href: "/work/zillow-lifestyle-insights",
-  },
-  {
-    title: "Zillow · Commute",
-    subtitle: "Your whole day, on the map",
-    image: "/images/zillow-commute/card.png",
-    href: "/work/zillow-commute",
-  },
-  {
-    title: "Hulu · Plan Select",
-    subtitle: "The plan picker behind Hulu's largest win",
-    image: "/images/hulu-plan-select/card.png",
-    href: "/work/hulu-plan-select",
-  },
-  {
-    title: "Workmate",
-    subtitle: "Your AI Executive Assistant",
-    image: "/images/workmate.png",
-    href: "/work/workmate",
-  },
-  {
-    title: "Daylight",
-    subtitle: "A more caring computer",
-    image: "/images/daylight.png",
-    href: "/work/daylight",
-  },
-  {
-    title: "Slingshot AI",
-    subtitle: "Personalized AI counselor",
-    image: "/images/slingshot.png",
-    href: "/work/slingshot",
-  },
-  {
-    title: "Patreon 2.0",
-    subtitle: "Connecting creators with superfans",
-    image: "/images/patreon.png",
-    href: "/work/patreon",
-  },
-];
-
-// For now, feature only the first three projects in the hero carousel;
-// the Index card links to the full list.
-const featuredProjects = projects.slice(0, 3);
+import { featuredProjects } from "@/data/projects";
 
 export function HeroSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
