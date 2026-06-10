@@ -179,7 +179,7 @@ export default function ZillowCommutePage() {
         {/* Title */}
         <div className="pb-12 md:pb-16">
           <p className="text-base md:text-lg text-black/50 dark:text-white/50 mb-4">
-            Zillow · Commute V1 · 2026
+            Zillow · Commute V1
           </p>
           <h1 className="font-heading font-normal tracking-[-0.04em] leading-[0.98] text-foreground text-[clamp(48px,11vw,150px)] text-balance">
             Commute
@@ -243,8 +243,8 @@ export default function ZillowCommutePage() {
               caption="Set your daily spots once"
             />
             <Shot
-              src="/images/zillow-commute/fit-map.png"
-              alt="The Seattle search map showing graded commute-fit areas with listing counts"
+              src="/images/zillow-commute/fit-map-v2.png"
+              alt="The Seattle search map with two overlapping commute-fit areas, listing counts, and photo previews for two saved daily spots"
               caption="Commute fit as a map insight"
             />
             <Shot
