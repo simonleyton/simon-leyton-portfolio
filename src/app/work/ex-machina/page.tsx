@@ -164,8 +164,8 @@ export default function ExMachinaPage() {
             <Image
               src="/images/exmachina/cover.jpg"
               alt="Ava's silhouetted profile from Ex Machina against a pale gradient"
-              width={1824}
-              height={799}
+              width={2400}
+              height={1350}
               className="w-full h-auto"
               sizes="(max-width: 768px) 100vw, 1320px"
               priority

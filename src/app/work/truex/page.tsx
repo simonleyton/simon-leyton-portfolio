@@ -176,8 +176,8 @@ export default function TrueXPage() {
             <Image
               src="/images/truex/cover.jpg"
               alt="A Fiat 500X interactive ad running inside the Hulu web player on a laptop"
-              width={1853}
-              height={648}
+              width={2400}
+              height={1350}
               className="w-full h-auto"
               sizes="(max-width: 768px) 100vw, 1320px"
               priority
