@@ -26,10 +26,29 @@ export const caseStudies: Project[] = [
     image: "/images/hulu-plan-select/card.png",
     href: "/work/hulu-plan-select",
   },
+  {
+    title: "Meta · People Portal",
+    subtitle: "Navigation that thinks like employees do",
+    image: "/images/meta-people-portal/card.png",
+    href: "/work/meta-people-portal",
+  },
 ];
 
 /* Earlier work — interactive and brand campaigns, kept visually
    subordinate to the product case studies on /work. */
-export const archive: Project[] = [];
+export const archive: Project[] = [
+  {
+    title: "True[X]",
+    subtitle: "Interactive ads for brands worldwide",
+    image: "/images/truex/card.jpg",
+    href: "/work/truex",
+  },
+  {
+    title: "Ex Machina",
+    subtitle: "Social campaign for the award-winning thriller",
+    image: "/images/exmachina/card.jpg",
+    href: "/work/ex-machina",
+  },
+];
 
 export const featuredProjects = caseStudies.slice(0, 3);
