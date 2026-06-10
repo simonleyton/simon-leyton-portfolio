@@ -22,7 +22,7 @@ function SectionHeading({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-6 gap-3 md:gap-6 lg:gap-10 py-8 md:py-12 lg:py-16">
       <div className="lg:col-span-2">
-        <p className="text-sm text-[#757575] mb-2">{kicker}</p>
+        <p className="text-sm text-[color:var(--color-muted-text)] mb-2">{kicker}</p>
         <h2 className="font-heading text-[30px] md:text-[34px] font-normal leading-[1.1] text-foreground">
           {title}
         </h2>
@@ -34,7 +34,7 @@ function SectionHeading({
 
 function Prose({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-base md:text-lg leading-relaxed text-black/65 dark:text-white/65 max-w-[68ch]">
+    <p className="text-base md:text-lg leading-relaxed text-[color:var(--color-muted-text)] max-w-[68ch]">
       {children}
     </p>
   );
@@ -66,7 +66,7 @@ function FlowStrip({
         />
       </div>
       {caption && (
-        <figcaption className="mt-3 text-sm text-black/45 dark:text-white/45">
+        <figcaption className="mt-3 text-sm text-[color:var(--color-muted-text)]">
           {caption}
         </figcaption>
       )}
@@ -92,7 +92,7 @@ export default function ExMachinaPage() {
       <nav className="fixed top-0 right-0 z-50 p-5 md:p-10">
         <Link
           href="/work"
-          className="bg-[rgba(240,240,240,0.6)] hover:bg-[rgba(220,220,220,0.6)] dark:bg-[rgba(64,64,64,0.6)] dark:hover:bg-[rgba(80,80,80,0.6)] backdrop-blur-[40px] transition-colors rounded-full w-10 h-10 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="bg-[rgba(240,240,240,0.6)] hover:bg-[rgba(220,220,220,0.6)] dark:bg-[rgba(64,64,64,0.6)] dark:hover:bg-[rgba(80,80,80,0.6)] backdrop-blur-[40px] transition-colors rounded-full w-11 h-11 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           aria-label="Back to all work"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -108,7 +108,7 @@ export default function ExMachinaPage() {
 
       <div className="max-w-[1400px] mx-auto px-5 md:px-10">
         <div className="pb-12 md:pb-16">
-          <p className="text-base md:text-lg text-black/50 dark:text-white/50 mb-4">
+          <p className="text-base md:text-lg text-[color:var(--color-muted-text)] mb-4">
             Watson DG · Social Campaign
           </p>
           <h1 className="font-heading font-normal tracking-[-0.04em] leading-[0.98] text-foreground text-[clamp(48px,11vw,150px)] text-balance">
@@ -129,13 +129,13 @@ export default function ExMachinaPage() {
             </div>
             <div className="md:w-[260px] shrink-0 space-y-6">
               <div>
-                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                <p className="text-[13px] uppercase tracking-wider text-[color:var(--color-muted-text)] mb-2">
                   Role
                 </p>
                 <p className="text-base">Senior Designer</p>
               </div>
               <div>
-                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                <p className="text-[13px] uppercase tracking-wider text-[color:var(--color-muted-text)] mb-2">
                   Team
                 </p>
                 <p className="text-base text-black/70 dark:text-white/70">
@@ -143,7 +143,7 @@ export default function ExMachinaPage() {
                 </p>
               </div>
               <div>
-                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                <p className="text-[13px] uppercase tracking-wider text-[color:var(--color-muted-text)] mb-2">
                   Discipline
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -205,11 +205,11 @@ export default function ExMachinaPage() {
       <footer className="pt-16 pb-20 text-center">
         <Link
           href="/work"
-          className="text-base text-foreground/60 hover:text-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+          className="text-base text-[color:var(--color-muted-text)] hover:text-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
         >
           ← Back to all work
         </Link>
-        <p className="mt-6 text-xs uppercase tracking-widest text-black/50 dark:text-white/50">
+        <p className="mt-6 text-xs uppercase tracking-widest text-[color:var(--color-muted-text)]">
           &copy; Simon Leyton
         </p>
       </footer>

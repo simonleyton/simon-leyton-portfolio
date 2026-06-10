@@ -39,7 +39,7 @@ function ProjectCard({
           <h2 className="font-normal text-xl md:text-2xl text-foreground">
             {title}
           </h2>
-          <p className="mt-1 text-base md:text-lg text-black/55 dark:text-white/55">
+          <p className="mt-1 text-base md:text-lg text-[color:var(--color-muted-text)]">
             {subtitle}
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function WorkPage() {
       <nav className="fixed top-0 right-0 z-50 p-5 md:p-10">
         <Link
           href="/#hero"
-          className="bg-[rgba(240,240,240,0.6)] hover:bg-[rgba(220,220,220,0.6)] dark:bg-[rgba(64,64,64,0.6)] dark:hover:bg-[rgba(80,80,80,0.6)] backdrop-blur-[40px] transition-colors rounded-full w-10 h-10 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="bg-[rgba(240,240,240,0.6)] hover:bg-[rgba(220,220,220,0.6)] dark:bg-[rgba(64,64,64,0.6)] dark:hover:bg-[rgba(80,80,80,0.6)] backdrop-blur-[40px] transition-colors rounded-full w-11 h-11 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           aria-label="Back to home"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -100,7 +100,7 @@ export default function WorkPage() {
         {/* Earlier work */}
         {archive.length > 0 && (
           <div className="pt-16 md:pt-24">
-            <p className="text-sm text-[#757575] mb-2">Earlier work</p>
+            <p className="text-sm text-[color:var(--color-muted-text)] mb-2">Earlier work</p>
             <h2 className="font-heading text-[30px] md:text-[34px] font-normal leading-[1.1] text-foreground mb-8">
               Where the craft started — interactive and brand campaigns.
             </h2>
@@ -117,11 +117,11 @@ export default function WorkPage() {
       <footer className="pt-16 pb-20 text-center">
         <Link
           href="/#hero"
-          className="text-base text-foreground/60 hover:text-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+          className="text-base text-[color:var(--color-muted-text)] hover:text-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
         >
           ← Back to home
         </Link>
-        <p className="mt-6 text-xs uppercase tracking-widest text-black/50 dark:text-white/50">
+        <p className="mt-6 text-xs uppercase tracking-widest text-[color:var(--color-muted-text)]">
           &copy; Simon Leyton
         </p>
       </footer>

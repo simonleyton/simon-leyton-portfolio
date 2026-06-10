@@ -42,9 +42,9 @@ const problemStats = [
 const sessionQuotes = [
   {
     quote:
-      "This is like a game changer. It makes everything easy and you can see everything within 5 seconds.",
-    label: "Buyer · Commute study",
-    avatar: "/images/zillow/uxr/avatar-buyer-commute.png",
+      "I'd say I like hearing from the residents the most over managers and agents. Managers and agents have a motive to make it sound better.",
+    label: "Renter · Location Fit study",
+    avatar: "/images/zillow/uxr/avatar-renter-locationfit.png",
   },
   {
     quote:
@@ -54,9 +54,9 @@ const sessionQuotes = [
   },
   {
     quote:
-      "I'd say I like hearing from the residents the most over managers and agents. Managers and agents have a motive to make it sound better.",
-    label: "Renter · Location Fit study",
-    avatar: "/images/zillow/uxr/avatar-renter-locationfit.png",
+      "This is like a game changer. It makes everything easy and you can see everything within 5 seconds.",
+    label: "Buyer · Commute study",
+    avatar: "/images/zillow/uxr/avatar-buyer-commute.png",
   },
 ];
 
@@ -74,7 +74,7 @@ function SectionHeading({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-6 gap-3 md:gap-6 lg:gap-10 py-8 md:py-12 lg:py-16">
       <div className="lg:col-span-2">
-        <p className="text-sm text-[#757575] mb-2">{kicker}</p>
+        <p className="text-sm text-[color:var(--color-muted-text)] mb-2">{kicker}</p>
         <h2 className="font-heading text-[30px] md:text-[34px] font-normal leading-[1.1] text-foreground">
           {title}
         </h2>
@@ -86,7 +86,7 @@ function SectionHeading({
 
 function Prose({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-base md:text-lg leading-relaxed text-black/65 dark:text-white/65 max-w-[68ch]">
+    <p className="text-base md:text-lg leading-relaxed text-[color:var(--color-muted-text)] max-w-[68ch]">
       {children}
     </p>
   );
@@ -116,7 +116,7 @@ function Shot({
         </div>
       </div>
       {caption && (
-        <figcaption className="mt-3 text-sm text-black/45 dark:text-white/45">
+        <figcaption className="mt-3 text-sm text-[color:var(--color-muted-text)]">
           {caption}
         </figcaption>
       )}
@@ -146,7 +146,7 @@ function FlowStrip({
           sizes="(max-width: 768px) 100vw, 1320px"
         />
       </div>
-      <figcaption className="mt-3 text-sm text-black/45 dark:text-white/45">
+      <figcaption className="mt-3 text-sm text-[color:var(--color-muted-text)]">
         {caption}
       </figcaption>
     </figure>
@@ -186,7 +186,7 @@ function BetOpener({
       </div>
       <div className="flex flex-col gap-5">
         <div>
-          <p className="text-sm text-[#757575] mb-2">{kicker}</p>
+          <p className="text-sm text-[color:var(--color-muted-text)] mb-2">{kicker}</p>
           <h2 className="font-heading text-[34px] md:text-[44px] font-normal leading-[1.05] tracking-[-0.02em] text-foreground">
             {title}
           </h2>
@@ -230,7 +230,7 @@ function QuoteCard({
           height={44}
           className="rounded-full"
         />
-        <span className="text-[13px] uppercase tracking-wider text-black/50 dark:text-white/50">
+        <span className="text-[13px] uppercase tracking-wider text-[color:var(--color-muted-text)]">
           {label}
         </span>
       </figcaption>
@@ -262,7 +262,7 @@ function GifShot({
         </div>
       </div>
       {caption && (
-        <figcaption className="mt-3 text-sm text-black/45 dark:text-white/45">
+        <figcaption className="mt-3 text-sm text-[color:var(--color-muted-text)]">
           {caption}
         </figcaption>
       )}
@@ -290,7 +290,7 @@ export default function ZillowLifestyleInsightsPage() {
       <nav className="fixed top-0 right-0 z-50 p-5 md:p-10">
         <Link
           href="/#hero"
-          className="bg-[rgba(240,240,240,0.6)] hover:bg-[rgba(220,220,220,0.6)] dark:bg-[rgba(64,64,64,0.6)] dark:hover:bg-[rgba(80,80,80,0.6)] backdrop-blur-[40px] transition-colors rounded-full w-10 h-10 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="bg-[rgba(240,240,240,0.6)] hover:bg-[rgba(220,220,220,0.6)] dark:bg-[rgba(64,64,64,0.6)] dark:hover:bg-[rgba(80,80,80,0.6)] backdrop-blur-[40px] transition-colors rounded-full w-11 h-11 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           aria-label="Back to work"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -307,7 +307,7 @@ export default function ZillowLifestyleInsightsPage() {
       <div className="max-w-[1400px] mx-auto px-5 md:px-10">
         {/* Title */}
         <div className="pb-12 md:pb-16">
-          <p className="text-base md:text-lg text-black/50 dark:text-white/50 mb-4">
+          <p className="text-base md:text-lg text-[color:var(--color-muted-text)] mb-4">
             Zillow · Search
           </p>
           <h1 className="font-heading font-normal tracking-[-0.04em] leading-[0.98] text-foreground text-[clamp(48px,11vw,150px)] text-balance">
@@ -329,13 +329,13 @@ export default function ZillowLifestyleInsightsPage() {
             </div>
             <div className="md:w-[260px] shrink-0 space-y-6">
               <div>
-                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                <p className="text-[13px] uppercase tracking-wider text-[color:var(--color-muted-text)] mb-2">
                   Role
                 </p>
                 <p className="text-base">Design lead · Sr. Product Designer</p>
               </div>
               <div>
-                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                <p className="text-[13px] uppercase tracking-wider text-[color:var(--color-muted-text)] mb-2">
                   Team
                 </p>
                 <ul className="space-y-1">
@@ -344,13 +344,13 @@ export default function ZillowLifestyleInsightsPage() {
                       {t}
                     </li>
                   ))}
-                  <li className="text-base text-black/50 dark:text-white/50">
+                  <li className="text-base text-[color:var(--color-muted-text)]">
                     + partners across ~11 teams
                   </li>
                 </ul>
               </div>
               <div>
-                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                <p className="text-[13px] uppercase tracking-wider text-[color:var(--color-muted-text)] mb-2">
                   Discipline
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -381,7 +381,7 @@ export default function ZillowLifestyleInsightsPage() {
             />
             <Shot
               src="/images/zillow/hero-locationfit.png"
-              alt="A Zillow listing detail page in Lincoln Park, Chicago"
+              alt="A Zillow listing page in Lincoln Park, Chicago, with its Location Fit read"
               caption="Location Fit"
             />
           </div>
@@ -408,19 +408,19 @@ export default function ZillowLifestyleInsightsPage() {
                   key={stat.label}
                   className="rounded-[20px] md:rounded-[26px] border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] p-6 md:p-8"
                 >
-                  <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-3">
+                  <p className="text-[13px] uppercase tracking-wider text-[color:var(--color-muted-text)] mb-3">
                     {stat.label}
                   </p>
                   <p className="font-heading text-[44px] md:text-[56px] leading-none text-foreground">
                     {stat.value}
                   </p>
-                  <p className="mt-3 text-base text-black/65 dark:text-white/65">
+                  <p className="mt-3 text-base text-[color:var(--color-muted-text)]">
                     {stat.detail}
                   </p>
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-sm text-black/45 dark:text-white/45">
+            <p className="mt-4 text-sm text-[color:var(--color-muted-text)]">
               Source: 2026 Rentals Search pre-sprint synthesis.
             </p>
           </div>
@@ -434,7 +434,7 @@ export default function ZillowLifestyleInsightsPage() {
               conversational entry point, Ask Zillow, threaded through all three
               so people could describe their move in their own words.
             </Prose>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 mt-2">
+            <div className="mt-2 sm:max-w-[420px]">
               <GifShot
                 src="/images/zillow/gif-challenge-nd.webp"
                 alt="Ask Zillow listening for move details, then turning the answer into a neighborhood read"
@@ -446,7 +446,7 @@ export default function ZillowLifestyleInsightsPage() {
           {/* Bet 1 — Neighborhood Discovery */}
           <BetOpener
             illustration="/images/zillow/ill-neighborhood.png"
-            kicker="Bet 01"
+            kicker="Bet 1"
             title="Neighborhood Discovery"
           >
             <Prose>
@@ -480,7 +480,7 @@ export default function ZillowLifestyleInsightsPage() {
           {/* Bet 2 — Commute (the standout) */}
           <BetOpener
             illustration="/images/zillow/ill-commute.png"
-            kicker="Bet 02"
+            kicker="Bet 2"
             title="Commute"
             flip
           >
@@ -494,8 +494,8 @@ export default function ZillowLifestyleInsightsPage() {
             </Prose>
             <Prose>
               So we treated commute as a filter that produces an insight, not a
-              number. You set your daily spots once, work, a school, a
-              sibling&apos;s place, and Zillow compares routes across Fastest,
+              number. You set your daily spots once (work, a school, a
+              sibling&apos;s place) and Zillow compares routes across Fastest,
               Cheapest, and Balanced, the same tradeoff people were already making
               in their heads. That profile follows you across the results page,
               the map, and the listing.
@@ -526,7 +526,7 @@ export default function ZillowLifestyleInsightsPage() {
           {/* Bet 3 — Location Fit */}
           <BetOpener
             illustration="/images/zillow/ill-locationfit.png"
-            kicker="Bet 03"
+            kicker="Bet 3"
             title="Location Fit"
           >
             <Prose>
@@ -535,8 +535,8 @@ export default function ZillowLifestyleInsightsPage() {
               the same lifestyle lens down to the listing page.
             </Prose>
             <Prose>
-              You tell Zillow what matters, where you want to be, the tradeoffs
-              you will make on space, the things you want within reach, and the
+              You tell Zillow what matters (where you want to be, the tradeoffs
+              you will make on space, the things you want within reach) and the
               listing reflects it back: walkability, transit, things to do
               nearby, and how the location lines up with the priorities you set.
             </Prose>
@@ -557,13 +557,7 @@ export default function ZillowLifestyleInsightsPage() {
           />
 
           {/* What movers actually said */}
-          <div>
-            <div className="mb-8 md:mb-10">
-              <p className="text-sm text-[#757575] mb-2">From the sessions</p>
-              <h2 className="font-heading text-[30px] md:text-[34px] font-normal leading-[1.1] text-foreground">
-                What movers actually said
-              </h2>
-            </div>
+          <SectionHeading kicker="From the sessions" title="What movers actually said.">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8">
               <QuoteCard {...sessionQuotes[0]} large />
               <div className="flex flex-col gap-5 md:gap-8">
@@ -571,7 +565,7 @@ export default function ZillowLifestyleInsightsPage() {
                 <QuoteCard {...sessionQuotes[2]} />
               </div>
             </div>
-          </div>
+          </SectionHeading>
 
           {/* Outcome */}
           <SectionHeading kicker="What the sprint settled" title="Set the direction before anyone builds.">
@@ -610,11 +604,11 @@ export default function ZillowLifestyleInsightsPage() {
       <footer className="pt-16 pb-20 text-center">
         <Link
           href="/#hero"
-          className="text-base text-foreground/60 hover:text-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+          className="text-base text-[color:var(--color-muted-text)] hover:text-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
         >
           ← Back to all work
         </Link>
-        <p className="mt-6 text-xs uppercase tracking-widest text-black/50 dark:text-white/50">
+        <p className="mt-6 text-xs uppercase tracking-widest text-[color:var(--color-muted-text)]">
           &copy; Simon Leyton
         </p>
       </footer>
