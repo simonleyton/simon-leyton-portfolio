@@ -26,6 +26,12 @@ const projects = [
     href: "/work/workmate",
   },
   {
+    title: "Hulu · Plan Select",
+    subtitle: "The plan picker behind Hulu's largest win",
+    image: "/images/hulu-plan-select/winner.jpg",
+    href: "/work/hulu-plan-select",
+  },
+  {
     title: "Daylight",
     subtitle: "A more caring computer",
     image: "/images/daylight.png",

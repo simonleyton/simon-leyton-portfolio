@@ -151,9 +151,9 @@ export default function ZillowCommutePage() {
       {/* Header — name top-left */}
       <section className="px-5 md:px-10 pt-6 md:pt-10 pb-10">
         <Link href="/" className="inline-block">
-          <h3 className="font-heading text-[30px] font-normal text-foreground tracking-[-0.03em]">
+          <span className="block font-heading text-[30px] font-normal text-foreground tracking-[-0.03em]">
             Simon Leyton
-          </h3>
+          </span>
         </Link>
       </section>
 
@@ -161,7 +161,7 @@ export default function ZillowCommutePage() {
       <nav className="fixed top-0 right-0 z-50 p-5 md:p-10">
         <Link
           href="/#hero"
-          className="bg-[rgba(240,240,240,0.6)] hover:bg-[rgba(220,220,220,0.6)] dark:bg-[rgba(64,64,64,0.6)] dark:hover:bg-[rgba(80,80,80,0.6)] backdrop-blur-[40px] transition-colors rounded-full w-10 h-10 flex items-center justify-center"
+          className="bg-[rgba(240,240,240,0.6)] hover:bg-[rgba(220,220,220,0.6)] dark:bg-[rgba(64,64,64,0.6)] dark:hover:bg-[rgba(80,80,80,0.6)] backdrop-blur-[40px] transition-colors rounded-full w-10 h-10 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           aria-label="Back to work"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -200,15 +200,15 @@ export default function ZillowCommutePage() {
             </div>
             <div className="md:w-[260px] shrink-0 space-y-6">
               <div>
-                <h6 className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
                   Role
-                </h6>
+                </p>
                 <p className="text-base">Design lead · Sr. Product Designer</p>
               </div>
               <div>
-                <h6 className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
                   Team
-                </h6>
+                </p>
                 <ul className="space-y-1">
                   {team.map((t) => (
                     <li key={t} className="text-base text-black/70 dark:text-white/70">
@@ -218,9 +218,9 @@ export default function ZillowCommutePage() {
                 </ul>
               </div>
               <div>
-                <h6 className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
                   Discipline
-                </h6>
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {discipline.map((d) => (
                     <span
@@ -542,7 +542,7 @@ export default function ZillowCommutePage() {
       <footer className="pt-16 pb-20 text-center">
         <Link
           href="/#hero"
-          className="text-base text-foreground/60 hover:text-foreground transition-colors"
+          className="text-base text-foreground/60 hover:text-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
         >
           ← Back to all work
         </Link>
