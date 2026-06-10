@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: "Zillow · Commute",
-    subtitle: "From buried filter to lifestyle insight",
+    subtitle: "Your whole day, on the map",
     image: "/images/zillow-commute/card.png",
     href: "/work/zillow-commute",
   },
