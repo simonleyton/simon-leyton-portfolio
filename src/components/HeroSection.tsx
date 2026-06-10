@@ -9,7 +9,7 @@ import { FolderIcon } from "@/components/icons";
 const projects = [
   {
     title: "Zillow · Lifestyle Insights",
-    subtitle: "Designing the life around the home",
+    subtitle: "Find a place that fits your life",
     image: "/images/zillow/card-v4.png",
     href: "/work/zillow-lifestyle-insights",
   },
