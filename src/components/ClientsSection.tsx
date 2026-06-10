@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 // Official brand marks, rendered monochrome via CSS mask so every logo
 // shares one foreground tint and adapts to dark mode.
@@ -53,17 +52,9 @@ export function ClientsSection() {
   return (
     <section className="overflow-hidden py-16 tablet:py-20">
       <div className="mx-auto mb-10 max-w-[1400px] px-5 tablet:px-10">
-        <div className="flex items-end justify-between">
-          <h2 className="font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
-            Companies I&apos;ve designed for
-          </h2>
-          <Link
-            href="/clients"
-            className="text-sm text-black/60 transition-opacity duration-200 hover:opacity-50 dark:text-white/70"
-          >
-            View all &gt;
-          </Link>
-        </div>
+        <h2 className="font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
+          Companies I&apos;ve designed for
+        </h2>
       </div>
 
       <div className="marquee">
