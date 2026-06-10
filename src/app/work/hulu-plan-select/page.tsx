@@ -248,10 +248,10 @@ export default function HuluPlanSelectPage() {
           {/* Cover image */}
           <figure className="rounded-[20px] md:rounded-[26px] overflow-hidden">
             <Image
-              src="/images/hulu-plan-select/hero-photo.jpg"
-              alt="A hand holding an iPhone showing Hulu's Choose Your Plan page"
-              width={1863}
-              height={680}
+              src="/images/hulu-plan-select/cover.jpg"
+              alt="A hand holding an iPhone on a plane, browsing Hulu's Choose Your Plan page"
+              width={2560}
+              height={1440}
               className="w-full h-auto"
               sizes="(max-width: 768px) 100vw, 1320px"
               priority
