@@ -375,8 +375,8 @@ export default function ZillowLifestyleInsightsPage() {
               caption="Neighborhood Discovery"
             />
             <Shot
-              src="/images/zillow/hero-commute.png"
-              alt="A commute tradeoff view comparing routes by Fastest, Cheapest, and Balanced"
+              src="/images/zillow/hero-commute-v2.png"
+              alt="A commute map comparing drive times across Chicago to work, an elementary school, and a sister's place"
               caption="Commute"
             />
             <Shot
