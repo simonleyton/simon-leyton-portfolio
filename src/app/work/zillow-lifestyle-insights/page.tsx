@@ -370,8 +370,8 @@ export default function ZillowLifestyleInsightsPage() {
           {/* Hero row — one screen per bet */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
             <Shot
-              src="/images/zillow/hero-neighborhood.png"
-              alt="A neighborhood match score showing Lincoln Park as a 5 of 6 match"
+              src="/images/zillow/hero-neighborhood-v2.png"
+              alt="A Lincoln Park neighborhood overview with a video tour, highlights, and a prompt to personalize how the neighborhood fits you"
               caption="Neighborhood Discovery"
             />
             <Shot
