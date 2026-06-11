@@ -35,7 +35,7 @@ export function ApproachSection() {
   return (
     <section className="py-16 tablet:py-20">
       <div className="mx-auto max-w-[1400px] px-5 tablet:px-10">
-        <h2 className="pb-5 tablet:pb-10 text-[22px] font-normal leading-[1.3] tracking-[-0.03em] text-foreground">
+        <h2 className="pb-5 tablet:pb-10 font-heading text-[30px] font-normal text-foreground">
           How I work
         </h2>
 

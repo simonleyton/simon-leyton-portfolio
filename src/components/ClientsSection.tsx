@@ -52,7 +52,7 @@ export function ClientsSection() {
   return (
     <section className="overflow-hidden py-16 tablet:py-20">
       <div className="mx-auto mb-10 max-w-[1400px] px-5 tablet:px-10">
-        <h2 className="font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
+        <h2 className="font-heading text-[30px] font-normal text-foreground">
           Companies I&apos;ve designed for
         </h2>
       </div>
