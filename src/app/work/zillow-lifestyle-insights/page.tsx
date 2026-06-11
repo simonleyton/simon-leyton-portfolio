@@ -171,7 +171,7 @@ export default function ZillowLifestyleInsightsPage() {
       </div>
 
       {/* The hypothesis */}
-      <SectionHeading kicker="The hypothesis" title="Three bets, one lifestyle lens.">
+      <SectionHeading kicker="The hypothesis" title={"Three bets, one lifestyle lens."}>
         <Prose>
           The bet: if Zillow could help people weigh the life around a home,
           not just the home itself, they would stop leaving to piece it
