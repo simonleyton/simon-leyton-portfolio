@@ -238,6 +238,53 @@ function QuoteCard({
   );
 }
 
+/* An animated prototype clip playing inside the canonical iPhone frame,
+   so motion shots sit in the same device as the static transplants. */
+function DeviceGifShot({
+  src,
+  alt,
+  caption,
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+}) {
+  return (
+    <figure className="flex flex-col">
+      <div className="rounded-[20px] md:rounded-[26px] bg-black/[0.03] dark:bg-white/[0.05] p-3 md:p-5 flex items-center justify-center">
+        <div className="relative w-full aspect-[1308/2712]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            className="absolute object-cover"
+            style={{
+              left: "3.82%",
+              top: "1.66%",
+              width: "92.2%",
+              height: "96.68%",
+              borderRadius: "12.4% / 5.7%",
+            }}
+          />
+          <Image
+            src="/images/device/iphone-16-frame.png"
+            alt=""
+            fill
+            className="object-contain pointer-events-none select-none"
+            sizes="(max-width: 768px) 90vw, 420px"
+          />
+        </div>
+      </div>
+      {caption && (
+        <figcaption className="mt-3 text-sm text-[color:var(--color-muted-text)]">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 /* An animated prototype clip (optimized WebP) framed like the static shots. */
 function GifShot({
   src,
@@ -542,13 +589,13 @@ export default function ZillowLifestyleInsightsPage() {
             </Prose>
           </BetOpener>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-            <GifShot
+            <DeviceGifShot
               src="/images/zillow/gif-locationfit.webp"
               alt="Prototype: a listing's Location Fit read driven by stated preferences"
               caption="A listing's fit read, driven by stated preferences"
             />
-            <Shot src="/images/zillow/lf-where.png" alt="A preference step asking where in the city a buyer wants to be" />
-            <Shot src="/images/zillow/lf-fit.png" alt="A neighborhood fit read on the listing based on the buyer's stated priorities" />
+            <Shot src="/images/zillow/lf-where-v2.png" alt="A preference step asking whether a buyer wants lively and walkable or quiet and residential" />
+            <Shot src="/images/zillow/lf-fit-v2.png" alt="A neighborhood fit read scoring low crime and walkability as matches, with tradeoffs flagged" />
           </div>
           <FlowStrip
             src="/images/zillow/flow-locationfit-v2.jpg"
