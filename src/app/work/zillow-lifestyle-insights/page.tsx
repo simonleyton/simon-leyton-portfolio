@@ -60,6 +60,24 @@ const sessionQuotes = [
   },
 ];
 
+const signalStats = [
+  {
+    label: "Top concept",
+    value: "73%",
+    detail: "rated the commute comparison the top concept of the sprint; no one scored it below a 3",
+  },
+  {
+    label: "The trust gap",
+    value: "87%",
+    detail: "kept Google Maps open alongside Zillow while judging commute",
+  },
+  {
+    label: "Unprompted",
+    value: "20 of 30",
+    detail: "raised the time-versus-cost tradeoff on their own",
+  },
+];
+
 /* ── Building blocks ──────────────────────────────────────── */
 
 function SectionHeading({
@@ -433,22 +451,20 @@ export default function ZillowLifestyleInsightsPage() {
             />
           </div>
 
-          {/* The problem */}
+          {/* Who it's for */}
           <div>
-            <BetOpener
-              illustration="/images/zillow/ill-problem.png"
-              kicker="The problem"
-              title="Searching for a new neighborhood feels like a second job"
-              flip
+            <SectionHeading
+              kicker="Who it&apos;s for"
+              title="Movers heading somewhere they don&apos;t know yet."
             >
               <Prose>
-                Location is the most important factor in a search, and most
-                movers are looking at a place they don&apos;t know yet. They
-                leave Zillow during area discovery and piece together their
-                understanding from Reddit, Google Maps, and Walk Score. The
-                listing lived on Zillow; everything around it lived elsewhere.
+                Renters and buyers mid-search. Location is the most important
+                factor in their decision, and the majority are moving to a
+                neighborhood or town they&apos;ve never lived in — which means
+                the thing they most need to evaluate is the thing they know
+                least about.
               </Prose>
-            </BetOpener>
+            </SectionHeading>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8">
               {problemStats.map((stat) => (
                 <div
@@ -472,8 +488,28 @@ export default function ZillowLifestyleInsightsPage() {
             </p>
           </div>
 
-          {/* The approach */}
-          <SectionHeading kicker="The approach" title="Three bets, one lifestyle lens.">
+          {/* The problem */}
+          <BetOpener
+            illustration="/images/zillow/ill-problem.png"
+            kicker="The problem"
+            title="Searching for a new neighborhood feels like a second job"
+            flip
+          >
+            <Prose>
+              Movers leave Zillow during area discovery and piece together
+              their understanding from Reddit, Google Maps, and Walk Score.
+              The listing lived on Zillow; everything around it lived
+              elsewhere.
+            </Prose>
+          </BetOpener>
+
+          {/* The hypothesis */}
+          <SectionHeading kicker="The hypothesis" title="Three bets, one lifestyle lens.">
+            <Prose>
+              The bet: if Zillow could help people weigh the life around a
+              home, not just the home itself, they would stop leaving to piece
+              it together elsewhere.
+            </Prose>
             <Prose>
               We diverged across the search journey, then converged on three
               bets, one at each altitude of the decision: which neighborhood, how
@@ -644,6 +680,29 @@ export default function ZillowLifestyleInsightsPage() {
               is its own case study.
             </Prose>
           </SectionHeading>
+          <div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8">
+              {signalStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-[20px] md:rounded-[26px] border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] p-6 md:p-8"
+                >
+                  <p className="text-[13px] uppercase tracking-wider text-[color:var(--color-muted-text)] mb-3">
+                    {stat.label}
+                  </p>
+                  <p className="font-heading text-[44px] md:text-[56px] leading-none text-foreground">
+                    {stat.value}
+                  </p>
+                  <p className="mt-3 text-base text-[color:var(--color-muted-text)]">
+                    {stat.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-sm text-[color:var(--color-muted-text)]">
+              Sprint signals and success criteria, not shipped results.
+            </p>
+          </div>
         </div>
       </div>
 

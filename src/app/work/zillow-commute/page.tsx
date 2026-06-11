@@ -282,6 +282,20 @@ export default function ZillowCommutePage() {
             </Prose>
           </SectionHeading>
 
+          {/* Who it's for */}
+          <SectionHeading
+            kicker="Who it&apos;s for"
+            title="Renters whose routine has more than one stop."
+          >
+            <Prose>
+              Renters — and the daily lives attached to them: work, a school,
+              a gym, a partner&apos;s office. Roughly 56 to 59 percent of
+              recent renters rate commute as very or extremely important, and
+              the existing travel-time module drew about 20K web and 3K app
+              users a day despite being buried — high intent, under-served.
+            </Prose>
+          </SectionHeading>
+
           {/* The problem */}
           <SectionHeading
             kicker="The problem"
@@ -290,19 +304,13 @@ export default function ZillowCommutePage() {
             <Prose>
               Renters could not tell whether a home worked for their actual
               daily routine. Commute fit is multi-stop, variable, and full of
-              tradeoffs — work, a school, a gym, a partner&apos;s office — but
-              Zillow capped commute at one or two destinations and treated it
-              as a rigid cutoff. That forced tool switching, repeated setup,
-              and a quiet anxiety about missing good options.
+              tradeoffs, but Zillow capped commute at one or two destinations
+              and treated it as a rigid cutoff. That forced tool switching,
+              repeated setup, and a quiet anxiety about missing good options.
             </Prose>
             <Prose>
-              The stakes were already visible in the data. Roughly 56 to 59
-              percent of recent renters rate commute as very or extremely
-              important, and the existing travel-time module drew about 20K
-              web and 3K app users a day despite being buried — high intent,
-              under-discovered. Worse, commute settings did not carry between
-              Search and Detail, so people redid their work and doubted the
-              results.
+              Worse, commute settings did not carry between Search and
+              Detail, so people redid their work and doubted the results.
             </Prose>
           </SectionHeading>
 
@@ -384,6 +392,12 @@ export default function ZillowCommutePage() {
               edges, one profile everywhere, clarity beats cleverness, and
               earn trust by communicating uncertainty instead of faking
               precision.
+            </Prose>
+            <Prose>
+              The bet, stated plainly: replace the cutoff with a daily-spots
+              profile that follows you, and renters will save a spot, use it
+              across Search and Detail, and take more high-intent actions —
+              without bouncing to a second tab to double-check.
             </Prose>
           </SectionHeading>
 

@@ -424,7 +424,7 @@ export default function HuluPlanSelectPage() {
           {/* The impact */}
           <SectionHeading
             kicker="The impact"
-            title="Every metric the hypothesis named moved."
+            title="Two problems named up front. Both moved."
           >
             <Prose>
               The experiment read out cleanly. Abandonment fell, the bundle

@@ -217,6 +217,49 @@ export default function MetaPeoplePortalPage() {
             />
           </figure>
 
+          {/* The context */}
+          <SectionHeading
+            kicker="The context"
+            title="Every employee visits with a question."
+          >
+            <Prose>
+              People Portal is where Meta employees look up the policies,
+              benefits, and contacts that shape their working lives — a
+              content library that kept evolving underneath a navigation that
+              didn&apos;t. This is the experience the redesign started from.
+            </Prose>
+          </SectionHeading>
+          <FlowStrip
+            src="/images/meta-people-portal/before.jpg"
+            alt="The pre-redesign People Portal homepage in a browser on a laptop: a search bar, four illustrated category cards with item counts, and a news feed"
+            caption="The experience at the time: four category cards fronting hundreds of items, behind a seven-item mega nav."
+            width={902}
+            height={627}
+          />
+
+          {/* Who we built for */}
+          <SectionHeading
+            kicker="Who it&apos;s for"
+            title="Every employee is a user. A few teams live here."
+          >
+            <Prose>
+              The audience was literally everyone at Meta — engineers,
+              marketers, finance, HR — each arriving with a question about
+              their own working life. But the portal also has operators: the
+              People Portal and Content Services teams who maintain the
+              content the navigation has to carry. Designing for both
+              audiences, consumers and maintainers, shaped every IA decision.
+            </Prose>
+          </SectionHeading>
+          <FlowStrip
+            src="/images/meta-people-portal/personas.jpg"
+            alt="A grid of twelve user personas across Meta roles, with the People Portal and Content Services team members highlighted"
+            caption="Everyone uses the portal; the highlighted few also run it."
+            width={1517}
+            height={724}
+          />
+
+
           {/* The problem */}
           <SectionHeading
             kicker="The problem"
@@ -231,13 +274,6 @@ export default function MetaPeoplePortalPage() {
               portal.
             </Prose>
           </SectionHeading>
-          <FlowStrip
-            src="/images/meta-people-portal/before.jpg"
-            alt="The pre-redesign People Portal homepage in a browser on a laptop: a search bar, four illustrated category cards with item counts, and a news feed"
-            caption="The experience at the time: four category cards fronting hundreds of items, behind a seven-item mega nav."
-            width={902}
-            height={627}
-          />
 
           {/* Goals */}
           <SectionHeading
@@ -263,28 +299,6 @@ export default function MetaPeoplePortalPage() {
               detail="Create a flexible, extensible mega navigation that translates seamlessly across devices — especially mobile — and scales as content evolves."
             />
           </div>
-
-          {/* Who we built for */}
-          <SectionHeading
-            kicker="Who we built for"
-            title="Every employee is a user. A few teams live here."
-          >
-            <Prose>
-              The audience was literally everyone at Meta — engineers,
-              marketers, finance, HR — each arriving with a question about
-              their own working life. But the portal also has operators: the
-              People Portal and Content Services teams who maintain the
-              content the navigation has to carry. Designing for both
-              audiences, consumers and maintainers, shaped every IA decision.
-            </Prose>
-          </SectionHeading>
-          <FlowStrip
-            src="/images/meta-people-portal/personas.jpg"
-            alt="A grid of twelve user personas across Meta roles, with the People Portal and Content Services team members highlighted"
-            caption="Everyone uses the portal; the highlighted few also run it."
-            width={1517}
-            height={724}
-          />
 
           {/* Research */}
           <SectionHeading
@@ -350,6 +364,18 @@ export default function MetaPeoplePortalPage() {
               overwhelming.
             </Prose>
           </SectionHeading>
+          <div className="flex flex-col">
+            <Row
+              index="01"
+              title="The problem"
+              detail="It's difficult for Meta employees to pinpoint answers to their questions: ambiguous labels, unclear information hierarchy, and language that doesn't reflect how employees think about HR topics."
+            />
+            <Row
+              index="02"
+              title="The solution"
+              detail="New labels, groupings, and conventions that clearly illustrate hierarchy — aligning the experience to the employee mental model."
+            />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 items-start">
             <FlowStrip
               src="/images/meta-people-portal/sitemap.jpg"
@@ -404,6 +430,18 @@ export default function MetaPeoplePortalPage() {
               same visual decisions carry straight across.
             </Prose>
           </SectionHeading>
+          <div className="flex flex-col">
+            <Row
+              index="01"
+              title="The problem"
+              detail="Employees want to use People Portal effectively on their mobile devices and easily locate deeper sub-levels of information."
+            />
+            <Row
+              index="02"
+              title="The solution"
+              detail="Improve the mobile experience by applying usability principles and design best practices, making People Portal easier to navigate on a phone."
+            />
+          </div>
           <FlowStrip
             src="/images/meta-people-portal/mobile-compare.jpg"
             alt="The People Portal mobile experience today next to the redesigned future mobile experience"
@@ -418,12 +456,9 @@ export default function MetaPeoplePortalPage() {
             title="The criteria the team committed to."
           >
             <Prose>
-              This work set the direction: the next steps were user testing
-              and high-fidelity iteration with research, IA feedback sessions,
-              and engineering&apos;s implementation of the XDS design system
-              in preparation for the React migration. The numbers below are
-              the success criteria the team aligned on — not measured results,
-              and this page claims none.
+              This work set the direction. The numbers below are the success
+              criteria the team aligned on — not measured results, and this
+              page claims none.
             </Prose>
           </SectionHeading>
           <div className="flex flex-col">
@@ -446,6 +481,34 @@ export default function MetaPeoplePortalPage() {
               index="04"
               title="System readiness"
               detail="Implement the XDS design system in preparation for the migration to React."
+            />
+          </div>
+
+          {/* Next steps */}
+          <SectionHeading
+            kicker="Next steps"
+            title="Where the work went from here."
+          >
+            <Prose>
+              The direction handed off into a working loop across the three
+              disciplines that built it.
+            </Prose>
+          </SectionHeading>
+          <div className="flex flex-col">
+            <Row
+              index="01"
+              title="Design"
+              detail="Iterate with research — user testing input — and pursue high-fidelity designs."
+            />
+            <Row
+              index="02"
+              title="Engineering"
+              detail="Implement the updated Meta design system (XDS) in preparation for the migration to React."
+            />
+            <Row
+              index="03"
+              title="Research"
+              detail="Organize sessions to gather IA feedback and reactions to the concepts."
             />
           </div>
         </div>
