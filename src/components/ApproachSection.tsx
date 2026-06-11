@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 const approaches = [
   {
     title: "Ambiguity is the job",
@@ -37,26 +35,20 @@ export function ApproachSection() {
   return (
     <section className="py-16 tablet:py-20">
       <div className="mx-auto max-w-[1400px] px-5 tablet:px-10">
-        <h2 className="mb-10 font-heading font-normal leading-[1.1] tracking-[-0.02em] text-foreground text-[32px] md:text-[48px] lg:text-[64px]">
+        <h2 className="pb-5 tablet:pb-10 text-[22px] font-normal leading-[1.3] tracking-[-0.03em] text-foreground">
           How I work
         </h2>
 
-        <div
-          className={cn(
-            "grid grid-cols-1 gap-x-10 gap-y-12",
-            "tablet:grid-cols-2",
-            "desktop:grid-cols-3"
-          )}
-        >
+        <div className="grid grid-cols-1 gap-6 tablet:grid-cols-2 tablet:gap-10 desktop:grid-cols-3 desktop:gap-20">
           {approaches.map((item, index) => (
-            <div key={item.title} className="flex flex-col gap-2">
-              <span className="text-sm tabular-nums text-[color:var(--color-muted-text)]">
+            <div key={item.title} className="flex items-start gap-5">
+              <span className="w-[28px] shrink-0 text-[20px] tabular-nums text-foreground opacity-50">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-lg tablet:text-xl font-bold leading-tight text-foreground">
-                {item.title}
-              </h3>
-              <p className="text-base tablet:text-lg leading-[1.55] text-[color:var(--color-muted-text)] text-pretty">
+              <p className="text-[20px] leading-[1.5] text-[color:var(--color-muted-text)]">
+                <strong className="font-bold text-foreground">
+                  {item.title}.
+                </strong>{" "}
                 {item.description}
               </p>
             </div>
