@@ -111,6 +111,24 @@ export default function WorkPage() {
             </div>
           </div>
         )}
+
+        {/* Off hours — play, deliberately not dressed as work */}
+        <div className="pt-16 md:pt-24">
+          <p className="text-sm text-[color:var(--color-muted-text)] mb-2">Off hours</p>
+          <p className="text-base md:text-lg text-foreground">
+            <a
+              href="https://perpetual-sunset.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+            >
+              Perpetual Sunset ↗
+            </a>{" "}
+            <span className="text-[color:var(--color-muted-text)]">
+              · a café where the sun never finishes setting
+            </span>
+          </p>
+        </div>
       </div>
 
       {/* Footer */}
