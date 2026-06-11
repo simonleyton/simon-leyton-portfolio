@@ -48,7 +48,7 @@ const briefStats = [
 export default function ZillowCommutePage() {
   return (
     <CaseStudyLayout
-      kicker="Zillow · Commute V1"
+      kicker="Zillow · Search"
       title="Commute"
       lede={
         <>
