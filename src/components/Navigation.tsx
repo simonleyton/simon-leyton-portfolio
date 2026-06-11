@@ -100,7 +100,7 @@ export function Navigation() {
           href="/work"
           className={cn(navPillBase, "px-5 py-2.5 text-[20px]", inactivePill)}
         >
-          Projects
+          Work
         </Link>
         <ThemeToggle />
       </nav>
@@ -133,7 +133,7 @@ export function Navigation() {
           href="/work"
           className={cn(navPillBase, "px-5 py-2.5 text-[16px]", inactivePillMobile)}
         >
-          Projects
+          Work
         </Link>
       </nav>
     </>
