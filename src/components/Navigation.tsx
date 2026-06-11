@@ -85,12 +85,6 @@ export function Navigation() {
         )}
       >
         <Link
-          href="/#hero"
-          className={cn(navPillBase, "px-5 py-2.5 text-[20px]", activeSection === "hero" ? activePill : inactivePill)}
-        >
-          Work
-        </Link>
-        <Link
           href="/#about"
           className={cn(navPillBase, "px-5 py-2.5 text-[20px]", activeSection === "about" ? activePill : inactivePill)}
         >
@@ -101,6 +95,12 @@ export function Navigation() {
           className={cn(navPillBase, "px-5 py-2.5 text-[20px]", activeSection === "contact" ? activePill : inactivePill)}
         >
           Contact
+        </Link>
+        <Link
+          href="/work"
+          className={cn(navPillBase, "px-5 py-2.5 text-[20px]", inactivePill)}
+        >
+          Projects
         </Link>
         <ThemeToggle />
       </nav>
@@ -118,12 +118,6 @@ export function Navigation() {
         )}
       >
         <Link
-          href="/#hero"
-          className={cn(navPillBase, "px-5 py-2.5 text-[16px]", activeSection === "hero" ? activePill : inactivePillMobile)}
-        >
-          Work
-        </Link>
-        <Link
           href="/#about"
           className={cn(navPillBase, "px-5 py-2.5 text-[16px]", activeSection === "about" ? activePill : inactivePillMobile)}
         >
@@ -134,6 +128,12 @@ export function Navigation() {
           className={cn(navPillBase, "px-5 py-2.5 text-[16px]", activeSection === "contact" ? activePill : inactivePillMobile)}
         >
           Contact
+        </Link>
+        <Link
+          href="/work"
+          className={cn(navPillBase, "px-5 py-2.5 text-[16px]", inactivePillMobile)}
+        >
+          Projects
         </Link>
       </nav>
     </>

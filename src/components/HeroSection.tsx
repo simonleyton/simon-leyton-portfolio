@@ -4,7 +4,6 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { FolderIcon } from "@/components/icons";
 import { featuredProjects } from "@/data/projects";
 
 export function HeroSection() {
@@ -165,39 +164,6 @@ export function HeroSection() {
           </Link>
         ))}
 
-        {/* Index card */}
-        <Link
-          href="/work"
-          onClick={(e) => { if (dragState.current.moved) e.preventDefault(); }}
-          draggable={false}
-          className="group block flex-shrink-0 md:p-2 anim-card-reveal rounded-[24px] md:rounded-[34px] lg:rounded-[44px] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-          style={{ animationDelay: `${500 + featuredProjects.length * 100}ms` }}
-        >
-          <div
-            className={cn(
-              "rounded-[20px] md:rounded-[30px] lg:rounded-[40px]",
-              "overflow-hidden",
-              "bg-white/80 dark:bg-black/45 backdrop-blur-2xl",
-              "border border-white/50 dark:border-white/10",
-              "shadow-[0_8px_40px_rgba(10,9,8,0.16)]",
-              "w-[280px] md:w-[350px] lg:w-[420px]",
-              "flex flex-col"
-            )}
-          >
-            {/* Icon area matching image aspect-square */}
-            <div className="aspect-square rounded-[14px] md:rounded-[26px] lg:rounded-[32px] overflow-hidden m-1.5 md:m-2 flex items-center justify-center bg-black/[0.03] dark:bg-white/[0.06]">
-              <div className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 text-foreground">
-                <FolderIcon />
-              </div>
-            </div>
-
-            {/* Text area below */}
-            <div className="px-5 pt-3 pb-6 md:px-6 md:pt-4 md:pb-8">
-              <h3 className="font-normal text-xl md:text-2xl text-foreground">Index</h3>
-              <p className="mt-1 text-base md:text-lg text-black/55 dark:text-white/55">View all projects</p>
-            </div>
-          </div>
-        </Link>
       </div>
     </section>
   );

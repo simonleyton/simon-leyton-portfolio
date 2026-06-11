@@ -51,4 +51,4 @@ export const archive: Project[] = [
   },
 ];
 
-export const featuredProjects = caseStudies.slice(0, 3);
+export const featuredProjects = caseStudies;
