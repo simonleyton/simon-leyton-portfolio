@@ -380,8 +380,8 @@ export default function ZillowLifestyleInsightsPage() {
               caption="Commute"
             />
             <Shot
-              src="/images/zillow/hero-locationfit.png"
-              alt="A Zillow listing page in Lincoln Park, Chicago, with its Location Fit read"
+              src="/images/zillow/hero-locationfit-v2.png"
+              alt="A neighborhood fit read for Lincoln Park scoring 2 of 4 priorities: walkable streets and strong schools match, short commute is partial, nightlife misses"
               caption="Location Fit"
             />
           </div>
