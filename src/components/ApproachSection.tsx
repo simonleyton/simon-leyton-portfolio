@@ -2,34 +2,34 @@ import { cn } from "@/lib/utils";
 
 const approaches = [
   {
+    title: "Ambiguity is the job",
+    description:
+      "I'm most useful before the brief exists — turning open questions into prototypes people can react to, so alignment comes from seeing the work, not debating it.",
+  },
+  {
     title: "Systems over screens",
     description:
-      "I design the system behind the screen: components, slots, and conditional logic that hold up as contexts multiply.",
+      "I design the system behind the screen — components, states, and logic that hold up as contexts multiply and other teams build on top.",
   },
   {
-    title: "Strategy made tangible",
+    title: "AI is a material, not a feature",
     description:
-      "I turn vague directions into prototypes teams can react to, so alignment comes from seeing the work, not debating it.",
-  },
-  {
-    title: "Influence without authority",
-    description:
-      "I earn trust by showing up prepared, sharing early, and making the people I partner with look good.",
+      "I prototype in code with Claude daily and ship small changes without an engineering handoff. The fastest way to understand an AI product is to build one.",
   },
   {
     title: "Craft is the argument",
     description:
-      "The quality of the work is the most persuasive case for it. Polished, well-reasoned artifacts win the room.",
+      "Quality is the most persuasive case for a direction. I sweat the last 10% because that's the part people feel.",
   },
   {
-    title: "AI as a design material",
+    title: "Trust is the real velocity",
     description:
-      "I prototype with Claude, Figma Make, and code to explore faster and shape AI-driven products. I build with AI, not just about it.",
+      "I share work early and unpolished, listen for the concern underneath the comment, and make my partners look good. Teams move at the speed of trust, not process.",
   },
   {
-    title: "Always learning",
+    title: "Outcomes over output",
     description:
-      "I study how Airbnb, Stripe, and Duolingo run design, building toward leadership while shipping as a senior IC.",
+      "I make the case for design in the language of the business — conversion, retention, support load — and stay in the metrics after launch, because shipping is the midpoint, not the finish.",
   },
 ];
 
@@ -48,8 +48,11 @@ export function ApproachSection() {
             "desktop:grid-cols-3"
           )}
         >
-          {approaches.map((item) => (
+          {approaches.map((item, index) => (
             <div key={item.title} className="flex flex-col gap-2">
+              <span className="text-sm tabular-nums text-[color:var(--color-muted-text)]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <h3 className="text-lg tablet:text-xl font-bold leading-tight text-foreground">
                 {item.title}
               </h3>
