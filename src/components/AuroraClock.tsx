@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-/* A working miniature of aurora-clock.vercel.app, rendering with the piece's
-   own WebGL2 shaders (spectral thin-film simulation, verbatim) — only the
-   time source differs: it reads a chosen city's timezone. */
+/* Aurora Clock on the portfolio: the piece's own WebGL2 spectral renderer
+   (verbatim shaders), shared by the footer lockup and the masthead popover.
+   Only the time source differs from the original — a chosen city's zone. */
 
 /* Ordered west to east; Miami is home and stays the default. */
 const CITIES = [
@@ -247,28 +247,27 @@ function zoneHM(zone: string) {
   return { h: get("hour") % 24, m: get("minute") };
 }
 
-export function AuroraClock({ size = 72 }: { size?: number }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const zoneRef = useRef<string>(CITIES[DEFAULT_CITY].zone);
-  const [cityIdx, setCityIdx] = useState(DEFAULT_CITY);
-  const [display, setDisplay] = useState<string | null>(null);
-  const [webglOk, setWebglOk] = useState(true);
+function zoneDate(zone: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: zone,
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  }).format(new Date());
+}
 
-  zoneRef.current = CITIES[cityIdx].zone;
+function cityName(label: string) {
+  return label === "SF" ? "San Francisco" : label;
+}
 
-  /* digital readout, updated each minute boundary */
-  useEffect(() => {
-    const tick = () => {
-      const { h, m } = zoneHM(zoneRef.current);
-      setDisplay(
-        (((h + 11) % 12) + 1) + ":" + String(m).padStart(2, "0") + " " + (h < 12 ? "AM" : "PM")
-      );
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, [cityIdx]);
+/* ── the renderer, shared by every instance ───────────────── */
 
+function useAuroraRenderer(
+  canvasRef: React.RefObject<HTMLCanvasElement | null>,
+  size: number,
+  zoneRef: React.RefObject<string>,
+  onNoWebGL: () => void
+) {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -278,7 +277,7 @@ export function AuroraClock({ size = 72 }: { size?: number }) {
       preserveDrawingBuffer: true,
     });
     if (!gl) {
-      setWebglOk(false);
+      onNoWebGL();
       return;
     }
 
@@ -350,14 +349,14 @@ export function AuroraClock({ size = 72 }: { size?: number }) {
     const uSeed = U("u_seed");
 
     /* time in the selected zone; h/m cached per second, seconds run free */
-    let hm = zoneHM(zoneRef.current);
-    let hmZone = zoneRef.current;
+    let hm = zoneHM(zoneRef.current!);
+    let hmZone = zoneRef.current!;
     let hmAt = Date.now();
     const angles = () => {
       const now = Date.now();
       if (zoneRef.current !== hmZone || now - hmAt > 1000) {
-        hm = zoneHM(zoneRef.current);
-        hmZone = zoneRef.current;
+        hm = zoneHM(zoneRef.current!);
+        hmZone = zoneRef.current!;
         hmAt = now;
       }
       const d = new Date();
@@ -409,71 +408,208 @@ export function AuroraClock({ size = 72 }: { size?: number }) {
       document.removeEventListener("visibilitychange", run);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [size]);
+}
+
+function useZoneDisplay(zone: string) {
+  const [display, setDisplay] = useState<string | null>(null);
+  useEffect(() => {
+    const tick = () => {
+      const { h, m } = zoneHM(zone);
+      setDisplay(
+        (((h + 11) % 12) + 1) + ":" + String(m).padStart(2, "0") + " " + (h < 12 ? "AM" : "PM")
+      );
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [zone]);
+  return display;
+}
+
+/* ── segmented city control (shared) ──────────────────────── */
+
+function CitySegments({
+  cityIdx,
+  onChange,
+}: {
+  cityIdx: number;
+  onChange: (i: number) => void;
+}) {
+  return (
+    <div
+      role="radiogroup"
+      aria-label="City"
+      className="relative grid grid-cols-4 rounded-full border border-black/10 dark:border-white/15 bg-black/[0.04] dark:bg-white/[0.06] p-0.5"
+    >
+      <span
+        aria-hidden
+        className="absolute top-0.5 bottom-0.5 left-0.5 w-[calc((100%-4px)/4)] rounded-full bg-background shadow-[0_1px_4px_rgba(10,9,8,0.18)] border border-black/[0.06] dark:border-white/10 transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none"
+        style={{ transform: "translateX(" + cityIdx * 100 + "%)" }}
+      />
+      {CITIES.map((c, i) => (
+        <button
+          key={c.label}
+          type="button"
+          role="radio"
+          aria-checked={i === cityIdx}
+          onClick={() => onChange(i)}
+          className={cn(
+            "relative z-10 rounded-full px-2.5 py-1 text-xs leading-none transition-colors outline-none",
+            "focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+            i === cityIdx
+              ? "text-foreground"
+              : "text-[color:var(--color-muted-text)] hover:text-foreground"
+          )}
+        >
+          {c.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/* ── the footer lockup: the dial opens a detail card, Hodinkee-style ── */
+
+export function AuroraClock({ size = 72 }: { size?: number }) {
+  const [open, setOpen] = useState(false);
+  const [cityIdx, setCityIdx] = useState(DEFAULT_CITY);
+  const zoneRef = useRef<string>(CITIES[DEFAULT_CITY].zone);
+  zoneRef.current = CITIES[cityIdx].zone;
+  const [webglOk, setWebglOk] = useState(true);
+  const display = useZoneDisplay(CITIES[cityIdx].zone);
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const panelId = useId();
+
+  useAuroraRenderer(canvasRef, size, zoneRef, useCallback(() => setWebglOk(false), []));
+
+  /* dismiss: outside click + Escape; focus moves in, then back */
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: PointerEvent) => {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", onDown);
+    document.addEventListener("keydown", onKey);
+    panelRef.current?.focus();
+    return () => {
+      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   const city = CITIES[cityIdx];
 
   return (
-    <div className="flex items-center gap-4">
-      <a
-        href="https://aurora-clock.vercel.app"
-        target="_blank"
-        rel="noopener noreferrer"
+    <div ref={rootRef} className="relative flex items-center gap-4">
+      <button
+        ref={triggerRef}
+        type="button"
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        aria-controls={open ? panelId : undefined}
         aria-label={
-          "Aurora Clock — open the full piece. Current time in " +
-          (city.label === "SF" ? "San Francisco" : city.label) +
-          (display ? ": " + display : "")
+          "Aurora Clock — more detail." +
+          (display ? " Current time in " + cityName(city.label) + ": " + display : "")
         }
+        onClick={() => setOpen((v) => !v)}
         className="group block shrink-0 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
       >
         {webglOk ? (
           <canvas
             ref={canvasRef}
             style={{ width: size, height: size }}
-            className="block transition-transform duration-300 ease-out group-hover:scale-[1.06] drop-shadow-[0_3px_10px_rgba(10,9,8,0.28)]"
+            className="block cursor-pointer transition-transform duration-300 ease-out group-hover:scale-[1.06] drop-shadow-[0_3px_10px_rgba(10,9,8,0.28)]"
           />
         ) : (
           <span className="block text-base text-foreground tabular-nums">{display ?? ""}</span>
         )}
-      </a>
+      </button>
       <div className="flex flex-col items-start gap-1.5">
         <p className="text-sm text-foreground tabular-nums leading-none">
           {display ?? "—:—"}{" "}
-          <span className="text-[color:var(--color-muted-text)]">
-            {city.label === "SF" ? "San Francisco" : city.label}
-          </span>
+          <span className="text-[color:var(--color-muted-text)]">{cityName(city.label)}</span>
         </p>
-        {/* Segmented control: one container, sliding selection, equal targets */}
-        <div
-          role="radiogroup"
-          aria-label="City"
-          className="relative grid grid-cols-4 rounded-full border border-black/10 dark:border-white/15 bg-black/[0.04] dark:bg-white/[0.06] p-0.5"
-        >
-          <span
-            aria-hidden
-            className="absolute top-0.5 bottom-0.5 left-0.5 w-[calc((100%-4px)/4)] rounded-full bg-background shadow-[0_1px_4px_rgba(10,9,8,0.18)] border border-black/[0.06] dark:border-white/10 transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none"
-            style={{ transform: "translateX(" + cityIdx * 100 + "%)" }}
-          />
-          {CITIES.map((c, i) => (
-            <button
-              key={c.label}
-              type="button"
-              role="radio"
-              aria-checked={i === cityIdx}
-              onClick={() => setCityIdx(i)}
-              className={cn(
-                "relative z-10 rounded-full px-2.5 py-1 text-xs leading-none transition-colors outline-none",
-                "focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                i === cityIdx
-                  ? "text-foreground"
-                  : "text-[color:var(--color-muted-text)] hover:text-foreground"
-              )}
-            >
-              {c.label}
-            </button>
-          ))}
-        </div>
+        <CitySegments cityIdx={cityIdx} onChange={setCityIdx} />
       </div>
+
+      {open && (
+        <div
+          ref={panelRef}
+          id={panelId}
+          role="dialog"
+          aria-label="Aurora Clock"
+          tabIndex={-1}
+          className={cn(
+            "absolute bottom-full left-0 z-[70] mb-4 w-[290px] rounded-[20px] p-6 outline-none",
+            "bg-background border border-black/[0.08] dark:border-white/[0.12]",
+            "shadow-[0_18px_50px_rgba(10,9,8,0.22)]",
+            "anim-popover origin-bottom-left"
+          )}
+        >
+          <PopoverCard
+            cityIdx={cityIdx}
+            setCityIdx={setCityIdx}
+            zoneRef={zoneRef}
+            display={display}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PopoverCard({
+  cityIdx,
+  setCityIdx,
+  zoneRef,
+  display,
+}: {
+  cityIdx: number;
+  setCityIdx: (i: number) => void;
+  zoneRef: React.RefObject<string>;
+  display: string | null;
+}) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [webglOk, setWebglOk] = useState(true);
+  useAuroraRenderer(canvasRef, 148, zoneRef, useCallback(() => setWebglOk(false), []));
+  const city = CITIES[cityIdx];
+
+  return (
+    <div className="flex flex-col items-center gap-5">
+      {webglOk && (
+        <canvas
+          ref={canvasRef}
+          style={{ width: 148, height: 148 }}
+          className="block drop-shadow-[0_6px_18px_rgba(10,9,8,0.30)]"
+        />
+      )}
+      <div className="text-center">
+        <p className="text-xl text-foreground tabular-nums leading-tight">{display ?? "—:—"}</p>
+        <p className="mt-0.5 text-sm text-[color:var(--color-muted-text)]">
+          {zoneDate(city.zone)} · {cityName(city.label)}
+        </p>
+      </div>
+      <CitySegments cityIdx={cityIdx} onChange={setCityIdx} />
+      <a
+        href="https://aurora-clock.vercel.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm text-[color:var(--color-muted-text)] hover:text-foreground transition-colors underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+        Open the full piece ↗
+      </a>
     </div>
   );
 }
