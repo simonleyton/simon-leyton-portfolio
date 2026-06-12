@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "@/components/icons";
+import { AuroraClock } from "@/components/AuroraClock";
 
 const EMAIL = "simonleyton@gmail.com";
 
@@ -79,6 +80,9 @@ export function ContactSection() {
                 </a>
               ))}
             </div>
+
+            {/* Local time — a working miniature of Aurora Clock */}
+            <AuroraClock />
           </div>
         </div>
       </div>
