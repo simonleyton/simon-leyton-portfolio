@@ -7,12 +7,15 @@ import { cn } from "@/lib/utils";
    own WebGL2 shaders (spectral thin-film simulation, verbatim) — only the
    time source differs: it reads a chosen city's timezone. */
 
+/* Ordered west to east; Miami is home and stays the default. */
 const CITIES = [
-  { label: "Miami", zone: "America/New_York" },
   { label: "SF", zone: "America/Los_Angeles" },
+  { label: "Miami", zone: "America/New_York" },
   { label: "Paris", zone: "Europe/Paris" },
   { label: "Tokyo", zone: "Asia/Tokyo" },
 ] as const;
+
+const DEFAULT_CITY = 1; // Miami
 
 const VERT = `#version 300 es
 layout(location=0) in vec2 a_pos;
@@ -170,7 +173,7 @@ void main() {
     rgb *= backlight * u_exposure;
 
     /* quadrant hairlines, printed on the front layer: over field, hands, dot */
-    float lw = 0.005;
+    float lw = 0.0075;   // piece uses 0.005; nudged up so the hairlines read at 72px
     float lineCov = max(1.0 - smoothstep(lw - fwd, lw + fwd, abs(pd.x)),
                         1.0 - smoothstep(lw - fwd, lw + fwd, abs(pd.y)));
     rgb = mix(rgb, rgb * 0.15, lineCov);
@@ -246,8 +249,8 @@ function zoneHM(zone: string) {
 
 export function AuroraClock({ size = 72 }: { size?: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const zoneRef = useRef<string>(CITIES[0].zone);
-  const [cityIdx, setCityIdx] = useState(0);
+  const zoneRef = useRef<string>(CITIES[DEFAULT_CITY].zone);
+  const [cityIdx, setCityIdx] = useState(DEFAULT_CITY);
   const [display, setDisplay] = useState<string | null>(null);
   const [webglOk, setWebglOk] = useState(true);
 
