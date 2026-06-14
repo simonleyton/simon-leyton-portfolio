@@ -321,28 +321,37 @@ export function BetOpener({
   kicker,
   title,
   flip,
+  bare,
   children,
 }: {
   illustration: string;
   kicker: string;
   title: string;
   flip?: boolean;
+  /* bare: a transparent illustration (e.g. a persona blob) floats free,
+     no bordered frame — that frame is for full-bleed scenes only. */
+  bare?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 items-center py-4 md:py-8">
       <div
-        className={`rounded-[24px] overflow-hidden border border-black/[0.06] dark:border-white/[0.08] ${
-          flip ? "lg:order-2" : ""
-        }`}
+        className={
+          (flip ? "lg:order-2 " : "") +
+          (bare
+            ? "flex justify-center"
+            : "rounded-[24px] overflow-hidden border border-black/[0.06] dark:border-white/[0.08]")
+        }
       >
         <Image
           src={illustration}
           alt=""
-          width={1200}
+          width={bare ? 900 : 1200}
           height={900}
-          className="w-full h-auto"
-          sizes="(max-width: 1024px) 100vw, 640px"
+          className={
+            bare ? "w-full h-auto max-w-[300px] md:max-w-[360px]" : "w-full h-auto"
+          }
+          sizes={bare ? "(max-width: 768px) 300px, 360px" : "(max-width: 1024px) 100vw, 640px"}
         />
       </div>
       <div className="flex flex-col gap-5">

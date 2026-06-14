@@ -132,9 +132,11 @@ export default function ZillowLifestyleInsightsPage() {
 
       {/* Who it's for */}
       <div>
-        <SectionHeading
+        <BetOpener
+          illustration="/images/zillow/ill-audience.png"
           kicker="Who it&apos;s for"
           title="Movers heading somewhere they don&apos;t know yet."
+          bare
         >
           <Prose>
             Renters and buyers mid-search. Location is the most important
@@ -143,7 +145,7 @@ export default function ZillowLifestyleInsightsPage() {
             thing they most need to evaluate is the thing they know least
             about.
           </Prose>
-        </SectionHeading>
+        </BetOpener>
         <StatCards
           stats={audienceStats}
           note="Source: 2026 Rentals Search pre-sprint synthesis."
