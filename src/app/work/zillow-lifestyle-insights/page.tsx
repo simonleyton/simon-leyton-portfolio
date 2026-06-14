@@ -5,6 +5,7 @@ import {
   SectionHeading,
   Prose,
   Shot,
+  Photo,
   DeviceVideo,
   FlowStrip,
   FactBand,
@@ -214,26 +215,21 @@ export default function ZillowLifestyleInsightsPage() {
         ))}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-        <FlowStrip
+        <Photo
           src="/images/zillow/sprint/sprint-storyboards.jpg"
           alt="Two sprint participants discussing hand-drawn wireframes taped to a wall, one holding a laptop"
           caption="Pressure-testing storyboards, day two."
-          width={1200}
-          height={1600}
+          position="50% 38%"
         />
-        <FlowStrip
+        <Photo
           src="/images/zillow/sprint/sprint-shareout.jpg"
           alt="A presenter at a podium with hand-drawn neighborhood sketches projected on screen, sketches taped to the side wall"
           caption="Sketch share-out in Chicago."
-          width={1600}
-          height={1200}
         />
-        <FlowStrip
+        <Photo
           src="/images/zillow/sprint/sprint-walkthroughs.jpg"
           alt="A presenter walking the team through the Commute concept on a projector before testing"
           caption="Concept walkthroughs before testing."
-          width={1600}
-          height={1200}
         />
       </div>
 

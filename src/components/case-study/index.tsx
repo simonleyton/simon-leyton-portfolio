@@ -137,6 +137,43 @@ export function FlowStrip({
   );
 }
 
+/* A photo cropped to a uniform aspect ratio, so a row of mixed-orientation
+   shots keeps even card heights. `position` tunes the focal point of the crop. */
+export function Photo({
+  src,
+  alt,
+  caption,
+  ratio = "4 / 3",
+  position = "center",
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  ratio?: string;
+  position?: string;
+}) {
+  return (
+    <figure className="flex flex-col">
+      <div className="rounded-[20px] md:rounded-[26px] overflow-hidden bg-black/[0.04] dark:bg-white/[0.04] p-3 md:p-5 border border-black/[0.06] dark:border-white/[0.08]">
+        <div
+          className="relative w-full overflow-hidden rounded-[8px] ring-1 ring-black/[0.06] dark:ring-white/[0.08]"
+          style={{ aspectRatio: ratio }}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            className="object-cover"
+            style={{ objectPosition: position }}
+            sizes="(max-width: 768px) 100vw, 440px"
+          />
+        </div>
+      </div>
+      {caption && <Caption>{caption}</Caption>}
+    </figure>
+  );
+}
+
 /* The page's one grid-breaking moment: a single phone, oversized, centered. */
 export function Showpiece({
   src,
