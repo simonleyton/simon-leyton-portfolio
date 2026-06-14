@@ -281,6 +281,11 @@ export function StatRow({
 
 /* The numeric beat: a row of big-number cards with an integrity note. */
 export type StatCard = { label: string; value: string; detail: string };
+const STAT_COLS: Record<number, string> = {
+  2: "sm:grid-cols-2",
+  3: "sm:grid-cols-3",
+  4: "sm:grid-cols-2 lg:grid-cols-4",
+};
 export function StatCards({
   stats,
   note,
@@ -290,7 +295,9 @@ export function StatCards({
 }) {
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8">
+      <div
+        className={`grid grid-cols-1 ${STAT_COLS[stats.length] ?? "sm:grid-cols-3"} gap-5 md:gap-8`}
+      >
         {stats.map((stat) => (
           <div
             key={stat.label}
@@ -311,6 +318,96 @@ export function StatCards({
       {note && (
         <p className="mt-4 text-sm text-[color:var(--color-muted-text)]">{note}</p>
       )}
+    </div>
+  );
+}
+
+/* A compact band of facts — scale at a glance, not hero metrics. */
+export function FactBand({
+  facts,
+}: {
+  facts: { value: string; label: string }[];
+}) {
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-px overflow-hidden rounded-[20px] md:rounded-[26px] border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.08] dark:bg-white/[0.12]">
+      {facts.map((f) => (
+        <div key={f.label} className="bg-background p-5 md:p-7">
+          <p className="font-heading text-[26px] md:text-[34px] leading-none text-foreground">
+            {f.value}
+          </p>
+          <p className="mt-2 text-sm text-[color:var(--color-muted-text)]">
+            {f.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* What testing settled: wins read neutral, the open risk is flagged in coral
+   so the honest "what didn't fully land" is the thing the eye lands on. */
+export type Finding = { kind: "win" | "watch"; text: React.ReactNode };
+export function Findings({ items }: { items: Finding[] }) {
+  return (
+    <ul className="flex flex-col gap-4">
+      {items.map((it, i) => (
+        <li key={i} className="flex gap-3">
+          <span className="mt-[3px] shrink-0" aria-hidden>
+            {it.kind === "win" ? (
+              <svg width="18" height="18" viewBox="0 0 18 18" className="text-foreground/70">
+                <path
+                  d="M3.5 9.5l3.2 3.2L14.5 5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 18 18" className="text-[var(--accent-coral)]">
+                <circle cx="9" cy="9" r="7.4" fill="none" stroke="currentColor" strokeWidth="1.6" />
+                <path d="M9 5.2v4.4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <circle cx="9" cy="12.4" r="0.95" fill="currentColor" />
+              </svg>
+            )}
+          </span>
+          <p className="text-base md:text-lg leading-relaxed text-[color:var(--color-muted-text)] max-w-[64ch]">
+            {it.text}
+          </p>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/* A sequenced roadmap: Near / Next / Later, the resolution of a sprint. */
+export type RoadmapPhase = { phase: string; timeframe: string; items: string[] };
+export function Roadmap({ phases }: { phases: RoadmapPhase[] }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+      {phases.map((p) => (
+        <div key={p.phase} className="flex flex-col">
+          <div className="border-t-2 border-foreground/70 pt-3">
+            <p className="font-heading text-[22px] md:text-[24px] leading-none text-foreground">
+              {p.phase}
+            </p>
+            <p className="mt-1.5 text-sm text-[color:var(--color-muted-text)]">
+              {p.timeframe}
+            </p>
+          </div>
+          <ul className="mt-4 flex flex-col">
+            {p.items.map((it, i) => (
+              <li
+                key={i}
+                className="border-t border-black/[0.08] dark:border-white/[0.1] py-3 text-base text-[color:var(--color-muted-text)]"
+              >
+                {it}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 }
@@ -567,3 +664,5 @@ export function CaseStudyLayout({
     </div>
   );
 }
+
+export { DeviceVideo } from "./DeviceVideo";

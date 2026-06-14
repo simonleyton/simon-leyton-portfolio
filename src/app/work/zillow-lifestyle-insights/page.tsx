@@ -5,24 +5,27 @@ import {
   SectionHeading,
   Prose,
   Shot,
-  DeviceGifShot,
+  DeviceVideo,
   FlowStrip,
+  FactBand,
   StatCards,
-  BetOpener,
+  Findings,
+  Roadmap,
+  Row,
   QuoteCard,
-  PlaceholderStrip,
+  BetOpener,
 } from "@/components/case-study";
 
 export const metadata: Metadata = {
   title: "Zillow Lifestyle Insights — Simon Leyton",
   description:
-    "A design sprint exploring how Zillow could help people weigh the life around a home, not just the home itself.",
+    "A five-day cross-functional design sprint: prototyping the neighborhood, commute, and location context movers leave Zillow to find, tested with 88 movers, ending in a sequenced roadmap.",
 };
 
 const team = [
-  "Danielle — Product",
-  "Ryan — UX Research",
-  "Erika — Content Design",
+  "Danielle Wong — Product",
+  "Ryan Kasper — UX Research",
+  "Erika Geller — Content Design",
 ];
 
 const discipline = [
@@ -32,61 +35,86 @@ const discipline = [
   "Prototyping",
 ];
 
+const sprintFacts = [
+  { value: "5 days", label: "Hybrid, in Chicago" },
+  { value: "12+ ICs", label: "Product, design, UXR, engineering" },
+  { value: "6 concepts", label: "Prototyped with engineering in the room" },
+  { value: "88 movers", label: "Tested across renter and buyer cohorts" },
+];
+
 const audienceStats = [
   {
-    label: "Search priority",
-    value: ">80%",
-    detail: "of renters and buyers rank location as their #1 search factor",
-  },
-  {
     label: "Renters",
-    value: "60%",
-    detail: "relocate from a different neighborhood or further",
+    value: "83%",
+    detail:
+      "consider their preferred neighborhood or location essential to the search",
   },
   {
     label: "Buyers",
-    value: "90%",
-    detail: "switch to a new neighborhood or town",
-  },
-];
-
-const signalStats = [
-  {
-    label: "Top concept",
-    value: "73%",
+    value: "50%+",
     detail:
-      "rated the commute comparison the top concept of the sprint; no one scored it below a 3",
-  },
-  {
-    label: "The trust gap",
-    value: "87%",
-    detail: "kept Google Maps open alongside Zillow while judging commute",
-  },
-  {
-    label: "Unprompted",
-    value: "20 of 30",
-    detail: "raised the time-versus-cost tradeoff on their own",
+      "rate walkability, proximity to services, and commute very or extremely important",
   },
 ];
 
-const sessionQuotes = [
+const phases = [
   {
-    quote:
-      "I'd say I like hearing from the residents the most over managers and agents. Managers and agents have a motive to make it sound better.",
-    label: "Renter · Location Fit study",
-    avatar: "/images/zillow/uxr/avatar-renter-locationfit.png",
+    index: "01",
+    title: "Understand & define",
+    detail:
+      "Built a shared picture of the mover and pressure-tested three problem statements against prior research.",
   },
   {
-    quote:
-      "Giving a score with this bold number here, 3 out of 5 match is pretty useful. When I was looking for apartments, I similarly used a ranking system.",
-    label: "Renter · Discovery study",
-    avatar: "/images/zillow/uxr/avatar-renter-discovery.png",
+    index: "02",
+    title: "Sketch & decide",
+    detail:
+      "Three brainstorming exercises, one primary direction per track, storyboards and a build plan.",
   },
   {
-    quote:
-      "This is like a game changer. It makes everything easy and you can see everything within 5 seconds.",
-    label: "Buyer · Commute study",
-    avatar: "/images/zillow/uxr/avatar-buyer-commute.png",
+    index: "03",
+    title: "Prototype",
+    detail:
+      "Wireframed, designed, and built six testable prototypes, with engineering flagging feasibility as we went.",
+  },
+  {
+    index: "04",
+    title: "Evaluate",
+    detail:
+      "Launched three AI-moderated concept studies overnight on Outset, then synthesized the findings as a team.",
+  },
+];
+
+const roadmap = [
+  {
+    phase: "Near",
+    timeframe: "Q2 – Q3 2026",
+    items: [
+      "Multi-location commute V1, into A/B testing",
+      "Commute on the search map: points of interest, isochrone overlays, and filter",
+      "Commute V2: isochrones in AI Mode, saved search, sort by commute time",
+    ],
+  },
+  {
+    phase: "Next",
+    timeframe: "Q3 – Q4 2026",
+    items: [
+      "Map-based commute comparison hub",
+      "Commute insights on property cards",
+      "Commute-tradeoffs AI Mode skill and widget",
+      "“What locals say” UGC and AI Mode skill",
+      "Neighborhood detail page",
+    ],
+  },
+  {
+    phase: "Later",
+    timeframe: "Q4 2026 – Q1 2027+",
+    items: [
+      "Lifestyle match score with form and AI-Mode intake",
+      "Neighborhood preview AI-Mode skill",
+      "Commute transit layer",
+      "“Picture your week here” on the detail page",
+      "Explore: crime and safety context",
+    ],
   },
 ];
 
@@ -97,26 +125,26 @@ export default function ZillowLifestyleInsightsPage() {
       title="Lifestyle Insights"
       lede={
         <>
-          Zillow is very good at helping you find a house. It is quieter on
-          everything around the house: the neighborhood, the commute, whether a
-          place actually fits the way you live. Lifestyle Insights was a
-          week-long sprint to explore how Zillow could help people weigh the
-          life around a home, not just the home itself.
+          Movers leave Zillow to figure out the neighborhood, the commute, and
+          whether a place actually fits their life. I led design on a five-day
+          cross-functional sprint that prototyped that missing context, tested
+          it with 88 movers, and came back with a validated, sequenced
+          roadmap.
         </>
       }
       role="Design lead · Sr. Product Designer"
       team={team}
-      teamNote="+ partners across ~11 teams"
+      teamNote="+ 12 ICs across product, design, UXR, eng"
       discipline={discipline}
       companion={{ label: "Zillow · Commute", href: "/work/zillow-commute" }}
       next={{ label: "Zillow · Commute", href: "/work/zillow-commute" }}
     >
-      {/* Hero row — one screen per bet */}
+      {/* Hero row — one screen per concept */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
         <Shot
           src="/images/zillow/hero-neighborhood-v2.png"
           alt="A Lincoln Park neighborhood overview with a video tour, highlights, and a prompt to personalize how the neighborhood fits you"
-          caption="Neighborhood Discovery"
+          caption="Neighborhood discovery"
         />
         <Shot
           src="/images/zillow/hero-commute-v2.png"
@@ -126,9 +154,12 @@ export default function ZillowLifestyleInsightsPage() {
         <Shot
           src="/images/zillow/hero-locationfit-v2.png"
           alt="A neighborhood fit read for Lincoln Park scoring 2 of 4 priorities: walkable streets and strong schools match, short commute is partial, nightlife misses"
-          caption="Location Fit"
+          caption="Location fit"
         />
       </div>
+
+      {/* Sprint at a glance */}
+      <FactBand facts={sprintFacts} />
 
       {/* Who it's for */}
       <div>
@@ -141,228 +172,407 @@ export default function ZillowLifestyleInsightsPage() {
           <Prose>
             Renters and buyers mid-search. Location is the most important
             factor in their decision, and the majority are moving to a
-            neighborhood or town they&apos;ve never lived in — which means the
-            thing they most need to evaluate is the thing they know least
-            about.
+            neighborhood or town they&apos;ve never lived in, so the thing they
+            most need to judge is the thing they have no firsthand read on.
           </Prose>
         </BetOpener>
         <StatCards
           stats={audienceStats}
-          note="Source: 2026 Rentals Search pre-sprint synthesis."
+          note="Source: Zillow Consumer Housing Trends Report."
         />
       </div>
 
       {/* The problem */}
-      <div>
-        <BetOpener
-          illustration="/images/zillow/ill-problem.png"
-          kicker="The problem"
-          title="Searching for a new neighborhood feels like a second job"
-          flip
-        >
-          <Prose>
-            Movers leave Zillow during area discovery and piece together their
-            understanding from Reddit, Google Maps, and Walk Score. The listing
-            lived on Zillow; everything around it lived elsewhere.
-          </Prose>
-        </BetOpener>
-        <PlaceholderStrip
-          label="Zillow's area discovery, as it was at the time of the sprint"
-          note="Before-state capture being gathered"
-        />
-      </div>
-
-      {/* The hypothesis */}
-      <SectionHeading kicker="The hypothesis" title={"Three bets, one lifestyle lens."}>
-        <Prose>
-          The bet: if Zillow could help people weigh the life around a home,
-          not just the home itself, they would stop leaving to piece it
-          together elsewhere.
-        </Prose>
-        <Prose>
-          We diverged across the search journey, then converged on three bets,
-          one at each altitude of the decision: which neighborhood, how the
-          commute works, and whether a specific listing fits. A conversational
-          entry point, Ask Zillow, threaded through all three so people could
-          describe their move in their own words.
-        </Prose>
-        <div className="mt-2 sm:max-w-[420px]">
-          <DeviceGifShot
-            src="/images/zillow/gif-challenge-nd.webp"
-            alt="Ask Zillow listening for move details, then turning the answer into a neighborhood read"
-            caption="Ask Zillow, the shared entry point"
-          />
-        </div>
-      </SectionHeading>
-
-      {/* Bet 1 — Neighborhood Discovery */}
       <BetOpener
-        illustration="/images/zillow/ill-neighborhood.png"
-        kicker="Bet 1"
-        title="Neighborhood Discovery"
-      >
-        <Prose>
-          People often choose a neighborhood before they choose a house, but
-          Zillow&apos;s tools start with listings. This bet let people describe
-          how they want to live, a short read on commute style and pace of
-          life, and turned that into a match score for each neighborhood and a
-          side-by-side summary.
-        </Prose>
-        <Prose>
-          The prompt to compare appears only once someone has looked at two or
-          more neighborhoods in a session, the moment comparison actually
-          becomes useful rather than one more thing on the screen.
-        </Prose>
-      </BetOpener>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-        <DeviceGifShot
-          src="/images/zillow/gif-neighborhood.webp"
-          alt="Prototype: browsing and comparing Chicago neighborhoods"
-          caption="Discovering and comparing neighborhoods"
-        />
-        <Shot
-          src="/images/zillow/nd-vibe.png"
-          alt="A short quiz reading a buyer's neighborhood vibe: commute style and pace of life"
-        />
-        <Shot
-          src="/images/zillow/nd-summary.png"
-          alt="A neighborhood summary for Lincoln Park with highlights"
-        />
-      </div>
-      <FlowStrip
-        src="/images/zillow/flow-neighborhood.jpg"
-        alt="End-to-end Neighborhood Discovery flow across AI mode, the results page, and a neighborhood summary"
-        caption="The full Neighborhood Discovery flow, from AI mode to the results page to a neighborhood summary."
-        width={2000}
-        height={1000}
-      />
-
-      {/* Bet 2 — Commute (the standout) */}
-      <BetOpener
-        illustration="/images/zillow/ill-commute.png"
-        kicker="Bet 2"
-        title="Commute"
+        illustration="/images/zillow/ill-second-job.png"
+        kicker="The problem"
+        title="Searching for a place feels like a second job"
         flip
       >
         <Prose>
-          Commute was the bet with the clearest signal, so it got the most
-          attention. In research, people rated the commute view helpful (4.60
-          out of 5) but were far less willing to trust it without checking
-          another site (3.73). The need was not distance. It was a tradeoff —
-          the tension between time and cost that participants kept raising on
-          their own.
-        </Prose>
-        <Prose>
-          So we treated commute as a filter that produces an insight, not a
-          number. You set your daily spots once (work, a school, a
-          sibling&apos;s place) and Zillow compares routes across Fastest,
-          Cheapest, and Balanced, the same tradeoff people were already making
-          in their heads. That profile follows you across the results page, the
-          map, and the listing.
-        </Prose>
-        <Prose>
-          Because people were cross-checking elsewhere, the design leads with
-          where the data comes from: sourcing, freshness, and transparent
-          transit, so the number is trustworthy enough to keep you from opening
-          another tab. The comparison view came out of testing as the
-          sprint&apos;s top-rated concept.
+          Movers juggle Google Maps, Reddit, Niche, and Walk Score to
+          understand a neighborhood before they commit. Location is central to
+          the housing decision, but Zillow&apos;s map and detail pages stay
+          disconnected from the lifestyle context that drives it, a gap that
+          spans the whole journey from the search results to the listing.
         </Prose>
       </BetOpener>
+
+      {/* How the sprint ran */}
+      <SectionHeading kicker="How it ran" title="Five days, four moves.">
+        <Prose>
+          The hypothesis: if Zillow answered the three location questions movers
+          ask anyway, they would shop here longer and come back more often. We
+          set out to validate which problems held up, prototype with
+          engineering in the room, test with real movers, and leave with a
+          prioritized roadmap.
+        </Prose>
+      </SectionHeading>
+      <div className="flex flex-col">
+        {phases.map((p) => (
+          <Row key={p.index} index={p.index} title={p.title} detail={p.detail} />
+        ))}
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-        <DeviceGifShot
-          src="/images/zillow/gif-commute.webp"
-          alt="Prototype: comparing commute routes by Fastest, Cheapest, and Balanced"
-          caption="Comparing routes across Fastest, Cheapest, Balanced"
+        <FlowStrip
+          src="/images/zillow/sprint/sprint-storyboards.jpg"
+          alt="Two sprint participants discussing hand-drawn wireframes taped to a wall, one holding a laptop"
+          caption="Pressure-testing storyboards, day two."
+          width={1200}
+          height={1600}
         />
-        <Shot
-          src="/images/zillow/cm-dailyspots.png"
-          alt="A map comparing travel times to several daily spots: work, school, and family"
+        <FlowStrip
+          src="/images/zillow/sprint/sprint-shareout.jpg"
+          alt="A presenter at a podium with hand-drawn neighborhood sketches projected on screen, sketches taped to the side wall"
+          caption="Sketch share-out in Chicago."
+          width={1600}
+          height={1200}
         />
-        <Shot
-          src="/images/zillow/cm-map.png"
-          alt="The Chicago results map with price markers and commute context"
+        <FlowStrip
+          src="/images/zillow/sprint/sprint-walkthroughs.jpg"
+          alt="A presenter walking the team through the Commute concept on a projector before testing"
+          caption="Concept walkthroughs before testing."
+          width={1600}
+          height={1200}
         />
       </div>
-      <FlowStrip
-        src="/images/zillow/flow-commute.jpg"
-        alt="End-to-end Commute flow across AI mode, the results page, and saved homes"
-        caption="The full Commute flow. The same daily-spots profile carries from search to the map to a saved home."
-        width={2000}
-        height={1000}
-      />
 
-      {/* Bet 3 — Location Fit */}
-      <BetOpener
-        illustration="/images/zillow/ill-locationfit.png"
-        kicker="Bet 3"
-        title="Location Fit"
+      {/* What we tested */}
+      <SectionHeading
+        kicker="What we tested"
+        title="Three concepts, three honest readouts."
       >
         <Prose>
-          Even with the right neighborhood and a workable commute, a specific
-          listing either fits your life or it does not. Location Fit brings the
-          same lifestyle lens down to the listing page.
+          Each problem became a working prototype, tested with separate renter
+          and buyer cohorts in AI-moderated sessions of 25 to 40 minutes. The
+          concepts shown here are sprint prototypes; none of these features are
+          live in production.
         </Prose>
+      </SectionHeading>
+
+      {/* Bet 1 — Neighborhood discovery */}
+      <SectionHeading
+        kicker="Concept 1 · Neighborhood discovery"
+        title="Score the neighborhood, then explain it."
+      >
         <Prose>
-          You tell Zillow what matters (where you want to be, the tradeoffs you
-          will make on space, the things you want within reach) and the listing
-          reflects it back: walkability, transit, things to do nearby, and how
-          the location lines up with the priorities you set.
+          Movers don&apos;t know which areas fit them when they start,
+          especially the roughly 40% moving from another county or further. The
+          concept sets your lifestyle preferences once, scores each
+          neighborhood as a 5-of-7 match, and lets you drill in to understand
+          why.
         </Prose>
-      </BetOpener>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-        <DeviceGifShot
-          src="/images/zillow/gif-locationfit.webp"
-          alt="Prototype: a listing's Location Fit read driven by stated preferences"
-          caption="A listing's fit read, driven by stated preferences"
-        />
-        <Shot
-          src="/images/zillow/lf-where-v2.png"
-          alt="A preference step asking whether a buyer wants lively and walkable or quiet and residential"
-        />
-        <Shot
-          src="/images/zillow/lf-fit-v2.png"
-          alt="A neighborhood fit read scoring low crime and walkability as matches, with tradeoffs flagged"
+      </SectionHeading>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+        <div className="mx-auto w-full max-w-[360px]">
+          <DeviceVideo
+            src="/images/zillow/sprint/proto-neighborhood.mp4"
+            poster="/images/zillow/sprint/poster-neighborhood.jpg"
+            label="Prototype walkthrough: lifestyle intake, neighborhood entry points, and the match score on the search map"
+            caption="Lifestyle intake, entry points, and the match score on the search map."
+          />
+        </div>
+        <Findings
+          items={[
+            {
+              kind: "win",
+              text: (
+                <>
+                  <strong className="font-normal text-foreground">
+                    The “filter, then explain” model landed.
+                  </strong>{" "}
+                  Movers set preferences once, saw neighborhoods scored, and
+                  drilled in to understand the reasons behind the number.
+                </>
+              ),
+            },
+            {
+              kind: "win",
+              text: (
+                <>
+                  <strong className="font-normal text-foreground">
+                    “What locals wish were different” was the most-praised new
+                    feature.
+                  </strong>{" "}
+                  Criticism, sourced to real residents, is what made the content
+                  believable.
+                </>
+              ),
+            },
+            {
+              kind: "watch",
+              text: (
+                <>
+                  <strong className="font-normal text-foreground">
+                    Discoverability gates everything.
+                  </strong>{" "}
+                  17% of movers never found the intake, summaries, or score on
+                  their own.
+                </>
+              ),
+            },
+          ]}
         />
       </div>
-      <FlowStrip
-        src="/images/zillow/flow-locationfit-v2.jpg"
-        alt="End-to-end Location Fit flow on the Zillow listing detail page"
-        caption="The full Location Fit flow on the listing detail page, from setting preferences to a fit read."
-        width={2000}
-        height={1000}
+      <StatCards
+        stats={[
+          {
+            label: "Likely to return",
+            value: "83%",
+            detail:
+              "rated 4–5 of 5 on returning to Zillow for neighborhood learning",
+          },
+          {
+            label: "Found it unprompted",
+            value: "73%",
+            detail:
+              "found and read a neighborhood summary without being directed to it",
+          },
+        ]}
+        note="Neighborhood discovery · n=30 · renter and buyer cohorts."
       />
+      <div className="max-w-3xl">
+        <QuoteCard
+          quote="Knowing the bad things is good. There was no actual grocery store within walking distance, which is very important to me. So this would not be a good fit."
+          label="Study participant · renter cohort"
+          avatar="/images/zillow/uxr/avatar-renter-discovery.png"
+          large
+        />
+      </div>
 
-      {/* What movers actually said */}
-      <SectionHeading kicker="From the sessions" title="What movers actually said.">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8">
-          <QuoteCard {...sessionQuotes[0]} large />
-          <div className="flex flex-col gap-5 md:gap-8">
-            <QuoteCard {...sessionQuotes[1]} />
-            <QuoteCard {...sessionQuotes[2]} />
-          </div>
-        </div>
+      {/* Bet 2 — Commute confidence */}
+      <SectionHeading
+        kicker="Concept 2 · Commute confidence"
+        title="Commute as a tradeoff, not a cutoff."
+      >
+        <Prose>
+          57% of renters and 49% of buyers weigh commute heavily, but Google
+          Maps is where they go to work it out. The concept brings it onto the
+          map: set your daily destinations, then compare areas by Fastest,
+          Cheapest, or Balanced.
+        </Prose>
       </SectionHeading>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+        <Findings
+          items={[
+            {
+              kind: "win",
+              text: (
+                <>
+                  <strong className="font-normal text-foreground">
+                    Fastest / Cheapest / Balanced was the strongest concept in
+                    the sprint.
+                  </strong>{" "}
+                  67% called the cost-versus-time toggle the most useful new
+                  mental model, unprompted.
+                </>
+              ),
+            },
+            {
+              kind: "win",
+              text: (
+                <>
+                  <strong className="font-normal text-foreground">
+                    The map-based commute hub validated cleanly.
+                  </strong>{" "}
+                  73% rated it 4 or 5 of 5 with zero ratings below 3, and Saved
+                  Homes badges made cross-listing tradeoffs feel effortless.
+                </>
+              ),
+            },
+            {
+              kind: "watch",
+              text: (
+                <>
+                  <strong className="font-normal text-foreground">
+                    The gap is trust, not value.
+                  </strong>{" "}
+                  Helpfulness scored 4.6 of 5, trust 3.7. Naming the data partner
+                  and timestamping the data is the cheapest fix in the study.
+                </>
+              ),
+            },
+          ]}
+        />
+        <div className="mx-auto w-full max-w-[360px] lg:order-first">
+          <DeviceVideo
+            src="/images/zillow/sprint/proto-commute.mp4"
+            poster="/images/zillow/sprint/poster-commute.jpg"
+            label="Prototype walkthrough: the AI-mode tradeoff toggle and the map-anchored multi-destination commute hub"
+            caption="The tradeoff toggle and the map-anchored, multi-destination commute hub."
+          />
+        </div>
+      </div>
+      <StatCards
+        stats={[
+          {
+            label: "Helpfulness",
+            value: "4.6/5",
+            detail: "mean rating of the listing commute hub",
+          },
+          {
+            label: "Still verify",
+            value: "87%",
+            detail: "keep Google Maps open as their verification baseline",
+          },
+        ]}
+        note="Commute confidence · n=30 · renter and buyer cohorts."
+      />
+      <div className="max-w-3xl">
+        <QuoteCard
+          quote="I have never thought about the cost of driving before, but from now on, I might."
+          label="Study participant · buyer cohort"
+          avatar="/images/zillow/uxr/avatar-buyer-commute.png"
+          large
+        />
+      </div>
+
+      {/* Bet 3 — Location fit */}
+      <SectionHeading
+        kicker="Concept 3 · Location fit"
+        title="Show me the score, then prove it."
+      >
+        <Prose>
+          Movers can&apos;t picture what everyday life feels like at a specific
+          listing, so they triage on Zillow and evaluate elsewhere. The concept
+          brings a personalized match score to the listing, then backs it with
+          hyperlocal, sourced content.
+        </Prose>
+      </SectionHeading>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+        <div className="mx-auto w-full max-w-[360px]">
+          <DeviceVideo
+            src="/images/zillow/sprint/proto-locationfit.mp4"
+            poster="/images/zillow/sprint/poster-locationfit.jpg"
+            label="Prototype walkthrough: the match score, locals panel, and sourced claims on the listing detail page"
+            caption="The match score, locals panel, and sourced claims on the listing page."
+          />
+        </div>
+        <Findings
+          items={[
+            {
+              kind: "win",
+              text: (
+                <>
+                  <strong className="font-normal text-foreground">
+                    The match score reads instantly as a verdict on fit.
+                  </strong>{" "}
+                  Movers used the match / partial / miss breakdown to confirm
+                  their preferences were actually shaping the page.
+                </>
+              ),
+            },
+            {
+              kind: "win",
+              text: (
+                <>
+                  <strong className="font-normal text-foreground">
+                    Hyperlocal content gave a clear read on vibe.
+                  </strong>{" "}
+                  93% rated the neighborhood section 4 or 5 of 5 on clarity, and
+                  “things to do” drew unprompted exploration.
+                </>
+              ),
+            },
+            {
+              kind: "watch",
+              text: (
+                <>
+                  <strong className="font-normal text-foreground">
+                    Sources are the trust unlock.
+                  </strong>{" "}
+                  Movers asked where claims came from, and safety context is
+                  still a top reason they leave Zillow.
+                </>
+              ),
+            },
+          ]}
+        />
+      </div>
+      <StatCards
+        stats={[
+          {
+            label: "Clarity",
+            value: "93%",
+            detail: "top-2 rating on clarity of neighborhood vibe",
+          },
+          {
+            label: "Match score",
+            value: "79%",
+            detail: "top-2 rating on helpfulness of the match score",
+          },
+        ]}
+        note="Location fit · n=28 · renter and buyer cohorts."
+      />
+      <div className="max-w-3xl">
+        <QuoteCard
+          quote="I'd say I like hearing from the residents the most over managers and agents. Managers and agents have a motive to make it sound better."
+          label="Study participant · renter cohort"
+          avatar="/images/zillow/uxr/avatar-renter-locationfit.png"
+          large
+        />
+      </div>
+
+      {/* Cross-cutting synthesis */}
+      <SectionHeading
+        kicker="What held across all three"
+        title="Three things movers told us, whichever prototype they saw."
+      >
+        <Prose>
+          The pattern to fix is the helpfulness-to-trust gap: movers liked what
+          we showed them but still verified elsewhere. Data provenance,
+          freshness timestamps, and visible assumptions are small,
+          label-level moves that close most of it.
+        </Prose>
+      </SectionHeading>
+      <div className="flex flex-col">
+        <Row
+          index="01"
+          title="Give me a verdict at a glance"
+          detail="A simple lifestyle match indicator, on both the results page and the detail page, was the fastest-understood element across studies. Movers tied it to the shortlisting systems they already build by hand."
+        />
+        <Row
+          index="02"
+          title="Back it with details and sources"
+          detail="Locals' voices, criticism included, were the trust ceiling. Every score, rating, and stat needs a visible source at the claim, or movers go verify it elsewhere regardless of quality."
+        />
+        <Row
+          index="03"
+          title="Help me compare commutes"
+          detail="The cost-versus-time tradeoff and map-based comparison across saved properties turned commute from guesswork into concrete decisions movers acted on during sessions."
+        />
+      </div>
+
+      {/* Where it goes next */}
+      <SectionHeading
+        kicker="Where it goes next"
+        title="A validated, sequenced roadmap."
+      >
+        <Prose>
+          Findings were prioritized against movers&apos; needs, our 2026
+          engagement goals, and feasibility with partner teams. The proposed
+          sequence runs from the closest-to-shippable commute work outward.
+        </Prose>
+      </SectionHeading>
+      <Roadmap phases={roadmap} />
 
       {/* Outcome */}
       <SectionHeading
         kicker="What the sprint settled"
-        title="Set the direction before anyone builds."
+        title="Direction, set before anyone builds."
       >
         <Prose>
-          The sprint was meant to set direction before anyone wrote production
-          code, and it did: three bets, one lifestyle lens running the length
-          of the search journey. Commute came out of testing as the strongest
-          of the three and the clearest place to start.
+          The sprint did what a sprint should: it aligned twelve-plus people
+          across two offices on what to build, in what order, with engineering
+          feasibility in the room from the first sketch. My job across the week
+          was less any single screen and more holding the through line:
+          facilitating the team toward one direction, letting research decide
+          what mattered, and reframing commute from a number into an insight
+          movers would trust.
         </Prose>
         <Prose>
-          My job across the week was less about any single screen and more
-          about holding the through line: facilitating roughly eleven teams
-          toward one direction, letting research decide what mattered, and
-          reframing a tired feature, commute times, into an insight people
-          would actually trust.
-        </Prose>
-        <Prose>
-          That strongest bet went into delivery next — the design of{" "}
+          Commute came out of testing as the strongest concept, and it went
+          into delivery next. The design of{" "}
           <Link
             href="/work/zillow-commute"
             className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
@@ -371,10 +581,18 @@ export default function ZillowLifestyleInsightsPage() {
           </Link>{" "}
           is its own case study.
         </Prose>
+        <Prose>
+          Everything shown here is a sprint prototype. None of these concepts
+          are live in production; the numbers are research signals and success
+          criteria, not shipped results.
+        </Prose>
       </SectionHeading>
-      <StatCards
-        stats={signalStats}
-        note="Sprint signals and success criteria, not shipped results."
+      <FlowStrip
+        src="/images/zillow/sprint/sprint-team.jpg"
+        alt="The cross-functional sprint team gathered in the Chicago conference room"
+        caption="The team: twelve-plus ICs across product, design, UXR, engineering, content, and QA, four days in Chicago. Sprint leads — Danielle Wong (Product), Simon Leyton (Design), Ryan Kasper (UXR), Erika Geller (Content Design)."
+        width={1600}
+        height={1200}
       />
     </CaseStudyLayout>
   );
