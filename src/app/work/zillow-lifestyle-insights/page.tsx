@@ -24,9 +24,10 @@ export const metadata: Metadata = {
 };
 
 const team = [
-  "Danielle Wong — Product",
-  "Ryan Kasper — UX Research",
-  "Erika Geller — Content Design",
+  "Product — decision lead",
+  "Product Design — co-lead",
+  "UX Research — methodology",
+  "Content Design",
 ];
 
 const discipline = [
@@ -90,7 +91,7 @@ const roadmap = [
     phase: "Near",
     timeframe: "Q2 – Q3 2026",
     items: [
-      "Multi-location commute V1, into A/B testing",
+      "Multi-location commute V1 — shipped into an A/B experiment",
       "Commute on the search map: points of interest, isochrone overlays, and filter",
       "Commute V2: isochrones in AI Mode, saved search, sort by commute time",
     ],
@@ -127,13 +128,13 @@ export default function ZillowLifestyleInsightsPage() {
       lede={
         <>
           Movers leave Zillow to figure out the neighborhood, the commute, and
-          whether a place actually fits their life. I led design on a five-day
+          whether a place actually fits their life. I co-led a five-day
           cross-functional sprint that prototyped that missing context, tested
           it with 88 movers, and came back with a validated, sequenced
           roadmap.
         </>
       }
-      role="Design lead · Sr. Product Designer"
+      role="Design co-lead · Sr. Product Designer"
       team={team}
       teamNote="+ 12 ICs across product, design, UXR, eng"
       discipline={discipline}
@@ -253,7 +254,7 @@ export default function ZillowLifestyleInsightsPage() {
       >
         <Prose>
           Movers don&apos;t know which areas fit them when they start,
-          especially the roughly 40% moving from another county or further. The
+          especially the large share moving from another county or further. The
           concept sets your lifestyle preferences once, scores each
           neighborhood as a 5-of-7 match, and lets you drill in to understand
           why.
@@ -342,10 +343,10 @@ export default function ZillowLifestyleInsightsPage() {
         title="Commute as a tradeoff, not a cutoff."
       >
         <Prose>
-          57% of renters and 49% of buyers weigh commute heavily, but Google
-          Maps is where they go to work it out. The concept brings it onto the
-          map: set your daily destinations, then compare areas by Fastest,
-          Cheapest, or Balanced.
+          Commute weighs heavily for most movers, but Google Maps is where
+          they go to work it out. The concept brings it onto the map: set your
+          daily destinations, then compare areas by Fastest, Cheapest, or
+          Balanced.
         </Prose>
       </SectionHeading>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
@@ -560,33 +561,41 @@ export default function ZillowLifestyleInsightsPage() {
         <Prose>
           The sprint did what a sprint should: it aligned twelve-plus people
           across two offices on what to build, in what order, with engineering
-          feasibility in the room from the first sketch. My job across the week
-          was less any single screen and more holding the through line:
-          facilitating the team toward one direction, letting research decide
-          what mattered, and reframing commute from a number into an insight
-          movers would trust.
+          feasibility in the room from the first sketch. I co-led it with
+          product, and my through line across the week was less any single
+          screen than the argument I kept making — that commute should be
+          reframed from a number you pass or fail into an insight movers would
+          actually trust. That reframe became the spine of the delivery work
+          that followed.
         </Prose>
         <Prose>
-          Commute came out of testing as the strongest concept, and it went
-          into delivery next. The design of{" "}
+          Commute was the strongest concept in testing — 67% named the
+          cost-versus-time model the most useful new way to think about a move,
+          unprompted. A separate feature already in flight, Multi-Location
+          Commute V1, shipped into an A/B experiment across web, iOS, and
+          Android in June 2026; I used the sprint&apos;s learnings to drive its
+          next direction — commute as a fit signal that sorts, never hides.
+          That delivery work is its own case study:{" "}
           <Link
             href="/work/zillow-commute"
             className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
           >
-            Commute V1
-          </Link>{" "}
-          is its own case study.
+            Commute
+          </Link>
+          .
         </Prose>
         <Prose>
-          Everything shown here is a sprint prototype. None of these concepts
-          are live in production; the numbers are research signals and success
-          criteria, not shipped results.
+          Everything shown on this page is a sprint prototype: none of these
+          concepts is live in production, and the numbers are research signals,
+          not shipped results. The one feature that has reached production,
+          Commute V1, ran on a separate track — covered honestly in its own
+          case study.
         </Prose>
       </SectionHeading>
       <FlowStrip
         src="/images/zillow/sprint/sprint-team.jpg"
         alt="The cross-functional sprint team gathered in the Chicago conference room"
-        caption="The team: twelve-plus ICs across product, design, UXR, engineering, content, and QA, four days in Chicago. Sprint leads — Danielle Wong (Product), Simon Leyton (Design), Ryan Kasper (UXR), Erika Geller (Content Design)."
+        caption="The team: twelve-plus ICs across product, design, UX research, engineering, content, and QA, hybrid out of Chicago. A co-led sprint — product, design, research, and content steering it together."
         width={1600}
         height={1200}
       />

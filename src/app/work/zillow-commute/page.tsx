@@ -52,11 +52,11 @@ export default function ZillowCommutePage() {
       title="Commute"
       lede={
         <>
-          The Lifestyle Insights sprint ended with a clear winner: commute.
-          Commute V1 turned that direction into a product, replacing a buried,
-          rigid filter with a daily-spots profile that shows commute fit as an
-          insight on the map, across Search and Detail Pages, on web, iOS, and
-          Android.
+          Commute is the first lifestyle-insight feature to reach production.
+          Multi-Location Commute V1 replaces a buried, rigid filter with a
+          daily-spots profile that reads commute fit as an insight on the map —
+          across Search and Detail, on web, iOS, and Android. It shipped into
+          an A/B experiment in June 2026.
         </>
       }
       role="Design lead · Sr. Product Designer"
@@ -94,17 +94,19 @@ export default function ZillowCommutePage() {
           title="The sprint picked the bet. The product had to earn the trust."
         >
           <Prose>
-            In the{" "}
+            Commute V1 didn&apos;t begin with the sprint — its first spec
+            predates it. But when the{" "}
             <Link
               href="/work/zillow-lifestyle-insights"
               className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
             >
               Lifestyle Insights sprint
-            </Link>
-            , commute had the clearest signal of the three bets: the comparison
-            view was the top-rated concept in testing, and participants kept
-            raising the tension between commute time and housing cost on their
-            own.
+            </Link>{" "}
+            tested commute concepts in parallel, the research handed the
+            feature its sharpest mandate: of the three bets, commute had the
+            clearest signal — the comparison view was the top-rated concept,
+            and 67% of movers named the cost-versus-time model the most useful
+            new way to think about a move, unprompted.
           </Prose>
           <Prose>
             The same research carried a warning: people found the commute view
@@ -124,10 +126,10 @@ export default function ZillowCommutePage() {
       >
         <Prose>
           Renters — and the daily lives attached to them: work, a school, a
-          gym, a partner&apos;s office. Roughly 56 to 59 percent of recent
-          renters rate commute as very or extremely important, and the
-          existing travel-time module drew about 20K web and 3K app users a
-          day despite being buried — high intent, under-served.
+          gym, a partner&apos;s office. For most renters, commute is one of the
+          things that most shapes where they&apos;ll live, and the people who
+          dug up the old, buried travel-time tool were among the most motivated
+          on the site — high intent, under-served.
         </Prose>
       </SectionHeading>
 
@@ -358,27 +360,60 @@ export default function ZillowCommutePage() {
         </Prose>
       </SectionHeading>
 
-      {/* Success criteria */}
+      {/* What shipped */}
       <SectionHeading
-        kicker="What success looks like"
-        title="The criteria were set before the results."
+        kicker="What shipped"
+        title="Live on three platforms at once."
       >
         <Prose>
-          The team committed to outcomes up front. Primary: more sessions
-          where renters save at least one commute destination and actually use
-          it across Search and Detail, and higher rates of high-intent actions
-          — save, share, contact, tour, apply — in sessions with an active
-          commute profile. Guardrails: cross-surface continuity that simply
-          works, no spike in &ldquo;misleading commute&rdquo; feedback, and
-          map performance that stays healthy with layers on.
+          Commute V1 shipped into an A/B experiment across web, iOS, and
+          Android in June 2026 — the first lifestyle-insight feature to reach
+          production, and it landed on all three platforms together. It&apos;s
+          instrumented and measuring in the wild now.
         </Prose>
         <Prose>
-          As with the sprint piece, the numbers on this page are research
-          signals and success criteria, not shipped-impact claims.
+          The team committed to the outcomes up front: more sessions where
+          renters save a commute spot and use it across Search and Detail, and
+          more high-intent actions — save, share, contact, tour, apply — in
+          sessions with an active commute profile, with guardrails on
+          cross-surface continuity, &ldquo;misleading commute&rdquo; feedback,
+          and map performance.
         </Prose>
         <Prose>
-          Commute V1 is the delivery half of a pair. The strategy half — the
-          week that picked this bet in the first place — is its own story:{" "}
+          The experiment is still in flight, so this page stops short of a
+          lift. What&apos;s proven today is the design and the research behind
+          it — movers rated the commute view 4.6 of 5 for helpfulness and named
+          the cost-versus-time model the most useful new way to think about a
+          move. The readout is what turns a validated bet into a measured win,
+          and I&apos;d rather show the honest line than borrow a number.
+        </Prose>
+      </SectionHeading>
+
+      {/* Where it goes next — the V2 direction */}
+      <SectionHeading
+        kicker="Where it goes next"
+        title="From a fit you can see to a fit that sorts."
+      >
+        <Prose>
+          Off the sprint&apos;s learnings, I&apos;m driving the next direction:
+          commute as a fit signal that <em>orders</em> results instead of
+          filtering them — a graduated, explainable commute-fit score that
+          ranks homes by how well they match your whole routine, and never
+          hides the near-misses. It&apos;s the purest form of the principle V1
+          started: fit, not filter.
+        </Prose>
+        <Prose>
+          Two moves carry it. A progressive-commitment model, so a place you
+          merely check doesn&apos;t silently become a tracked commute until you
+          say so. And a fit-zone read — &ldquo;where works for all of my
+          spots&rdquo; — that treats your routine as one shape rather than a
+          stack of separate pins. Underneath both sits a shared trust
+          treatment: every estimate carries its range, its conditions, and its
+          source, so the number earns belief instead of asking for it.
+        </Prose>
+        <Prose>
+          Commute is the delivery half of a pair. The strategy half — the
+          research week that sharpened this bet — is its own story:{" "}
           <Link
             href="/work/zillow-lifestyle-insights"
             className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
