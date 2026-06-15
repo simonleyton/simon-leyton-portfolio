@@ -530,7 +530,7 @@ export function AuroraClock({ size = 72 }: { size?: number }) {
           <canvas
             ref={canvasRef}
             style={{ width: size, height: size }}
-            className="block cursor-pointer transition-transform duration-300 ease-out group-hover:scale-[1.06] drop-shadow-[0_3px_10px_rgba(10,9,8,0.28)]"
+            className="block cursor-pointer transition-transform duration-300 ease-out group-hover:scale-[1.06]"
           />
         ) : (
           <span className="block text-base text-foreground tabular-nums">{display ?? ""}</span>

@@ -222,6 +222,148 @@ export function PlaceholderStrip({
   );
 }
 
+/* A shipped milestone: one confident statement over a hairline meta row.
+   The graphic beat that breaks a run of heading-and-prose sections. */
+export function Milestone({
+  statement,
+  facts,
+}: {
+  statement: React.ReactNode;
+  facts: { label: string; value: string }[];
+}) {
+  return (
+    <div className="rounded-[20px] md:rounded-[26px] border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] p-7 md:p-10">
+      <p className="font-heading text-[26px] md:text-[36px] font-normal leading-[1.08] tracking-[-0.01em] text-foreground max-w-[26ch]">
+        {statement}
+      </p>
+      <dl className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-x-10 gap-y-5 border-t border-black/[0.08] dark:border-white/[0.1] pt-6">
+        {facts.map((f) => (
+          <div key={f.label} className="sm:min-w-[8rem]">
+            <dt className="text-xs uppercase tracking-wider text-[color:var(--color-muted-text)]">
+              {f.label}
+            </dt>
+            <dd className="mt-1 text-base text-foreground">{f.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+/* A solid, intentional figure slot for an asset still to be supplied:
+   image-shaped and captioned, so it reads as art direction, not a TODO. */
+export function FigureSlot({
+  label,
+  caption,
+  ratio = "16 / 10",
+}: {
+  label: string;
+  caption?: string;
+  ratio?: string;
+}) {
+  return (
+    <figure className="flex flex-col">
+      <div
+        className="relative w-full overflow-hidden rounded-[20px] md:rounded-[26px] border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.03] dark:bg-white/[0.05] flex items-center justify-center"
+        style={{ aspectRatio: ratio }}
+      >
+        <span className="px-8 text-center text-sm md:text-base text-[color:var(--color-muted-text)] max-w-[46ch]">
+          {label}
+        </span>
+      </div>
+      {caption && <Caption>{caption}</Caption>}
+    </figure>
+  );
+}
+
+/* A live-status block: a pulsing marker beside a plain-language note.
+   For places where the honest status IS the content. */
+export function StatusNote({
+  status,
+  children,
+}: {
+  status: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-[20px] md:rounded-[26px] border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-4 md:gap-6">
+      <span className="inline-flex items-center gap-2.5 shrink-0">
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--accent-coral)] opacity-60 motion-safe:animate-ping" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[var(--accent-coral)]" />
+        </span>
+        <span className="text-[13px] uppercase tracking-wider text-foreground">
+          {status}
+        </span>
+      </span>
+      <p className="text-base text-[color:var(--color-muted-text)]">{children}</p>
+    </div>
+  );
+}
+
+/* A lo-fi wireframe of the provenance / source chip: the trust increment that
+   names where an estimate comes from and how fresh it is. Clearly a sketch
+   (it labels itself), not shipped UI; swap for the real artifact when exported. */
+export function SourceChipWireframe({ caption }: { caption?: string }) {
+  return (
+    <figure className="flex flex-col">
+      <div className="rounded-[20px] md:rounded-[26px] bg-black/[0.03] dark:bg-white/[0.05] p-3 md:p-5 flex items-center justify-center">
+        <div className="relative w-full aspect-[420/880] rounded-[28px] border border-dashed border-foreground/25 bg-background overflow-hidden">
+          <span className="absolute inset-x-0 top-3 text-center text-[10px] uppercase tracking-[0.15em] text-foreground/35">
+            Wireframe
+          </span>
+          {/* map area: fit rings + a pin */}
+          <div className="absolute inset-x-4 top-9 bottom-[40%] rounded-2xl border border-foreground/15 bg-black/[0.02] dark:bg-white/[0.03]">
+            <div className="absolute inset-[18%] rounded-full border border-dashed border-foreground/20" />
+            <div className="absolute inset-[34%] rounded-full border border-dashed border-foreground/15" />
+            <div className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/45" />
+          </div>
+          {/* callout card: address + estimate + the emphasized source chip */}
+          <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-foreground/20 bg-black/[0.02] dark:bg-white/[0.03] p-3.5 flex flex-col gap-2.5">
+            <div className="h-2 w-2/3 rounded bg-foreground/15" />
+            <div className="flex items-center gap-2">
+              <div className="h-3 w-16 rounded bg-foreground/35" />
+              <div className="h-2 w-20 rounded bg-foreground/15" />
+            </div>
+            <div className="mt-0.5 self-start inline-flex items-center gap-1.5 rounded-full border border-foreground/55 px-2.5 py-1">
+              <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden className="text-foreground/70">
+                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" strokeWidth="1" />
+                <path d="M6 3.3V6l1.7 1" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+              </svg>
+              <span className="text-[10px] leading-none text-foreground/80">
+                Source: traffic partner · updated today
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {caption && <Caption>{caption}</Caption>}
+    </figure>
+  );
+}
+
+/* A deliberate triptych of named concepts: a forward landmark, not a card grid. */
+export function ConceptColumns({
+  items,
+}: {
+  items: { name: string; detail: string }[];
+}) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+      {items.map((it) => (
+        <div key={it.name} className="border-t-2 border-foreground/70 pt-4">
+          <h3 className="font-heading text-[20px] md:text-[22px] font-normal leading-tight text-foreground">
+            {it.name}
+          </h3>
+          <p className="mt-2.5 text-base text-[color:var(--color-muted-text)]">
+            {it.detail}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function Caption({
   children,
   center,

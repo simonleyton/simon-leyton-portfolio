@@ -7,9 +7,14 @@ import {
   Shot,
   FlowStrip,
   AuditRow,
+  Row,
   StatCards,
   Showpiece,
-  PlaceholderStrip,
+  Milestone,
+  FigureSlot,
+  StatusNote,
+  ConceptColumns,
+  SourceChipWireframe,
 } from "@/components/case-study";
 
 export const metadata: Metadata = {
@@ -119,35 +124,24 @@ export default function ZillowCommutePage() {
         <StatCards stats={briefStats} note="The delivery brief, in three numbers — sprint research signals." />
       </div>
 
-      {/* Who it's for */}
-      <SectionHeading
-        kicker="Who it&apos;s for"
-        title="Renters whose routine has more than one stop."
-      >
-        <Prose>
-          Renters — and the daily lives attached to them: work, a school, a
-          gym, a partner&apos;s office. For most renters, commute is one of the
-          things that most shapes where they&apos;ll live, and the people who
-          dug up the old, buried travel-time tool were among the most motivated
-          on the site — high intent, under-served.
-        </Prose>
-      </SectionHeading>
-
-      {/* The problem */}
+      {/* The problem — audience folded in */}
       <SectionHeading
         kicker="The problem"
         title="Real routines are multi-stop. Zillow treated commute as one number."
       >
         <Prose>
-          Renters could not tell whether a home worked for their actual daily
-          routine. Commute fit is multi-stop, variable, and full of tradeoffs,
-          but Zillow capped commute at one or two destinations and treated it
-          as a rigid cutoff. That forced tool switching, repeated setup, and a
-          quiet anxiety about missing good options.
+          The renters who need this most live multi-stop lives: work, a school,
+          a gym, a partner&apos;s office. They were also among the most
+          motivated people on the site, digging the old travel-time tool out of
+          a buried filter menu. And it failed them: commute fit is multi-stop,
+          variable, and full of tradeoffs, but Zillow capped commute at one or
+          two destinations and treated it as a rigid cutoff, forcing
+          tool-switching, repeated setup, and a quiet anxiety about missing good
+          options.
         </Prose>
         <Prose>
-          Worse, commute settings did not carry between Search and Detail, so
-          people redid their work and doubted the results.
+          Worse, commute settings didn&apos;t carry between search and the
+          listing, so people redid their work and doubted the results.
         </Prose>
       </SectionHeading>
 
@@ -239,94 +233,50 @@ export default function ZillowCommutePage() {
       </SectionHeading>
 
       {/* The exploration — artifacts pending */}
-      <PlaceholderStrip
-        label="The exploration: early spot-editor and map-fit treatments, with the old pilot as the control"
-        note="Process artifacts being gathered"
+      <FigureSlot
+        label="The exploration: early spot-editor and map-fit treatments, with the old pilot held as the control."
+        caption="Hold for: the exploration board (early editor and map-fit studies)."
+        ratio="21 / 9"
       />
 
-      {/* Experience 01 — Set it once */}
-      <SectionHeading kicker="The experience · 01" title="Set it once.">
-        <Prose>
-          The feature introduces itself on the map — &ldquo;See homes near
-          your spots&rdquo; — instead of hiding in a filter list. The editor
-          asks for places the way you&apos;d describe them to a friend, and
-          the time control is explicit about its own nature: this is a
-          preference, and near matches will still be visible.
-        </Prose>
-      </SectionHeading>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-        <Shot
-          src="/images/zillow-commute/entry.png"
-          alt="An education sheet on the search map inviting users to add places they go often"
-          caption="The education moment, on the map"
-        />
-        <Shot
-          src="/images/zillow-commute/editor-empty.png"
-          alt="The empty Commute times editor with spot labels, address, travel mode, preferred time, and time of day"
-          caption="Spots labeled the way people think"
-        />
-        <Shot
-          src="/images/zillow-commute/editor-filled.png"
-          alt="The editor filled in: Work, driving, 30 minutes preferred, at rush hour"
-          caption="Per-spot mode, time, and rush hour"
-        />
-      </div>
-
-      {/* Experience 02 — Tradeoffs on the map */}
+      {/* The experience — one section, the whole arc */}
       <SectionHeading
-        kicker="The experience · 02"
-        title="Tradeoffs on the map, not cutoffs."
+        kicker="The experience"
+        title="Set it once. See the fit. Carry it to every listing."
       >
         <Prose>
-          With spots saved, the search map shows graded travel areas and how
-          many homes fall inside each band, so the tradeoff is something you
-          can see, not a zero-results dead end. Every estimate is stated as a
-          range under typical conditions — &ldquo;20–30 min by driving&rdquo;
-          — because a believable range beats a precise number nobody trusts.
+          The feature introduces itself on the map, not in a filter list: add
+          the places you go often, described the way you&apos;d describe them to
+          a friend, each with its own travel mode and a preferred time that
+          reads as a preference, not a cutoff. Save them and the map answers in
+          graded travel areas with the count of homes in each band, so a
+          tradeoff is something you can see rather than a zero-results dead end.
+          Every estimate is a range under typical conditions, because a
+          believable range beats a precise number nobody trusts.
+        </Prose>
+        <Prose>
+          That profile is shared state, not a per-screen setting. It rides down
+          to the property card, &ldquo;~18 min drive to work, good fit for
+          you,&rdquo; so commute fit is part of triage on every listing instead
+          of a tool you have to remember to re-run. Set it on search and the
+          listing already knows, and the second tab stops being necessary.
         </Prose>
       </SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
         <Shot
-          src="/images/zillow-commute/spots-saved.png"
-          alt="The saved Work spot with a 20 to 30 minute drive estimate and a note that times can vary"
-          caption="Honest about what it knows"
+          src="/images/zillow-commute/editor-empty.png"
+          alt="The Commute times editor with fields for a spot label, address, travel mode, preferred time, and time of day"
+          caption="Set it once: places labeled the way you'd describe them, each with its own mode and preferred time."
         />
         <Shot
           src="/images/zillow-commute/fit-map.png"
           alt="The Seattle map with commute-fit bands and listing counts per area"
-          caption="Graded fit, with near matches kept visible"
-        />
-        <Shot
-          src="/images/zillow-commute/fit-callout.png"
-          alt="A map callout reading 20 to 30 minutes by driving, based on typical travel conditions"
-          caption="Honest ranges over false precision"
-        />
-      </div>
-
-      {/* Experience 03 — One profile everywhere */}
-      <SectionHeading
-        kicker="The experience · 03"
-        title="One profile, everywhere."
-      >
-        <Prose>
-          The daily-spots profile is shared state, not a per-screen setting.
-          It shows up in map options ready to edit, and it travels down to the
-          property card — &ldquo;~18 min drive to work · Good fit for
-          you&rdquo; — so commute fit is part of triage on every listing, not
-          a separate tool you have to remember to re-run. Setting it on Search
-          means Detail already knows, and vice versa.
-        </Prose>
-      </SectionHeading>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 lg:px-24">
-        <Shot
-          src="/images/zillow-commute/map-options-saved.png"
-          alt="Map options showing the saved Work commute spot alongside climate risks and amenities"
-          caption="Saved state, editable from anywhere"
+          caption="See the fit: graded travel areas on the map, near matches kept visible."
         />
         <Shot
           src="/images/zillow-commute/listing-card-v2.png"
           alt="A listing card showing total monthly price and an 18 minute drive to work, marked as a good fit"
-          caption="Commute fit in the triage zone"
+          caption="Carry it everywhere: the same profile reads on every listing card."
         />
       </div>
 
@@ -338,56 +288,96 @@ export default function ZillowCommutePage() {
         height={797}
       />
 
+      {/* What shipped — the milestone */}
+      <SectionHeading
+        kicker="What shipped"
+        title="Live on three platforms at once."
+      >
+        <Prose>
+          The flow above isn&apos;t a prototype. Commute V1 reached production
+          and went live to renters: the first Lifestyle Insights feature to do
+          so.
+        </Prose>
+      </SectionHeading>
+      <Milestone
+        statement="Commute V1 shipped to production, live across web, iOS, and Android at once."
+        facts={[
+          { label: "Shipped", value: "June 2026" },
+          { label: "Platforms", value: "Web · iOS · Android" },
+          { label: "Rollout", value: "A/B experiment, in flight" },
+          { label: "Readout", value: "Pending, no lift claimed" },
+        ]}
+      />
+
       {/* The differentiator */}
       <SectionHeading
         kicker="The differentiator"
         title="Designed to close the trust gap."
       >
         <Prose>
-          The research said helpfulness wasn&apos;t the problem — belief was.
-          So trust is treated as a design material throughout: every number is
-          a range based on typical conditions, the system says so in plain
-          language, and transit estimates are phased in only where the
-          underlying data quality is proven, rather than shipping
-          precise-looking overlays everywhere and apologizing later.
-        </Prose>
-        <Prose>
-          The same logic shaped the partner story: commute is optional,
-          clearly branded, and transparency-first, so the feature could earn
-          its place with Zillow&apos;s partners the same way it earns it with
-          renters. The measure of success for all of it: the renters who kept
-          Google Maps open in a second tab, not needing to.
+          The research said helpfulness wasn&apos;t the problem; belief was. So
+          trust became a design material: every estimate is a range tied to
+          typical conditions, stated in plain language, with transit phased in
+          only where the data quality holds, never precise-looking overlays
+          that apologize later. The partner story followed the same rule,
+          optional and clearly sourced. The measure of success stays simple:
+          the renters who kept Google Maps open in a second tab, no longer
+          needing to.
         </Prose>
       </SectionHeading>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 lg:px-24">
+        <Shot
+          src="/images/zillow-commute/fit-callout.png"
+          alt="A map callout reading 20 to 30 minutes by driving, based on typical travel conditions"
+          caption="In V1 today: the estimate is already a range tied to typical conditions."
+        />
+        <SourceChipWireframe caption="Wireframe of the next trust increment: a provenance chip that names the data source and its freshness, so the number earns belief instead of asking for it." />
+      </div>
 
-      {/* What shipped */}
+      {/* How we'll know it worked — the measurement plan */}
       <SectionHeading
-        kicker="What shipped"
-        title="Live on three platforms at once."
+        kicker="How we'll know it worked"
+        title="The scorecard, set before the results."
       >
         <Prose>
-          Commute V1 shipped into an A/B experiment across web, iOS, and
-          Android in June 2026 — the first lifestyle-insight feature to reach
-          production, and it landed on all three platforms together. It&apos;s
-          instrumented and measuring in the wild now.
-        </Prose>
-        <Prose>
-          The team committed to the outcomes up front: more sessions where
-          renters save a commute spot and use it across Search and Detail, and
-          more high-intent actions — save, share, contact, tour, apply — in
-          sessions with an active commute profile, with guardrails on
-          cross-surface continuity, &ldquo;misleading commute&rdquo; feedback,
-          and map performance.
-        </Prose>
-        <Prose>
-          The experiment is still in flight, so this page stops short of a
-          lift. What&apos;s proven today is the design and the research behind
-          it — movers rated the commute view 4.6 of 5 for helpfulness and named
-          the cost-versus-time model the most useful new way to think about a
-          move. The readout is what turns a validated bet into a measured win,
-          and I&apos;d rather show the honest line than borrow a number.
+          What ran: the daily-spots profile against the old commute filter as
+          control, across search and listing pages on web, iOS, and Android, as
+          a 50/50 A/B over about four weeks. Here is the scorecard it gets
+          graded on.
         </Prose>
       </SectionHeading>
+      <div className="flex flex-col">
+        <Row
+          index="01"
+          title="Primary · Commute engagement"
+          detail="Do renters interact with commute when it's an insight, not a buried filter? The headline question, and the bar the experiment was sized to clear."
+        />
+        <Row
+          index="02"
+          title="Downstream · High-intent actions"
+          detail="Do profiled sessions save, contact, tour, and apply more? Engagement isn't the point; action is. This is where a real win has to show up."
+        />
+        <Row
+          index="03"
+          title="Continuity · Cross-surface use"
+          detail="Does a profile set on search actually carry to the listing and get used there? The single thing the audit found most broken in the old flow."
+        />
+        <Row
+          index="04"
+          title="Trust · The second tab"
+          detail="Does treating trust as a design material reduce the need to leave and verify elsewhere? The research's core open question: 87% kept Google Maps open."
+        />
+        <Row
+          index="05"
+          title="Guardrails · Do no harm"
+          detail="Map performance stays healthy, no spike in “misleading commute” feedback, and no cannibalization of other high-intent actions. Any red here changes the call, whatever the topline says."
+        />
+      </div>
+      <StatusNote status="In flight">
+        Shipped 50/50 and measuring now; the readout is pending. When it lands,
+        the result, and the honest verdict to ship or iterate, lands here. No
+        lift goes on this page until then.
+      </StatusNote>
 
       {/* Where it goes next — the V2 direction */}
       <SectionHeading
@@ -397,23 +387,12 @@ export default function ZillowCommutePage() {
         <Prose>
           Off the sprint&apos;s learnings, I&apos;m driving the next direction:
           commute as a fit signal that <em>orders</em> results instead of
-          filtering them — a graduated, explainable commute-fit score that
-          ranks homes by how well they match your whole routine, and never
-          hides the near-misses. It&apos;s the purest form of the principle V1
-          started: fit, not filter.
+          filtering them, never hiding the near-misses. The purest form of the
+          principle V1 started: fit, not filter.
         </Prose>
         <Prose>
-          Two moves carry it. A progressive-commitment model, so a place you
-          merely check doesn&apos;t silently become a tracked commute until you
-          say so. And a fit-zone read — &ldquo;where works for all of my
-          spots&rdquo; — that treats your routine as one shape rather than a
-          stack of separate pins. Underneath both sits a shared trust
-          treatment: every estimate carries its range, its conditions, and its
-          source, so the number earns belief instead of asking for it.
-        </Prose>
-        <Prose>
-          Commute is the delivery half of a pair. The strategy half — the
-          research week that sharpened this bet — is its own story:{" "}
+          Commute is the delivery half of a pair. The strategy half, the
+          research week that sharpened this bet, is its own story:{" "}
           <Link
             href="/work/zillow-lifestyle-insights"
             className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
@@ -423,6 +402,29 @@ export default function ZillowCommutePage() {
           .
         </Prose>
       </SectionHeading>
+      <ConceptColumns
+        items={[
+          {
+            name: "It sorts, not hides",
+            detail:
+              "A graduated, explainable commute-fit score ranks homes by how well they match your whole routine, instead of removing the ones that miss.",
+          },
+          {
+            name: "Progressive commitment",
+            detail:
+              "A place you merely check doesn’t silently become a tracked commute until you say so.",
+          },
+          {
+            name: "Fit-zone",
+            detail:
+              "“Where works for all of my spots,” treating a routine as one shape rather than a stack of separate pins.",
+          },
+        ]}
+      />
+      <FigureSlot
+        label="Commute V2 hi-fi: fit-sort on the search map — homes ordered by graduated commute fit, near-misses still visible, on real components."
+        caption="Hold for: the Commute V2 prototype (fit-sort and provenance), exported from the working file."
+      />
 
       {/* The closing image — the insight the filter became */}
       <Showpiece
