@@ -39,7 +39,7 @@ const discipline = [
 
 const sprintFacts = [
   { value: "5 days", label: "In person, in Chicago" },
-  { value: "12+ ICs", label: "Product, design, UXR, engineering" },
+  { value: "12+ ICs", label: "Product, Engineering, Marketing, Design, UX Research, and Data Science" },
   { value: "6 concepts", label: "Prototyped with engineering in the room" },
   { value: "88 movers", label: "Tested across renter and buyer cohorts" },
 ];
@@ -167,15 +167,15 @@ export default function ZillowLifestyleInsightsPage() {
       <div>
         <BetOpener
           illustration="/images/zillow/ill-audience.png"
-          kicker="Who it&apos;s for"
-          title="Movers heading somewhere they don&apos;t know yet."
+          title="Who it&apos;s for"
           bare
         >
           <Prose>
-            Renters and buyers mid-search. Location is the most important
-            factor in their decision, and the majority are moving to a
-            neighborhood or town they&apos;ve never lived in, so the thing they
-            most need to judge is the thing they have no firsthand read on.
+            Movers heading somewhere they don&apos;t know yet. Renters and
+            buyers mid-search: location is the most important factor in their
+            decision, and the majority are moving to a neighborhood or town
+            they&apos;ve never lived in, so the thing they most need to judge is
+            the thing they have no firsthand read on.
           </Prose>
         </BetOpener>
         <StatCards
@@ -187,27 +187,29 @@ export default function ZillowLifestyleInsightsPage() {
       {/* The problem */}
       <BetOpener
         illustration="/images/zillow/ill-second-job.png"
-        kicker="The problem"
-        title="Searching for a place feels like a second job"
+        title="The problem"
         flip
       >
         <Prose>
-          Movers juggle Google Maps, Reddit, Niche, and Walk Score to
-          understand a neighborhood before they commit. Location is central to
-          the housing decision, but Zillow&apos;s map and detail pages stay
-          disconnected from the lifestyle context that drives it, a gap that
-          spans the whole journey from the search results to the listing.
+          Searching for a place feels like a second job. Movers juggle Google
+          Maps, Reddit, Niche, and Walk Score to understand a neighborhood
+          before they commit. Location is central to the housing decision, but
+          Zillow&apos;s map and detail pages stay disconnected from the
+          lifestyle context that drives it, a gap that spans the whole journey
+          from the search results to the listing.
         </Prose>
       </BetOpener>
 
       {/* How the sprint ran */}
-      <SectionHeading kicker="How it ran" title="Five days, four moves.">
+      <SectionHeading title="How it ran">
         <Prose>
-          The hypothesis: if Zillow answered the three location questions movers
-          ask anyway, they would shop here longer and come back more often. We
-          set out to validate which problems held up, prototype with
-          engineering in the room, test with real movers, and leave with a
-          prioritized roadmap.
+          Five days, four moves. The hypothesis: if Zillow answered the three
+          questions movers leave to research elsewhere — what&apos;s the
+          neighborhood actually like, how bad is the commute, will this place
+          fit my life — they&apos;d shop here longer and come back more often.
+          My job for the week was to make that bet testable: get twelve-plus
+          people across two orgs to one validated direction in five days, with
+          engineering pressure-testing feasibility from the first sketch.
         </Prose>
       </SectionHeading>
       <div className="flex flex-col">
@@ -235,29 +237,23 @@ export default function ZillowLifestyleInsightsPage() {
       </div>
 
       {/* What we tested */}
-      <SectionHeading
-        kicker="What we tested"
-        title="Three concepts, three honest readouts."
-      >
+      <SectionHeading title="What we tested">
         <Prose>
-          Each problem became a working prototype, tested with separate renter
-          and buyer cohorts in AI-moderated sessions of 25 to 40 minutes. The
-          concepts shown here are sprint prototypes; none of these features are
-          live in production.
+          Three concepts, three honest readouts. Each problem became a working
+          prototype, tested with separate renter and buyer cohorts in
+          AI-moderated sessions of 25 to 40 minutes. The concepts shown here are
+          sprint prototypes; none of these features are live in production.
         </Prose>
       </SectionHeading>
 
       {/* Bet 1 — Neighborhood discovery */}
-      <SectionHeading
-        kicker="Concept 1 · Neighborhood discovery"
-        title="Score the neighborhood, then explain it."
-      >
+      <SectionHeading title="Concept 1 · Neighborhood discovery">
         <Prose>
-          Movers don&apos;t know which areas fit them when they start,
-          especially the large share moving from another county or further. The
-          concept sets your lifestyle preferences once, scores each
-          neighborhood as a 5-of-7 match, and lets you drill in to understand
-          why.
+          Score the neighborhood, then explain it. Movers don&apos;t know which
+          areas fit them when they start, especially the large share moving from
+          another county or further. The concept sets your lifestyle preferences
+          once, scores each neighborhood as a 4-of-5 match, and lets you drill
+          in to understand why.
         </Prose>
       </SectionHeading>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
@@ -288,11 +284,12 @@ export default function ZillowLifestyleInsightsPage() {
               text: (
                 <>
                   <strong className="font-normal text-foreground">
-                    “What locals wish were different” was the most-praised new
-                    feature.
+                    Negatives were the trust unlock.
                   </strong>{" "}
-                  Criticism, sourced to real residents, is what made the content
-                  believable.
+                  Grouped by resident type and sourced to real residents instead
+                  of marketing copy, what locals <em>disliked</em> is what made
+                  movers believe the panel — and rule a place in or out on a
+                  single honest complaint.
                 </>
               ),
             },
@@ -338,15 +335,12 @@ export default function ZillowLifestyleInsightsPage() {
       </div>
 
       {/* Bet 2 — Commute confidence */}
-      <SectionHeading
-        kicker="Concept 2 · Commute confidence"
-        title="Commute as a tradeoff, not a cutoff."
-      >
+      <SectionHeading title="Concept 2 · Commute confidence">
         <Prose>
-          Commute weighs heavily for most movers, but Google Maps is where
-          they go to work it out. The concept brings it onto the map: set your
-          daily destinations, then compare areas by Fastest, Cheapest, or
-          Balanced.
+          Commute as a tradeoff, not a cutoff. Commute weighs heavily for most
+          movers, but Google Maps is where they go to work it out. The concept
+          brings it onto the map: set your daily destinations, then compare
+          areas by Fastest, Cheapest, or Balanced.
         </Prose>
       </SectionHeading>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
@@ -425,15 +419,12 @@ export default function ZillowLifestyleInsightsPage() {
       </div>
 
       {/* Bet 3 — Location fit */}
-      <SectionHeading
-        kicker="Concept 3 · Location fit"
-        title="Show me the score, then prove it."
-      >
+      <SectionHeading title="Concept 3 · Location fit">
         <Prose>
-          Movers can&apos;t picture what everyday life feels like at a specific
-          listing, so they triage on Zillow and evaluate elsewhere. The concept
-          brings a personalized match score to the listing, then backs it with
-          hyperlocal, sourced content.
+          Show me the score, then prove it. Movers can&apos;t picture what
+          everyday life feels like at a specific listing, so they triage on
+          Zillow and evaluate elsewhere. The concept brings a personalized match
+          score to the listing, then backs it with hyperlocal, sourced content.
         </Prose>
       </SectionHeading>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
@@ -511,15 +502,13 @@ export default function ZillowLifestyleInsightsPage() {
       </div>
 
       {/* Cross-cutting synthesis */}
-      <SectionHeading
-        kicker="What held across all three"
-        title="Three things movers told us, whichever prototype they saw."
-      >
+      <SectionHeading title="What held across all three">
         <Prose>
-          The pattern to fix is the helpfulness-to-trust gap: movers liked what
-          we showed them but still verified elsewhere. Data provenance,
-          freshness timestamps, and visible assumptions are small,
-          label-level moves that close most of it.
+          Three things movers told us, whichever prototype they saw. The pattern
+          to fix is the helpfulness-to-trust gap: movers liked what we showed
+          them but still verified elsewhere. Data provenance, freshness
+          timestamps, and visible assumptions are small, label-level moves that
+          close most of it.
         </Prose>
       </SectionHeading>
       <div className="flex flex-col">
@@ -541,27 +530,23 @@ export default function ZillowLifestyleInsightsPage() {
       </div>
 
       {/* Where it goes next */}
-      <SectionHeading
-        kicker="Where it goes next"
-        title="A validated, sequenced roadmap."
-      >
+      <SectionHeading title="Where it goes next">
         <Prose>
-          Findings were prioritized against movers&apos; needs, our 2026
-          engagement goals, and feasibility with partner teams. The proposed
-          sequence runs from the closest-to-shippable commute work outward.
+          A validated, sequenced roadmap. Findings were prioritized against
+          movers&apos; needs, our 2026 engagement goals, and feasibility with
+          partner teams. The proposed sequence runs from the
+          closest-to-shippable commute work outward.
         </Prose>
       </SectionHeading>
       <Roadmap phases={roadmap} />
 
       {/* Outcome */}
-      <SectionHeading
-        kicker="What the sprint settled"
-        title="Direction, set before anyone builds."
-      >
+      <SectionHeading title="What the sprint settled">
         <Prose>
-          The sprint did what a sprint should: it aligned twelve-plus people
-          across two offices on what to build, in what order, with engineering
-          feasibility in the room from the first sketch. I co-led it with
+          Direction, set before anyone builds. The sprint did what a sprint
+          should: it aligned twelve-plus people across two orgs on what to
+          build, in what order, with engineering feasibility in the room from
+          the first sketch. I co-led it with
           product, and my through line across the week was less any single
           screen than the argument I kept making — that commute should be
           reframed from a number you pass or fail into an insight movers would
@@ -595,7 +580,7 @@ export default function ZillowLifestyleInsightsPage() {
       <FlowStrip
         src="/images/zillow/sprint/sprint-team.jpg"
         alt="The cross-functional sprint team gathered in the Chicago conference room"
-        caption="The team: twelve-plus ICs across product, design, UX research, engineering, content, and QA, together in person in Chicago. A co-led sprint — product, design, research, and content steering it together."
+        caption="The team: twelve-plus ICs, together in person in Chicago. A co-led sprint — product, design, research, and content steering it together."
         width={1600}
         height={1200}
       />

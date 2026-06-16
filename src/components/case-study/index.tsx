@@ -11,14 +11,16 @@ export function SectionHeading({
   title,
   children,
 }: {
-  kicker: string;
+  kicker?: string;
   title: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-6 gap-3 md:gap-6 lg:gap-10 py-8 md:py-12 lg:py-16">
       <div className="lg:col-span-2">
-        <p className="text-sm text-[color:var(--color-muted-text)] mb-2">{kicker}</p>
+        {kicker && (
+          <p className="text-sm text-[color:var(--color-muted-text)] mb-2">{kicker}</p>
+        )}
         <h2 className="font-heading text-[30px] md:text-[34px] font-normal leading-[1.1] text-foreground">
           {title}
         </h2>
@@ -601,7 +603,7 @@ export function BetOpener({
   children,
 }: {
   illustration: string;
-  kicker: string;
+  kicker?: string;
   title: string;
   flip?: boolean;
   /* bare: a transparent illustration (e.g. a persona blob) floats free,
@@ -632,7 +634,9 @@ export function BetOpener({
       </div>
       <div className="flex flex-col gap-5">
         <div>
-          <p className="text-sm text-[color:var(--color-muted-text)] mb-2">{kicker}</p>
+          {kicker && (
+            <p className="text-sm text-[color:var(--color-muted-text)] mb-2">{kicker}</p>
+          )}
           <h2 className="font-heading text-[30px] md:text-[34px] font-normal leading-[1.1] text-foreground">
             {title}
           </h2>
