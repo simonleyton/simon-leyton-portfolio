@@ -490,8 +490,8 @@ export default function ZillowCommutePage() {
 
       {/* The closing image — the insight the filter became */}
       <Showpiece
-        src="/images/zillow-commute/fit-map-v2.png"
-        alt="The Seattle search map with two overlapping commute-fit areas — where both daily spots work"
+        src="/images/zillow-commute/fit-map-full.png"
+        alt="A full Seattle search map with a Commute filter for two daily spots, overlapping commute-fit areas, per-area listing counts, and 2,217 homes in view"
         caption="“Where could we live that works for all of us” — the insight the filter became."
       />
     </CaseStudyLayout>
