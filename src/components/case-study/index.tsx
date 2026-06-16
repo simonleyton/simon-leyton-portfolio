@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FitTitle } from "./FitTitle";
 
 /* ── The case-study kit ─────────────────────────────────────────
    Single source of truth for every /work page. One spec: quiet gray
@@ -471,7 +472,7 @@ export function StatRow({
   stat: string;
   label: string;
   note: string;
-  measured: boolean;
+  measured?: boolean;
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 py-6 border-t border-black/[0.08] dark:border-white/[0.1] items-baseline">
@@ -480,9 +481,11 @@ export function StatRow({
       </p>
       <p className="md:col-span-4 text-base text-foreground">
         {label}
-        <span className="ml-2 text-xs text-[color:var(--color-muted-text)] align-middle">
-          {measured ? "measured" : "projected"}
-        </span>
+        {measured !== undefined && (
+          <span className="ml-2 text-xs text-[color:var(--color-muted-text)] align-middle">
+            {measured ? "measured" : "projected"}
+          </span>
+        )}
       </p>
       <p className="md:col-span-5 text-base text-[color:var(--color-muted-text)]">
         {note}
@@ -718,7 +721,6 @@ export function QuoteCard({
 export type CompanionLink = { label: string; href: string };
 
 export function CaseStudyLayout({
-  kicker,
   title,
   lede,
   role,
@@ -729,7 +731,7 @@ export function CaseStudyLayout({
   next,
   children,
 }: {
-  kicker: string;
+  kicker?: string;
   title: string;
   lede: React.ReactNode;
   role: string;
@@ -774,78 +776,78 @@ export function CaseStudyLayout({
       </nav>
 
       <div className="max-w-[1400px] mx-auto px-5 md:px-10">
-        {/* Title */}
-        <div className="pb-12 md:pb-16">
-          <p className="text-base md:text-lg text-[color:var(--color-muted-text)] mb-4">
-            {kicker}
-          </p>
-          <h1 className="font-heading font-normal tracking-[-0.04em] leading-[0.95] text-foreground text-[clamp(52px,14vw,190px)] text-balance">
-            {title}
-          </h1>
+        {/* Title — fills the column, no eyebrow (Daylight-style) */}
+        <div className="pb-10 md:pb-16">
+          <FitTitle text={title} />
         </div>
 
         <div className="flex flex-col gap-16 md:gap-24">
-          {/* Meta block */}
-          <div className="flex flex-col md:flex-row gap-10 lg:gap-20">
+          {/* Intro + metadata, beneath the title */}
+          <div className="flex flex-col md:flex-row md:items-start gap-10 lg:gap-20">
             <div className="flex-1">
-              <p className="text-lg md:text-2xl leading-snug text-foreground max-w-[60ch]">
+              <p className="text-lg md:text-xl leading-relaxed text-black/70 dark:text-white/70 max-w-[46ch]">
                 {lede}
               </p>
             </div>
-            <div className="md:w-[260px] shrink-0 space-y-6">
-              <div>
-                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+            <div className="md:w-[420px] shrink-0">
+              <dl className="grid grid-cols-[88px_1fr] gap-x-6 gap-y-7">
+                <dt className="text-[12px] uppercase tracking-[0.1em] text-black/40 dark:text-white/40 pt-1">
                   Role
-                </p>
-                <p className="text-base">{role}</p>
-              </div>
-              {team && team.length > 0 && (
-                <div>
-                  <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
-                    Team
-                  </p>
-                  <ul className="space-y-1">
-                    {team.map((t) => (
-                      <li key={t} className="text-base text-black/70 dark:text-white/70">
-                        {t}
-                      </li>
-                    ))}
-                    {teamNote && (
-                      <li className="text-base text-[color:var(--color-muted-text)]">
-                        {teamNote}
-                      </li>
-                    )}
-                  </ul>
-                </div>
-              )}
-              <div>
-                <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
+                </dt>
+                <dd className="text-base text-foreground">{role}</dd>
+
+                {team && team.length > 0 && (
+                  <>
+                    <dt className="text-[12px] uppercase tracking-[0.1em] text-black/40 dark:text-white/40 pt-1">
+                      Team
+                    </dt>
+                    <dd className="text-base text-black/70 dark:text-white/70">
+                      <ul className="space-y-1">
+                        {team.map((t) => (
+                          <li key={t}>{t}</li>
+                        ))}
+                        {teamNote && (
+                          <li className="text-[color:var(--color-muted-text)]">
+                            {teamNote}
+                          </li>
+                        )}
+                      </ul>
+                    </dd>
+                  </>
+                )}
+
+                <dt className="text-[12px] uppercase tracking-[0.1em] text-black/40 dark:text-white/40 pt-1">
                   Discipline
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {discipline.map((d) => (
-                    <span
-                      key={d}
-                      className="text-xs border border-foreground/20 rounded-full px-3 py-1"
-                    >
-                      {d}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              {companion && (
-                <div>
-                  <p className="text-[13px] uppercase tracking-wider text-black/40 dark:text-white/40 mb-2">
-                    Companion piece
-                  </p>
-                  <Link
-                    href={companion.href}
-                    className="text-base underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
-                  >
-                    {companion.label}
-                  </Link>
-                </div>
-              )}
+                </dt>
+                <dd>
+                  <div className="flex flex-wrap gap-2">
+                    {discipline.map((d) => (
+                      <span
+                        key={d}
+                        className="text-[11px] uppercase tracking-[0.08em] border border-foreground/25 rounded-full px-3 py-1 text-foreground"
+                      >
+                        {d}
+                      </span>
+                    ))}
+                  </div>
+                </dd>
+
+                {companion && (
+                  <>
+                    <dt className="text-[12px] uppercase tracking-[0.1em] text-black/40 dark:text-white/40 pt-1">
+                      Companion
+                    </dt>
+                    <dd>
+                      <Link
+                        href={companion.href}
+                        className="text-base underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
+                      >
+                        {companion.label}
+                      </Link>
+                    </dd>
+                  </>
+                )}
+              </dl>
             </div>
           </div>
 

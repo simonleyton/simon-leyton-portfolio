@@ -40,7 +40,7 @@ export default function HuluPlanSelectPage() {
       next={{ label: "Meta · People Portal", href: "/work/meta-people-portal" }}
     >
       {/* Cover image */}
-      <figure className="rounded-[20px] md:rounded-[26px] overflow-hidden">
+      <figure className="overflow-hidden">
         <Image
           src="/images/hulu-plan-select/cover.jpg"
           alt="A hand holding an iPhone on a plane, browsing Hulu's Choose Your Plan page"
@@ -251,7 +251,6 @@ export default function HuluPlanSelectPage() {
           stat="$40M"
           label="Incremental revenue"
           note="Projected alongside the subscriber lift, the figure behind the largest win claim."
-          measured={false}
         />
       </div>
     </CaseStudyLayout>
