@@ -94,11 +94,9 @@ export default function ZillowCommutePage() {
 
       {/* Where it started */}
       <div>
-        <SectionHeading
-          kicker="Where it started"
-          title="The sprint picked the bet. The product had to earn the trust."
-        >
+        <SectionHeading title="Where it started">
           <Prose>
+            The sprint picked the bet. The product had to earn the trust.
             Commute V1 didn&apos;t begin with the sprint — its first spec
             predates it. But when the{" "}
             <Link
@@ -125,12 +123,10 @@ export default function ZillowCommutePage() {
       </div>
 
       {/* The problem — audience folded in */}
-      <SectionHeading
-        kicker="The problem"
-        title="Real routines are multi-stop. Zillow treated commute as one number."
-      >
+      <SectionHeading title="The problem">
         <Prose>
-          The renters who need this most live multi-stop lives: work, a school,
+          Real routines are multi-stop; Zillow treated commute as one number.
+          The renters who need this most live exactly that way: work, a school,
           a gym, a partner&apos;s office. They were also among the most
           motivated people on the site, digging the old travel-time tool out of
           a buried filter menu. And it failed them: commute fit is multi-stop,
@@ -146,14 +142,11 @@ export default function ZillowCommutePage() {
       </SectionHeading>
 
       {/* The audit */}
-      <SectionHeading
-        kicker="The audit"
-        title="Why nobody trusted the old commute filter."
-      >
+      <SectionHeading title="The audit">
         <Prose>
-          Before designing anything new, I audited the existing pilot end to
-          end and wrote up ten distinct issues — the six that most shaped the
-          design are below. The pattern across all of them: the old experience
+          Why nobody trusted the old commute filter. Before designing anything
+          new, I audited the existing pilot end to end and wrote up ten distinct
+          issues — the six that most shaped the design are below. The pattern across all of them: the old experience
           asked people to commit to a precise number before showing them
           anything, then hid everything that missed it. A filter built for
           machines, not for how people actually weigh a move.
@@ -206,10 +199,11 @@ export default function ZillowCommutePage() {
       </div>
 
       {/* The reframe */}
-      <SectionHeading kicker="The reframe" title="From filter to insight.">
+      <SectionHeading title="The reframe">
         <Prose>
-          The core move was changing what commute <em>is</em> on Zillow. A
-          filter takes a number and removes listings. An insight takes your
+          From filter to insight. The core move was changing what commute{" "}
+          <em>is</em> on Zillow. A filter takes a number and removes listings.
+          An insight takes your
           routine and shows you tradeoffs. So instead of a max-time cutoff, you
           build a small profile of your daily spots — up to four, each labeled
           the way people think (Work, School, Gym), each with its own travel
@@ -240,12 +234,10 @@ export default function ZillowCommutePage() {
       />
 
       {/* The experience — one section, the whole arc */}
-      <SectionHeading
-        kicker="The experience"
-        title="Set it once. See the fit. Carry it to every listing."
-      >
+      <SectionHeading title="The experience">
         <Prose>
-          The feature introduces itself on the map, not in a filter list: add
+          Set it once, see the fit, carry it to every listing. The feature
+          introduces itself on the map, not in a filter list: add
           the places you go often, described the way you&apos;d describe them to
           a friend, each with its own travel mode and a preferred time that
           reads as a preference, not a cutoff. Save them and the map answers in
@@ -289,14 +281,11 @@ export default function ZillowCommutePage() {
       />
 
       {/* What shipped — the milestone */}
-      <SectionHeading
-        kicker="What shipped"
-        title="Live on three platforms at once."
-      >
+      <SectionHeading title="What shipped">
         <Prose>
-          The flow above isn&apos;t a prototype. Commute V1 reached production
-          and went live to renters: the first Lifestyle Insights feature to do
-          so.
+          Live on three platforms at once. The flow above isn&apos;t a
+          prototype: Commute V1 reached production and went live to renters, the
+          first Lifestyle Insights feature to do so.
         </Prose>
       </SectionHeading>
       <Milestone
@@ -310,12 +299,10 @@ export default function ZillowCommutePage() {
       />
 
       {/* The differentiator */}
-      <SectionHeading
-        kicker="The differentiator"
-        title="Designed to close the trust gap."
-      >
+      <SectionHeading title="The differentiator">
         <Prose>
-          The research said helpfulness wasn&apos;t the problem; belief was. So
+          Designed to close the trust gap. The research said helpfulness
+          wasn&apos;t the problem; belief was. So
           trust became a design material: every estimate is a range tied to
           typical conditions, stated in plain language, with transit phased in
           only where the data quality holds, never precise-looking overlays
@@ -335,15 +322,12 @@ export default function ZillowCommutePage() {
       </div>
 
       {/* How we'll know it worked — the measurement plan */}
-      <SectionHeading
-        kicker="How we'll know it worked"
-        title="The scorecard, set before the results."
-      >
+      <SectionHeading title="How we'll know it worked">
         <Prose>
-          What ran: the daily-spots profile against the old commute filter as
-          control, across search and listing pages on web, iOS, and Android, as
-          a 50/50 A/B over about four weeks. Here is the scorecard it gets
-          graded on.
+          The scorecard, set before the results. What ran: the daily-spots
+          profile against the old commute filter as control, across search and
+          listing pages on web, iOS, and Android, as a 50/50 A/B over about four
+          weeks. Here is what it gets graded on.
         </Prose>
       </SectionHeading>
       <div className="flex flex-col">
@@ -380,13 +364,11 @@ export default function ZillowCommutePage() {
       </StatusNote>
 
       {/* Where it goes next — the V2 direction */}
-      <SectionHeading
-        kicker="Where it goes next"
-        title="From a fit you can see to a fit that sorts."
-      >
+      <SectionHeading title="Where it goes next">
         <Prose>
-          Off the sprint&apos;s learnings, I&apos;m driving the next direction:
-          commute as a fit signal that <em>orders</em> results instead of
+          From a fit you can see to a fit that sorts. Off the sprint&apos;s
+          learnings, I&apos;m driving the next direction: commute as a fit
+          signal that <em>orders</em> results instead of
           filtering them, never hiding the near-misses. The purest form of the
           principle V1 started: fit, not filter.
         </Prose>
