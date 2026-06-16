@@ -779,7 +779,7 @@ export function CaseStudyLayout({
           <p className="text-base md:text-lg text-[color:var(--color-muted-text)] mb-4">
             {kicker}
           </p>
-          <h1 className="font-heading font-normal tracking-[-0.04em] leading-[0.98] text-foreground text-[clamp(48px,11vw,150px)] text-balance">
+          <h1 className="font-heading font-normal tracking-[-0.04em] leading-[0.95] text-foreground text-[clamp(52px,14vw,190px)] text-balance">
             {title}
           </h1>
         </div>

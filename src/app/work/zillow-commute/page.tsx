@@ -12,7 +12,6 @@ import {
   StatCards,
   Showpiece,
   Milestone,
-  FigureSlot,
   StatusNote,
   StatRow,
   Findings,
@@ -454,10 +453,6 @@ export default function ZillowCommutePage() {
               "“Where works for all of my spots,” treating a routine as one shape rather than a stack of separate pins.",
           },
         ]}
-      />
-      <FigureSlot
-        label="Commute V2 hi-fi: fit-sort on the search map — homes ordered by graduated commute fit, near-misses still visible, on real components."
-        caption="Hold for: the Commute V2 prototype (fit-sort and provenance), exported from the working file."
       />
 
       {/* The closing image — the insight the filter became */}
