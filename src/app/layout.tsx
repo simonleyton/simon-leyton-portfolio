@@ -24,10 +24,10 @@ const helveticaNow = localFont({
 
 export const metadata: Metadata = {
   title: "Simon Leyton",
-  description: "Designing what comes next.",
+  description: "Simon Leyton • Product Designer at Zillow, Meta, Hulu",
   openGraph: {
     title: "Simon Leyton",
-    description: "Designing what comes next.",
+    description: "Simon Leyton • Product Designer at Zillow, Meta, Hulu",
     images: ["/seo/social-preview-1.png"],
   },
   twitter: {
