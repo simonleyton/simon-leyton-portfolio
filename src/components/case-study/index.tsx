@@ -139,6 +139,37 @@ export function FlowStrip({
   );
 }
 
+/* A full-width lead image: the case study's opening picture, editorial-style.
+   Clean rounded frame, object-cover, eager-loaded (it's above the fold). */
+export function LeadImage({
+  src,
+  alt,
+  ratio = "16 / 9",
+  position = "center",
+}: {
+  src: string;
+  alt: string;
+  ratio?: string;
+  position?: string;
+}) {
+  return (
+    <div
+      className="relative w-full overflow-hidden rounded-[20px] md:rounded-[30px] ring-1 ring-black/[0.06] dark:ring-white/[0.08]"
+      style={{ aspectRatio: ratio }}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority
+        className="object-cover"
+        style={{ objectPosition: position }}
+        sizes="(max-width: 768px) 100vw, 1320px"
+      />
+    </div>
+  );
+}
+
 /* A photo cropped to a uniform aspect ratio, so a row of mixed-orientation
    shots keeps even card heights. `position` tunes the focal point of the crop. */
 export function Photo({

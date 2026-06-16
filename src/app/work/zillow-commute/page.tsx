@@ -5,6 +5,7 @@ import {
   SectionHeading,
   Prose,
   Shot,
+  LeadImage,
   FlowStrip,
   AuditRow,
   Row,
@@ -76,24 +77,11 @@ export default function ZillowCommutePage() {
       }}
       next={{ label: "Hulu · Plan Select", href: "/work/hulu-plan-select" }}
     >
-      {/* Hero row — the three surfaces of the story */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-        <Shot
-          src="/images/zillow-commute/editor-filled.png"
-          alt="The Commute times editor with a Work spot set to a 30 minute drive at rush hour"
-          caption="Set your daily spots once"
-        />
-        <Shot
-          src="/images/zillow-commute/fit-map-v2.png"
-          alt="The Seattle search map with two overlapping commute-fit areas, listing counts, and photo previews for two saved daily spots"
-          caption="Commute fit as a map insight"
-        />
-        <Shot
-          src="/images/zillow-commute/listing-card.png"
-          alt="A search result card showing an 18 minute drive to work and a Good fit for you read"
-          caption="Carried to every listing"
-        />
-      </div>
+      {/* Lead image — the feature in the world */}
+      <LeadImage
+        src="/images/zillow-commute/hero-lifestyle.jpg"
+        alt="A renter holding a phone showing a Zillow Rentals listing with a 'Short commute time' badge"
+      />
 
       {/* Where it started */}
       <div>
