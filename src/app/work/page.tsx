@@ -141,6 +141,19 @@ export default function WorkPage() {
               · a clock that colors the hour
             </span>
           </p>
+          <p className="mt-2 text-base md:text-lg text-foreground">
+            <a
+              href="https://sundial-clock.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+            >
+              Sundials ↗
+            </a>{" "}
+            <span className="text-[color:var(--color-muted-text)]">
+              · a clock that tells time in light and shadow
+            </span>
+          </p>
         </div>
       </div>
 
