@@ -134,7 +134,7 @@ export default function ZillowLifestyleInsightsPage() {
           roadmap.
         </>
       }
-      role="Design co-lead · Sr. Product Designer"
+      role="Product Leader · Sr. Product Designer"
       team={team}
       teamNote="+ 12 ICs across product, design, UXR, eng"
       discipline={discipline}
