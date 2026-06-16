@@ -2,6 +2,8 @@ export type Project = {
   title: string;
   subtitle: string;
   image: string;
+  /* Optional hero-carousel override; the /work grid still uses `image`. */
+  heroImage?: string;
   href: string;
 };
 
@@ -12,6 +14,7 @@ export const caseStudies: Project[] = [
     title: "Zillow · Lifestyle Insights",
     subtitle: "Find a place that fits your life",
     image: "/images/zillow/card-v4.png",
+    heroImage: "/images/zillow/hero-lifestyle.jpg",
     href: "/work/zillow-lifestyle-insights",
   },
   {

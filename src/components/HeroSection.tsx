@@ -145,7 +145,7 @@ export function HeroSection() {
               {/* Image area */}
               <div className="aspect-square rounded-[14px] md:rounded-[26px] lg:rounded-[32px] overflow-hidden m-1.5 md:m-2 relative">
                 <Image
-                  src={project.image}
+                  src={project.heroImage ?? project.image}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
