@@ -5,6 +5,7 @@ import {
   SectionHeading,
   Prose,
   Shot,
+  LeadImage,
   Photo,
   DeviceVideo,
   FlowStrip,
@@ -145,24 +146,11 @@ export default function ZillowLifestyleInsightsPage() {
       companion={{ label: "Zillow · Commute", href: "/work/zillow-commute" }}
       next={{ label: "Zillow · Commute", href: "/work/zillow-commute" }}
     >
-      {/* Hero row — one screen per concept */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-        <Shot
-          src="/images/zillow/hero-neighborhood-v2.png"
-          alt="A Lincoln Park neighborhood overview with a video tour, highlights, and a prompt to personalize how the neighborhood fits you"
-          caption="Neighborhood discovery"
-        />
-        <Shot
-          src="/images/zillow/hero-commute-v2.png"
-          alt="A commute map comparing drive times across Chicago to work, an elementary school, and a sister's place"
-          caption="Commute"
-        />
-        <Shot
-          src="/images/zillow/hero-locationfit-v2.png"
-          alt="A neighborhood fit read for Lincoln Park scoring 2 of 4 priorities: walkable streets and strong schools match, short commute is partial, nightlife misses"
-          caption="Location fit"
-        />
-      </div>
+      {/* Lead image — the mover, mid-search */}
+      <LeadImage
+        src="/images/zillow/hero-lifestyle.jpg"
+        alt="A mover relaxing on a couch with her dog, browsing a Zillow listing on her phone"
+      />
 
       {/* Sprint at a glance */}
       <FactBand facts={sprintFacts} />
@@ -290,6 +278,23 @@ export default function ZillowLifestyleInsightsPage() {
           sprint prototypes; none of these features are live in production.
         </Prose>
       </SectionHeading>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
+        <Shot
+          src="/images/zillow/hero-neighborhood-v2.png"
+          alt="A Lincoln Park neighborhood overview with a video tour, highlights, and a prompt to personalize how the neighborhood fits you"
+          caption="Neighborhood discovery"
+        />
+        <Shot
+          src="/images/zillow/hero-commute-v2.png"
+          alt="A commute map comparing drive times across Chicago to work, an elementary school, and a sister's place"
+          caption="Commute"
+        />
+        <Shot
+          src="/images/zillow/hero-locationfit-v2.png"
+          alt="A neighborhood fit read for Lincoln Park scoring 2 of 4 priorities: walkable streets and strong schools match, short commute is partial, nightlife misses"
+          caption="Location fit"
+        />
+      </div>
 
       {/* Bet 1 — Neighborhood discovery */}
       <SectionHeading title="Concept 1 · Neighborhood discovery">
