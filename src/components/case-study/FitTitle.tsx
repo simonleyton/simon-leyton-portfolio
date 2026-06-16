@@ -13,23 +13,30 @@ export function FitTitle({ text }: { text: string }) {
     const parent = el?.parentElement;
     if (!el || !parent) return;
 
-    const fit = () => {
-      // Measure at a known size, then scale to fill the container width.
+    let lastWidth = -1;
+
+    const fit = (force = false) => {
+      const width = parent.clientWidth;
+      // Only react to container *width* changes — resizing the title changes
+      // the parent's height, which would otherwise feed back into a loop.
+      if (!force && width === lastWidth) return;
+      lastWidth = width;
       el.style.fontSize = "100px";
       const textWidth = el.scrollWidth;
-      if (!textWidth) return;
-      const target = Math.min(
-        Math.max((parent.clientWidth / textWidth) * 100, 40),
-        400
-      );
-      el.style.fontSize = `${target}px`;
+      if (!textWidth) {
+        lastWidth = -1;
+        return;
+      }
+      const size = Math.min(Math.max((width / textWidth) * 100, 40), 420);
+      el.style.fontSize = `${size}px`;
     };
 
-    fit();
-    const ro = new ResizeObserver(fit);
+    fit(true);
+    const ro = new ResizeObserver(() => fit());
     ro.observe(parent);
-    // Re-fit once the custom display font loads (first paint uses a fallback).
-    document.fonts?.ready.then(fit).catch(() => {});
+    // Re-fit once the display font loads (the first measure uses a fallback).
+    document.fonts?.ready.then(() => fit(true)).catch(() => {});
+
     return () => ro.disconnect();
   }, [text]);
 
@@ -37,7 +44,7 @@ export function FitTitle({ text }: { text: string }) {
     <h1
       ref={ref}
       className="font-heading font-normal tracking-[-0.04em] leading-[0.9] text-foreground whitespace-nowrap"
-      style={{ fontSize: "clamp(52px, 14vw, 190px)" }}
+      style={{ fontSize: "clamp(56px, 16vw, 200px)" }}
     >
       {text}
     </h1>

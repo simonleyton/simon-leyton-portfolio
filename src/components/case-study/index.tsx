@@ -750,8 +750,8 @@ export function CaseStudyLayout({
     >
       {/* Header — name top-left */}
       <section className="px-5 md:px-10 pt-6 md:pt-10 pb-10">
-        <Link href="/" className="inline-block">
-          <span className="block font-heading text-[30px] font-normal text-foreground tracking-[-0.03em]">
+        <Link href="/" className="inline-block group">
+          <span className="block font-heading text-[30px] font-normal text-black/45 dark:text-white/45 group-hover:text-foreground transition-colors tracking-[-0.03em]">
             Simon Leyton
           </span>
         </Link>
