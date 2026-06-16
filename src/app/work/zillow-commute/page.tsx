@@ -17,7 +17,6 @@ import {
   StatRow,
   Findings,
   ConceptColumns,
-  SourceChipWireframe,
 } from "@/components/case-study";
 
 export const metadata: Metadata = {
@@ -217,13 +216,6 @@ export default function ZillowCommutePage() {
         </Prose>
       </SectionHeading>
 
-      {/* The exploration — artifacts pending */}
-      <FigureSlot
-        label="The exploration: early spot-editor and map-fit treatments, with the old pilot held as the control."
-        caption="Hold for: the exploration board (early editor and map-fit studies)."
-        ratio="21 / 9"
-      />
-
       {/* The experience — one section, the whole arc */}
       <SectionHeading title="The experience">
         <Prose>
@@ -303,14 +295,6 @@ export default function ZillowCommutePage() {
           needing to.
         </Prose>
       </SectionHeading>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 lg:px-24">
-        <Shot
-          src="/images/zillow-commute/fit-callout.png"
-          alt="A map callout reading 20 to 30 minutes by driving, based on typical travel conditions"
-          caption="In V1 today: the estimate is already a range tied to typical conditions."
-        />
-        <SourceChipWireframe caption="Wireframe of the next trust increment: a provenance chip that names the data source and its freshness, so the number earns belief instead of asking for it." />
-      </div>
 
       {/* How we'll know it worked — the measurement plan */}
       <SectionHeading title="How we'll know it worked">
