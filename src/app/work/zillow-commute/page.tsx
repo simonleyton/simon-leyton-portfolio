@@ -264,8 +264,8 @@ export default function ZillowCommutePage() {
           caption="Set it once: places labeled the way you'd describe them, each with its own mode and preferred time."
         />
         <Shot
-          src="/images/zillow-commute/fit-map.png"
-          alt="The Seattle map with commute-fit bands and listing counts per area"
+          src="/images/zillow-commute/fit-map-full.png"
+          alt="A Seattle search map with a Commute filter for two daily spots, overlapping commute-fit areas, and per-area listing counts"
           caption="See the fit: graded travel areas on the map, near matches kept visible."
         />
         <Shot

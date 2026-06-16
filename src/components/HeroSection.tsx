@@ -136,8 +136,8 @@ export function HeroSection() {
               className={cn(
                 "rounded-[20px] md:rounded-[30px] lg:rounded-[40px]",
                 "overflow-hidden",
-                "bg-white/80 dark:bg-black/45 backdrop-blur-2xl",
-                "border border-white/50 dark:border-white/10",
+                "bg-background",
+                "border border-black/[0.06] dark:border-white/10",
                 "shadow-[0_8px_40px_rgba(10,9,8,0.16)]",
                 "w-[280px] md:w-[350px] lg:w-[420px]"
               )}
