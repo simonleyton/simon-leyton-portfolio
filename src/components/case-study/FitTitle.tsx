@@ -4,7 +4,11 @@ import { useEffect, useRef } from "react";
 
 /* A display title that scales to span its container width on one line —
    the Daylight-style hero header. Works for any title length at any
-   viewport (short words go big, long ones fit), so it never overflows. */
+   viewport (short words go big, long ones fit), so it never overflows.
+
+   The title is inline-block so it shrinks to the text: measuring its width
+   gives the TEXT width (a block element would just report the container
+   width, which makes the scale collapse to 1x). */
 export function FitTitle({ text }: { text: string }) {
   const ref = useRef<HTMLHeadingElement>(null);
 
@@ -16,18 +20,21 @@ export function FitTitle({ text }: { text: string }) {
     let lastWidth = -1;
 
     const fit = (force = false) => {
-      const width = parent.clientWidth;
-      // Only react to container *width* changes — resizing the title changes
-      // the parent's height, which would otherwise feed back into a loop.
-      if (!force && width === lastWidth) return;
-      lastWidth = width;
+      const containerWidth = parent.clientWidth;
+      // React to container WIDTH changes only — resizing the title changes
+      // the parent's height, which would otherwise loop.
+      if (!force && containerWidth === lastWidth) return;
+      lastWidth = containerWidth;
       el.style.fontSize = "100px";
-      const textWidth = el.scrollWidth;
+      const textWidth = el.getBoundingClientRect().width;
       if (!textWidth) {
         lastWidth = -1;
         return;
       }
-      const size = Math.min(Math.max((width / textWidth) * 100, 40), 420);
+      const size = Math.min(
+        Math.max((containerWidth / textWidth) * 100, 40),
+        460
+      );
       el.style.fontSize = `${size}px`;
     };
 
@@ -43,7 +50,7 @@ export function FitTitle({ text }: { text: string }) {
   return (
     <h1
       ref={ref}
-      className="font-heading font-normal tracking-[-0.04em] leading-[0.9] text-foreground whitespace-nowrap"
+      className="inline-block font-heading font-normal tracking-[-0.04em] leading-[0.9] text-foreground whitespace-nowrap"
       style={{ fontSize: "clamp(56px, 16vw, 200px)" }}
     >
       {text}
