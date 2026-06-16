@@ -201,6 +201,50 @@ export default function ZillowLifestyleInsightsPage() {
         </Prose>
       </BetOpener>
 
+      {/* The audit I brought — the authorship spine */}
+      <SectionHeading title="The audit I brought">
+        <Prose>
+          Before the team sketched anything, I audited Zillow&apos;s two
+          location surfaces, commute and lifestyle, end to end and brought the
+          diagnosis into day one. The pattern underneath both: they&apos;re
+          filters, not discovery. A mover is trying to answer &ldquo;will this
+          place fit my life,&rdquo; and the product makes them fill out a form
+          instead.
+        </Prose>
+        <Prose>
+          So the argument I carried into the sprint was a reframe: move from
+          filter to fit. Make commute one of many fit signals, not a hard
+          cutoff, and explain why a place fits, not just whether it matched.
+          That became the spine the three concepts were designed against, and
+          it&apos;s the same spine the shipped{" "}
+          <Link
+            href="/work/zillow-commute"
+            className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
+          >
+            Commute
+          </Link>{" "}
+          work runs on, where &ldquo;filter to insight&rdquo; finally gets a
+          surface.
+        </Prose>
+      </SectionHeading>
+      <div className="flex flex-col">
+        <Row
+          index="01"
+          title="Discovery"
+          detail="Renters can't find what they don't know to look for. Commute hides behind a generic Filters menu; lifestyle categories sit behind a horizontal scroll. Discovery isn't a layer here, it's a guessing game."
+        />
+        <Row
+          index="02"
+          title="Configuration"
+          detail="Both flows treat fit as a form to fill out: a modal detour to type an address, a “max travel time” that's a hard binary cutoff, false precision throughout. The setup is the friction."
+        />
+        <Row
+          index="03"
+          title="Resolution"
+          detail="Results show what matched, never why it fits. The destination is set but its impact isn't, and cards carry no fit reason. I flagged this as the biggest strategic gap, and the highest-leverage place to invent."
+        />
+      </div>
+
       {/* How the sprint ran */}
       <SectionHeading title="How it ran">
         <Prose>
