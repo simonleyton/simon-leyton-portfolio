@@ -21,6 +21,7 @@ export const caseStudies: Project[] = [
     title: "Zillow · Commute",
     subtitle: "Your whole day, on the map",
     image: "/images/zillow-commute/card.png",
+    heroImage: "/images/zillow-commute/hero-lifestyle.jpg",
     href: "/work/zillow-commute",
   },
   {
