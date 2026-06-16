@@ -38,7 +38,7 @@ const discipline = [
 ];
 
 const sprintFacts = [
-  { value: "5 days", label: "Hybrid, in Chicago" },
+  { value: "5 days", label: "In person, in Chicago" },
   { value: "12+ ICs", label: "Product, design, UXR, engineering" },
   { value: "6 concepts", label: "Prototyped with engineering in the room" },
   { value: "88 movers", label: "Tested across renter and buyer cohorts" },
@@ -595,7 +595,7 @@ export default function ZillowLifestyleInsightsPage() {
       <FlowStrip
         src="/images/zillow/sprint/sprint-team.jpg"
         alt="The cross-functional sprint team gathered in the Chicago conference room"
-        caption="The team: twelve-plus ICs across product, design, UX research, engineering, content, and QA, hybrid out of Chicago. A co-led sprint — product, design, research, and content steering it together."
+        caption="The team: twelve-plus ICs across product, design, UX research, engineering, content, and QA, together in person in Chicago. A co-led sprint — product, design, research, and content steering it together."
         width={1600}
         height={1200}
       />
