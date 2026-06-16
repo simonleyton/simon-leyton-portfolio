@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#2f86c9"/>
+  <defs>
+    <linearGradient id="d" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1838"/>
+      <stop offset="1" stop-color="#20407c"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" fill="url(#d)"/>
   <circle cx="16" cy="16" r="11.5" fill="#ffffff"/>
 </svg>

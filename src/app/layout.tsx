@@ -23,7 +23,7 @@ const helveticaNow = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Simon Leyton",
+  title: "Simon Leyton • Product Designer at Zillow, Meta, Hulu",
   description: "Simon Leyton • Product Designer at Zillow, Meta, Hulu",
   openGraph: {
     title: "Simon Leyton",
