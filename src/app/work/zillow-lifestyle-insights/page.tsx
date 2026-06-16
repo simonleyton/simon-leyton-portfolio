@@ -47,15 +47,19 @@ const sprintFacts = [
 const audienceStats = [
   {
     label: "Renters",
-    value: "83%",
-    detail:
-      "consider their preferred neighborhood or location essential to the search",
+    value: "60%",
+    detail: "relocate from a different neighborhood or further",
   },
   {
     label: "Buyers",
-    value: "50%+",
+    value: "90%",
+    detail: "move to a new neighborhood or new town",
+  },
+  {
+    label: "Location",
+    value: "#1",
     detail:
-      "rate walkability, proximity to services, and commute very or extremely important",
+      ">80% of renters and buyers rank location their top search factor",
   },
 ];
 
@@ -165,22 +169,19 @@ export default function ZillowLifestyleInsightsPage() {
 
       {/* Who it's for */}
       <div>
-        <BetOpener
-          illustration="/images/zillow/ill-audience.png"
-          title="Who it&apos;s for"
-          bare
-        >
+        <SectionHeading title="Who it&apos;s for">
           <Prose>
-            Movers heading somewhere they don&apos;t know yet. Renters and
-            buyers mid-search: location is the most important factor in their
-            decision, and the majority are moving to a neighborhood or town
-            they&apos;ve never lived in, so the thing they most need to judge is
-            the thing they have no firsthand read on.
+            Movers heading somewhere they don&apos;t know yet. Budget and
+            location are where a home search starts, and location is the
+            must-have people rarely compromise: the right neighborhood within a
+            city, a reasonable commute, the school district, proximity to the
+            things they care about. The catch is that most are judging a place
+            they&apos;ve never lived in.
           </Prose>
-        </BetOpener>
+        </SectionHeading>
         <StatCards
           stats={audienceStats}
-          note="Source: Zillow Consumer Housing Trends Report."
+          note="Source: Zillow Consumer Housing Trends Report, 2021–2025."
         />
       </div>
 
