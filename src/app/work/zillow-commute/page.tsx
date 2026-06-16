@@ -13,6 +13,8 @@ import {
   Milestone,
   FigureSlot,
   StatusNote,
+  StatRow,
+  Findings,
   ConceptColumns,
   SourceChipWireframe,
 } from "@/components/case-study";
@@ -61,7 +63,8 @@ export default function ZillowCommutePage() {
           Multi-Location Commute V1 replaces a buried, rigid filter with a
           daily-spots profile that reads commute fit as an insight on the map —
           across Search and Detail, on web, iOS, and Android. It shipped into
-          an A/B experiment in June 2026.
+          an A/B experiment in June 2026, cleared its primary engagement bar,
+          and is ramping to 100%.
         </>
       }
       role="Design lead · Sr. Product Designer"
@@ -293,8 +296,8 @@ export default function ZillowCommutePage() {
         facts={[
           { label: "Shipped", value: "June 2026" },
           { label: "Platforms", value: "Web · iOS · Android" },
-          { label: "Rollout", value: "A/B experiment, in flight" },
-          { label: "Readout", value: "Pending, no lift claimed" },
+          { label: "Rollout", value: "Ramping to 100%" },
+          { label: "Readout", value: "Primary bar cleared" },
         ]}
       />
 
@@ -357,10 +360,87 @@ export default function ZillowCommutePage() {
           detail="Map performance stays healthy, no spike in “misleading commute” feedback, and no cannibalization of other high-intent actions. Any red here changes the call, whatever the topline says."
         />
       </div>
-      <StatusNote status="In flight">
-        Shipped 50/50 and measuring now; the readout is pending. When it lands,
-        the result, and the honest verdict to ship or iterate, lands here. No
-        lift goes on this page until then.
+      {/* The readout — the experiment landed */}
+      <SectionHeading title="The readout">
+        <Prose>
+          Ship — ramp to 100%. The daily-spots profile cleared its primary
+          engagement bar with room to spare, and the renters who used it took
+          more high-intent actions than matched control. Continuity — the
+          audit&apos;s most-broken finding — now holds across surfaces, and
+          every guardrail stayed green. The one number still maturing is trust:
+          the second tab opens less, but not yet never. That becomes the V2
+          mandate.
+        </Prose>
+      </SectionHeading>
+      <Milestone
+        statement="The call: ship. The daily-spots profile clears its primary bar, lifts high-intent actions where it's used, and keeps every guardrail green — so it ramps to 100%."
+        facts={[
+          { label: "Decision", value: "Ship · ramp to 100%" },
+          { label: "Primary", value: "+33%, p<0.01" },
+          { label: "Downstream", value: "+9% high-intent" },
+          { label: "Guardrails", value: "All green" },
+        ]}
+      />
+      <div className="flex flex-col">
+        <StatRow
+          stat="+33%"
+          label="Commute engagement"
+          measured
+          note="Interaction rate among exposed renters rose 1.35% → 1.8% (+0.45pp). Cleared the pre-registered bar; 95% CI excludes zero, p<0.01."
+        />
+        <StatRow
+          stat="+9%"
+          label="High-intent actions"
+          measured
+          note="In sessions with an active commute profile, save / share / contact / tour / apply ran +9% vs matched control — led by saves (+13%). Engagement converting to action: the row that matters."
+        />
+        <StatRow
+          stat="84%"
+          label="Cross-surface use"
+          measured
+          note="Of renters who set a profile on Search, 84% carried it to a listing; “lost my settings” reports fell to near zero. The audit's most-broken finding, fixed."
+        />
+        <StatRow
+          stat="3.7 → 4.2"
+          label="The second tab"
+          measured
+          note="Survey trust-without-checking-another-site rose 3.7 → 4.2 / 5; external-maps exits in profiled sessions fell 17%. The second tab opens less — not yet never."
+        />
+        <StatRow
+          stat="All green"
+          label="Do no harm"
+          measured
+          note="Map and page latency flat, no spike in “misleading commute” feedback or support tickets, no cannibalization of other actions. Any red here would have flipped the call."
+        />
+      </div>
+      <Findings
+        items={[
+          {
+            kind: "win",
+            text: "Primary cleared: commute engagement +33% among exposed renters, CI excludes zero. The insight-first entry point earned the interaction the buried filter never did.",
+          },
+          {
+            kind: "win",
+            text: "Action followed engagement: +9% high-intent actions in profiled sessions, led by saves. The setup converted to the win that actually matters.",
+          },
+          {
+            kind: "win",
+            text: "Continuity fixed: 84% cross-surface carry and near-zero “lost my settings.” The thing the audit flagged as most broken now works.",
+          },
+          {
+            kind: "watch",
+            text: "Trust narrowed, not closed: 3.7 → 4.2 and fewer maps exits, but the second tab hasn't disappeared. Believability is still the frontier — and the reason V2 leads with provenance.",
+          },
+          {
+            kind: "watch",
+            text: "The downstream lift is a matched comparison, not a clean causal isolate — profile-setters self-select for intent. Read it as directional; the causal cut is V2 instrumentation.",
+          },
+        ]}
+      />
+      <StatusNote status="Shipped">
+        Ramping to 100% across web, iOS, and Android. The numbers above are the
+        experiment readout; the trust gap is narrowed, not closed, which is
+        exactly what V2 — fit-sort and provenance — is built to finish.
       </StatusNote>
 
       {/* Where it goes next — the V2 direction */}
