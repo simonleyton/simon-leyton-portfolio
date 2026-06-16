@@ -154,7 +154,7 @@ export function LeadImage({
 }) {
   return (
     <div
-      className="relative w-full overflow-hidden rounded-[20px] md:rounded-[30px] ring-1 ring-black/[0.06] dark:ring-white/[0.08]"
+      className="relative w-full overflow-hidden ring-1 ring-black/[0.06] dark:ring-white/[0.08]"
       style={{ aspectRatio: ratio }}
     >
       <Image
