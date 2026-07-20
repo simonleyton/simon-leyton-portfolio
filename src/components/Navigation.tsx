@@ -102,6 +102,12 @@ export function Navigation() {
         >
           Work
         </Link>
+        <Link
+          href="/playground"
+          className={cn(navPillBase, "px-5 py-2.5 text-[20px]", inactivePill)}
+        >
+          Playground
+        </Link>
         <ThemeToggle />
       </nav>
 
@@ -119,21 +125,27 @@ export function Navigation() {
       >
         <Link
           href="/#about"
-          className={cn(navPillBase, "px-5 py-2.5 text-[16px]", activeSection === "about" ? activePill : inactivePillMobile)}
+          className={cn(navPillBase, "px-4 py-2.5 text-[16px]", activeSection === "about" ? activePill : inactivePillMobile)}
         >
           About
         </Link>
         <Link
           href="/#contact"
-          className={cn(navPillBase, "px-5 py-2.5 text-[16px]", activeSection === "contact" ? activePill : inactivePillMobile)}
+          className={cn(navPillBase, "px-4 py-2.5 text-[16px]", activeSection === "contact" ? activePill : inactivePillMobile)}
         >
           Contact
         </Link>
         <Link
           href="/work"
-          className={cn(navPillBase, "px-5 py-2.5 text-[16px]", inactivePillMobile)}
+          className={cn(navPillBase, "px-4 py-2.5 text-[16px]", inactivePillMobile)}
         >
           Work
+        </Link>
+        <Link
+          href="/playground"
+          className={cn(navPillBase, "px-4 py-2.5 text-[16px]", inactivePillMobile)}
+        >
+          Play
         </Link>
       </nav>
     </>

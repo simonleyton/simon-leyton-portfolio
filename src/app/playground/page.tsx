@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { caseStudies, archive } from "@/data/projects";
+import { playground } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Work — Simon Leyton",
+  title: "Playground — Simon Leyton",
   description:
-    "Selected product design work: Zillow Lifestyle Insights, Zillow Commute, and Hulu Plan Select.",
+    "Live experiments: Sea Time, Aurora Clock, and Perpetual Sunset.",
 };
 
-function ProjectCard({
+function PlaygroundCard({
   title,
   subtitle,
   image,
@@ -21,8 +21,10 @@ function ProjectCard({
   href: string;
 }) {
   return (
-    <Link
+    <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="group block rounded-[24px] md:rounded-[34px] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
     >
       <div className="rounded-[20px] md:rounded-[30px] overflow-hidden bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.05] dark:border-white/[0.08]">
@@ -37,18 +39,24 @@ function ProjectCard({
         </div>
         <div className="px-5 pt-3 pb-6 md:px-6 md:pt-4 md:pb-8">
           <h2 className="font-normal text-xl md:text-2xl text-foreground">
-            {title}
+            {title}{" "}
+            <span
+              aria-hidden
+              className="inline-block text-[color:var(--color-muted-text)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            >
+              ↗
+            </span>
           </h2>
           <p className="mt-1 text-base md:text-lg text-[color:var(--color-muted-text)]">
             {subtitle}
           </p>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
 
-export default function WorkPage() {
+export default function PlaygroundPage() {
   return (
     <div
       id="main-content"
@@ -84,48 +92,23 @@ export default function WorkPage() {
 
       <div className="max-w-[1400px] mx-auto px-5 md:px-10">
         {/* Title */}
-        <div className="pb-12 md:pb-16">
+        <div className="pb-6 md:pb-8">
           <h1 className="font-heading font-normal tracking-[-0.04em] leading-[0.98] text-foreground text-[clamp(48px,11vw,150px)]">
-            Work
+            Playground
           </h1>
         </div>
 
-        {/* Case studies */}
+        {/* Intro */}
+        <p className="pb-12 md:pb-16 max-w-[560px] text-base md:text-lg text-[color:var(--color-muted-text)]">
+          Things built because I wanted them to exist. Everything here is live
+          — each card opens the real thing.
+        </p>
+
+        {/* Experiments */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
-          {caseStudies.map((p) => (
-            <ProjectCard key={p.href} {...p} />
+          {playground.map((p) => (
+            <PlaygroundCard key={p.href} {...p} />
           ))}
-        </div>
-
-        {/* Earlier work */}
-        {archive.length > 0 && (
-          <div className="pt-16 md:pt-24">
-            <p className="text-sm text-[color:var(--color-muted-text)] mb-2">Earlier work</p>
-            <h2 className="font-heading text-[30px] md:text-[34px] font-normal leading-[1.1] text-foreground mb-8">
-              Where the craft started — interactive and brand campaigns.
-            </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8">
-              {archive.map((p) => (
-                <ProjectCard key={p.href} {...p} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Off hours — play lives on its own page now */}
-        <div className="pt-16 md:pt-24">
-          <p className="text-sm text-[color:var(--color-muted-text)] mb-2">Off hours</p>
-          <p className="text-base md:text-lg text-foreground">
-            <Link
-              href="/playground"
-              className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors rounded outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-            >
-              Playground →
-            </Link>{" "}
-            <span className="text-[color:var(--color-muted-text)]">
-              · live experiments, built because I wanted them to exist
-            </span>
-          </p>
         </div>
       </div>
 

@@ -55,4 +55,27 @@ export const archive: Project[] = [
   },
 ];
 
+/* Playground — live experiments, linked out rather than written up.
+   External URLs; cards open in a new tab. */
+export const playground: Project[] = [
+  {
+    title: "Sea Time",
+    subtitle: "An atlas of dive-watch design — 146 references, mapped",
+    image: "/images/playground/seatime.png",
+    href: "https://seatime.watch",
+  },
+  {
+    title: "Aurora Clock",
+    subtitle: "A clock that colors the hour",
+    image: "/images/playground/aurora.png",
+    href: "https://aurora-clock.vercel.app",
+  },
+  {
+    title: "Perpetual Sunset",
+    subtitle: "A café where the sun never finishes setting",
+    image: "/images/playground/sunset.png",
+    href: "https://perpetual-sunset.vercel.app",
+  },
+];
+
 export const featuredProjects = caseStudies;
